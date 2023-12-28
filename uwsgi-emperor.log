@@ -1,0 +1,770 @@
+*** Starting uWSGI 2.0.23 (64bit) on [Mon Dec 25 12:50:00 2023] ***
+compiled with version: 11.4.0 on 24 December 2023 13:15:07
+os: Linux-6.2.0-39-generic #40~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Nov 16 10:53:04 UTC 2
+nodename: vm
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /etc/uwsgi/vassals
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/mehdi/mywebsite
+your processes number limit is 47875
+your memory page size is 4096 bytes
+ *** WARNING: you have enabled harakiri without post buffering. Slow upload could be rejected on post-unbuffered webservers *** 
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /run/uwsgi/mywebsite.sock fd 3
+Python version: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+PEP 405 virtualenv detected: /home/mehdi/Env/mywebsite
+Set PythonHome to /home/mehdi/Env/mywebsite
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x557876c5c1f0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 437520 bytes (427 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x557876c5c1f0 pid: 6579 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 6579)
+spawned uWSGI worker 1 (pid: 6894, cores: 1)
+spawned uWSGI worker 2 (pid: 6895, cores: 1)
+spawned uWSGI worker 3 (pid: 6896, cores: 1)
+spawned uWSGI worker 4 (pid: 6897, cores: 1)
+spawned uWSGI worker 5 (pid: 6898, cores: 1)
+[pid: 6895|app: 0|req: 1/1] 127.0.0.1 () {62 vars in 1201 bytes} [Mon Dec 25 13:07:37 2023] GET / => generated 103062 bytes in 329 msecs (HTTP/1.1 200) 8 headers in 360 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+[pid: 6895|app: 0|req: 2/2] 127.0.0.1 () {62 vars in 1201 bytes} [Mon Dec 25 13:07:39 2023] GET / => generated 103366 bytes in 212 msecs (HTTP/1.1 200) 8 headers in 360 bytes (1 switches on core 0)
+Mon Dec 25 13:08:10 2023 - received message 0 from emperor
+SIGINT/SIGTERM received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+goodbye to uWSGI.
+unlink(): Operation not permitted [core/uwsgi.c line 1620]
+VACUUM WARNING: unix socket /run/uwsgi/mywebsite.sock changed inode. Skip removal
+*** Starting uWSGI 2.0.23 (64bit) on [Mon Dec 25 16:08:13 2023] ***
+compiled with version: 11.4.0 on 24 December 2023 13:15:07
+os: Linux-6.2.0-39-generic #40~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Nov 16 10:53:04 UTC 2
+nodename: vm
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /etc/uwsgi/vassals
+writing pidfile to /tmp/uwsgi_mywebsite.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/mehdi/mywebsite
+your processes number limit is 47875
+your memory page size is 4096 bytes
+ *** WARNING: you have enabled harakiri without post buffering. Slow upload could be rejected on post-unbuffered webservers *** 
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /run/uwsgi/mywebsite.sock fd 3
+setgid() to 33
+set additional group 4 (adm)
+set additional group 24 (cdrom)
+set additional group 27 (sudo)
+set additional group 30 (dip)
+set additional group 46 (plugdev)
+set additional group 122 (lpadmin)
+set additional group 135 (lxd)
+set additional group 136 (sambashare)
+setuid() to 1000
+Python version: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+PEP 405 virtualenv detected: /home/mehdi/Env/mywebsite
+Set PythonHome to /home/mehdi/Env/mywebsite
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55cea5118420
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 437520 bytes (427 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x55cea5118420 pid: 7893 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 7893)
+spawned uWSGI worker 1 (pid: 7908, cores: 1)
+spawned uWSGI worker 2 (pid: 7909, cores: 1)
+spawned uWSGI worker 3 (pid: 7910, cores: 1)
+spawned uWSGI worker 4 (pid: 7911, cores: 1)
+spawned uWSGI worker 5 (pid: 7912, cores: 1)
+[pid: 7911|app: 0|req: 1/1] 127.0.0.1 () {56 vars in 989 bytes} [Mon Dec 25 13:08:23 2023] GET / => generated 103188 bytes in 191 msecs (HTTP/1.1 200) 8 headers in 360 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+[pid: 7908|app: 0|req: 1/2] 127.0.0.1 () {56 vars in 989 bytes} [Mon Dec 25 13:08:24 2023] GET / => generated 103056 bytes in 184 msecs (HTTP/1.1 200) 8 headers in 360 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+[pid: 7912|app: 0|req: 1/3] 127.0.0.1 () {62 vars in 1201 bytes} [Mon Dec 25 13:09:24 2023] GET / => generated 103433 bytes in 367 msecs (HTTP/1.1 200) 8 headers in 360 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+Mon Dec 25 13:12:35 2023 - received message 0 from emperor
+SIGINT/SIGTERM received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+goodbye to uWSGI.
+unlink(): Permission denied [core/uwsgi.c line 1665]
+*** Starting uWSGI 2.0.23 (64bit) on [Mon Dec 25 16:12:59 2023] ***
+compiled with version: 11.4.0 on 24 December 2023 13:15:07
+os: Linux-6.2.0-39-generic #40~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Nov 16 10:53:04 UTC 2
+nodename: vm
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /etc/uwsgi/vassals
+writing pidfile to /tmp/uwsgi_mywebsite.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/mehdi/mywebsite
+your processes number limit is 47875
+your memory page size is 4096 bytes
+ *** WARNING: you have enabled harakiri without post buffering. Slow upload could be rejected on post-unbuffered webservers *** 
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /run/uwsgi/mywebsite.sock fd 3
+setgid() to 33
+set additional group 4 (adm)
+set additional group 24 (cdrom)
+set additional group 27 (sudo)
+set additional group 30 (dip)
+set additional group 46 (plugdev)
+set additional group 122 (lpadmin)
+set additional group 135 (lxd)
+set additional group 136 (sambashare)
+setuid() to 1000
+Python version: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+PEP 405 virtualenv detected: /home/mehdi/Env/mywebsite
+Set PythonHome to /home/mehdi/Env/mywebsite
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55a1ff8aa420
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 437520 bytes (427 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 4 seconds on interpreter 0x55a1ff8aa420 pid: 915 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 915)
+spawned uWSGI worker 1 (pid: 1603, cores: 1)
+spawned uWSGI worker 2 (pid: 1604, cores: 1)
+spawned uWSGI worker 3 (pid: 1605, cores: 1)
+spawned uWSGI worker 4 (pid: 1606, cores: 1)
+spawned uWSGI worker 5 (pid: 1607, cores: 1)
+[pid: 1603|app: 0|req: 1/1] 127.0.0.1 () {56 vars in 989 bytes} [Mon Dec 25 13:20:52 2023] GET / => generated 103397 bytes in 314 msecs (HTTP/1.1 200) 8 headers in 360 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+[pid: 1605|app: 0|req: 1/2] 127.0.0.1 () {56 vars in 989 bytes} [Mon Dec 25 13:20:54 2023] GET / => generated 103373 bytes in 322 msecs (HTTP/1.1 200) 8 headers in 360 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+[pid: 1606|app: 0|req: 1/3] 127.0.0.1 () {56 vars in 989 bytes} [Mon Dec 25 13:24:47 2023] GET / => generated 103098 bytes in 188 msecs (HTTP/1.1 200) 8 headers in 360 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+[pid: 1607|app: 0|req: 1/4] 127.0.0.1 () {56 vars in 989 bytes} [Mon Dec 25 13:24:48 2023] GET / => generated 103264 bytes in 176 msecs (HTTP/1.1 200) 8 headers in 360 bytes (2 switches on core 0)
+announcing my loyalty to the Emperor...
+SIGINT/SIGTERM received...killing workers...
+Mon Dec 25 13:25:12 2023 - received message 0 from emperor
+worker 3 buried after 0 seconds
+worker 4 buried after 0 seconds
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 5 buried after 1 seconds
+goodbye to uWSGI.
+unlink(): Permission denied [core/uwsgi.c line 1665]
+*** Starting uWSGI 2.0.23 (64bit) on [Mon Dec 25 16:25:15 2023] ***
+compiled with version: 11.4.0 on 24 December 2023 13:15:07
+os: Linux-6.2.0-39-generic #40~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Nov 16 10:53:04 UTC 2
+nodename: vm
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /etc/uwsgi/vassals
+writing pidfile to /tmp/uwsgi_mywebsite.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/mehdi/mywebsite
+your processes number limit is 47875
+your memory page size is 4096 bytes
+ *** WARNING: you have enabled harakiri without post buffering. Slow upload could be rejected on post-unbuffered webservers *** 
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /run/uwsgi/mywebsite.sock fd 3
+setgid() to 33
+set additional group 4 (adm)
+set additional group 24 (cdrom)
+set additional group 27 (sudo)
+set additional group 30 (dip)
+set additional group 46 (plugdev)
+set additional group 122 (lpadmin)
+set additional group 135 (lxd)
+set additional group 136 (sambashare)
+setuid() to 1000
+Python version: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+PEP 405 virtualenv detected: /home/mehdi/Env/mywebsite
+Set PythonHome to /home/mehdi/Env/mywebsite
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55f32ebec420
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 437520 bytes (427 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x55f32ebec420 pid: 4421 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 4421)
+spawned uWSGI worker 1 (pid: 4427, cores: 1)
+spawned uWSGI worker 2 (pid: 4428, cores: 1)
+spawned uWSGI worker 3 (pid: 4429, cores: 1)
+spawned uWSGI worker 4 (pid: 4430, cores: 1)
+spawned uWSGI worker 5 (pid: 4431, cores: 1)
+[pid: 4430|app: 0|req: 1/1] 127.0.0.1 () {56 vars in 989 bytes} [Mon Dec 25 13:25:17 2023] GET / => generated 103074 bytes in 169 msecs (HTTP/1.1 200) 8 headers in 360 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+[pid: 4427|app: 0|req: 1/2] 127.0.0.1 () {56 vars in 989 bytes} [Mon Dec 25 13:25:19 2023] GET / => generated 103307 bytes in 167 msecs (HTTP/1.1 200) 8 headers in 360 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+[pid: 4430|app: 0|req: 2/3] 127.0.0.1 () {56 vars in 989 bytes} [Mon Dec 25 13:25:20 2023] GET / => generated 103154 bytes in 64 msecs (HTTP/1.1 200) 8 headers in 360 bytes (2 switches on core 0)
+[pid: 4430|app: 0|req: 3/4] 127.0.0.1 () {56 vars in 989 bytes} [Mon Dec 25 13:26:58 2023] GET / => generated 103250 bytes in 67 msecs (HTTP/1.1 200) 8 headers in 360 bytes (2 switches on core 0)
+[pid: 4431|app: 0|req: 1/5] 127.0.0.1 () {56 vars in 989 bytes} [Mon Dec 25 13:26:59 2023] GET / => generated 103078 bytes in 200 msecs (HTTP/1.1 200) 8 headers in 360 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+[pid: 4430|app: 0|req: 4/6] 127.0.0.1 () {56 vars in 989 bytes} [Mon Dec 25 13:27:00 2023] GET / => generated 103322 bytes in 89 msecs (HTTP/1.1 200) 8 headers in 360 bytes (1 switches on core 0)
+SIGINT/SIGTERM received...killing workers...
+Mon Dec 25 13:27:03 2023 - received message 0 from emperor
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+goodbye to uWSGI.
+unlink(): Permission denied [core/uwsgi.c line 1665]
+*** Starting uWSGI 2.0.23 (64bit) on [Mon Dec 25 16:27:06 2023] ***
+compiled with version: 11.4.0 on 24 December 2023 13:15:07
+os: Linux-6.2.0-39-generic #40~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Nov 16 10:53:04 UTC 2
+nodename: vm
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /etc/uwsgi/vassals
+writing pidfile to /tmp/uwsgi_mywebsite.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/mehdi/mywebsite
+your processes number limit is 47875
+your memory page size is 4096 bytes
+ *** WARNING: you have enabled harakiri without post buffering. Slow upload could be rejected on post-unbuffered webservers *** 
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /run/uwsgi/mywebsite.sock fd 3
+setgid() to 33
+set additional group 4 (adm)
+set additional group 24 (cdrom)
+set additional group 27 (sudo)
+set additional group 30 (dip)
+set additional group 46 (plugdev)
+set additional group 122 (lpadmin)
+set additional group 135 (lxd)
+set additional group 136 (sambashare)
+setuid() to 1000
+Python version: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+PEP 405 virtualenv detected: /home/mehdi/Env/mywebsite
+Set PythonHome to /home/mehdi/Env/mywebsite
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x561a388e4420
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 437520 bytes (427 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x561a388e4420 pid: 5036 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 5036)
+spawned uWSGI worker 1 (pid: 5042, cores: 1)
+spawned uWSGI worker 2 (pid: 5043, cores: 1)
+spawned uWSGI worker 3 (pid: 5044, cores: 1)
+spawned uWSGI worker 4 (pid: 5045, cores: 1)
+spawned uWSGI worker 5 (pid: 5046, cores: 1)
+[pid: 5042|app: 0|req: 1/1] 127.0.0.1 () {52 vars in 936 bytes} [Mon Dec 25 13:27:09 2023] GET / => generated 103149 bytes in 207 msecs (HTTP/1.1 200) 8 headers in 360 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+[pid: 5043|app: 0|req: 1/2] 127.0.0.1 () {56 vars in 989 bytes} [Mon Dec 25 13:27:11 2023] GET / => generated 103227 bytes in 171 msecs (HTTP/1.1 200) 8 headers in 360 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+[pid: 5046|app: 0|req: 1/3] 127.0.0.1 () {54 vars in 964 bytes} [Mon Dec 25 13:27:13 2023] GET / => generated 103243 bytes in 169 msecs (HTTP/1.1 200) 8 headers in 360 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+[pid: 5046|app: 0|req: 2/4] 127.0.0.1 () {54 vars in 964 bytes} [Mon Dec 25 13:27:14 2023] GET / => generated 103099 bytes in 60 msecs (HTTP/1.1 200) 8 headers in 360 bytes (2 switches on core 0)
+[pid: 5044|app: 0|req: 1/5] 127.0.0.1 () {56 vars in 989 bytes} [Mon Dec 25 13:28:38 2023] GET / => generated 103052 bytes in 194 msecs (HTTP/1.1 200) 8 headers in 360 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+[pid: 5044|app: 0|req: 2/6] 127.0.0.1 () {56 vars in 989 bytes} [Mon Dec 25 13:28:39 2023] GET / => generated 103305 bytes in 74 msecs (HTTP/1.1 200) 8 headers in 360 bytes (1 switches on core 0)
+[pid: 5045|app: 0|req: 1/7] 127.0.0.1 () {56 vars in 989 bytes} [Mon Dec 25 13:28:40 2023] GET / => generated 103385 bytes in 184 msecs (HTTP/1.1 200) 8 headers in 360 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+SIGINT/SIGTERM received...killing workers...
+Mon Dec 25 13:28:42 2023 - received message 0 from emperor
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+goodbye to uWSGI.
+unlink(): Permission denied [core/uwsgi.c line 1665]
+*** Starting uWSGI 2.0.23 (64bit) on [Mon Dec 25 16:28:45 2023] ***
+compiled with version: 11.4.0 on 24 December 2023 13:15:07
+os: Linux-6.2.0-39-generic #40~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Nov 16 10:53:04 UTC 2
+nodename: vm
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /etc/uwsgi/vassals
+writing pidfile to /tmp/uwsgi_mywebsite.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/mehdi/mywebsite
+your processes number limit is 47875
+your memory page size is 4096 bytes
+ *** WARNING: you have enabled harakiri without post buffering. Slow upload could be rejected on post-unbuffered webservers *** 
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /run/uwsgi/mywebsite.sock fd 3
+setgid() to 33
+set additional group 4 (adm)
+set additional group 24 (cdrom)
+set additional group 27 (sudo)
+set additional group 30 (dip)
+set additional group 46 (plugdev)
+set additional group 122 (lpadmin)
+set additional group 135 (lxd)
+set additional group 136 (sambashare)
+setuid() to 1000
+Python version: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+PEP 405 virtualenv detected: /home/mehdi/Env/mywebsite
+Set PythonHome to /home/mehdi/Env/mywebsite
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x564005657420
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 437520 bytes (427 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x564005657420 pid: 5248 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 5248)
+spawned uWSGI worker 1 (pid: 5255, cores: 1)
+spawned uWSGI worker 2 (pid: 5256, cores: 1)
+spawned uWSGI worker 3 (pid: 5257, cores: 1)
+spawned uWSGI worker 4 (pid: 5258, cores: 1)
+spawned uWSGI worker 5 (pid: 5259, cores: 1)
+[pid: 5258|app: 0|req: 1/1] 127.0.0.1 () {52 vars in 936 bytes} [Mon Dec 25 13:28:48 2023] GET / => generated 103113 bytes in 186 msecs (HTTP/1.1 200) 8 headers in 360 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+[pid: 5257|app: 0|req: 1/2] 127.0.0.1 () {56 vars in 989 bytes} [Mon Dec 25 13:28:50 2023] GET / => generated 103155 bytes in 166 msecs (HTTP/1.1 200) 8 headers in 360 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+[pid: 5256|app: 0|req: 1/3] 127.0.0.1 () {56 vars in 989 bytes} [Mon Dec 25 13:28:51 2023] GET / => generated 103100 bytes in 185 msecs (HTTP/1.1 200) 8 headers in 360 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+[pid: 5258|app: 0|req: 2/4] 127.0.0.1 () {56 vars in 989 bytes} [Mon Dec 25 13:28:52 2023] GET / => generated 103261 bytes in 94 msecs (HTTP/1.1 200) 8 headers in 360 bytes (1 switches on core 0)
+SIGINT/SIGTERM received...killing workers...
+Mon Dec 25 13:28:58 2023 - received message 0 from emperor
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+goodbye to uWSGI.
+unlink(): Permission denied [core/uwsgi.c line 1665]
+*** Starting uWSGI 2.0.23 (64bit) on [Mon Dec 25 16:29:23 2023] ***
+compiled with version: 11.4.0 on 24 December 2023 13:15:07
+os: Linux-6.2.0-39-generic #40~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Nov 16 10:53:04 UTC 2
+nodename: vm
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /etc/uwsgi/vassals
+writing pidfile to /tmp/uwsgi_mywebsite.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/mehdi/mywebsite
+your processes number limit is 47875
+your memory page size is 4096 bytes
+ *** WARNING: you have enabled harakiri without post buffering. Slow upload could be rejected on post-unbuffered webservers *** 
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /run/uwsgi/mywebsite.sock fd 3
+setgid() to 33
+set additional group 4 (adm)
+set additional group 24 (cdrom)
+set additional group 27 (sudo)
+set additional group 30 (dip)
+set additional group 46 (plugdev)
+set additional group 122 (lpadmin)
+set additional group 135 (lxd)
+set additional group 136 (sambashare)
+setuid() to 1000
+Python version: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+PEP 405 virtualenv detected: /home/mehdi/Env/mywebsite
+Set PythonHome to /home/mehdi/Env/mywebsite
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55d509f0a420
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 437520 bytes (427 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 3 seconds on interpreter 0x55d509f0a420 pid: 1050 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1050)
+spawned uWSGI worker 1 (pid: 1592, cores: 1)
+spawned uWSGI worker 2 (pid: 1593, cores: 1)
+spawned uWSGI worker 3 (pid: 1594, cores: 1)
+spawned uWSGI worker 4 (pid: 1598, cores: 1)
+spawned uWSGI worker 5 (pid: 1599, cores: 1)
+Mon Dec 25 13:32:07 2023 - SIGPIPE: writing to a closed pipe/socket/fd (probably the client disconnected) on request / (ip 127.0.0.1) !!!
+Mon Dec 25 13:32:07 2023 - uwsgi_response_writev_headers_and_body_do(): Broken pipe [core/writer.c line 306] during GET / (127.0.0.1)
+OSError: write error
+[pid: 1599|app: 0|req: 1/1] 127.0.0.1 () {50 vars in 911 bytes} [Mon Dec 25 13:32:06 2023] GET / => generated 0 bytes in 556 msecs (HTTP/1.1 200) 8 headers in 0 bytes (0 switches on core 0)
+announcing my loyalty to the Emperor...
+[pid: 1593|app: 0|req: 1/2] 127.0.0.1 () {56 vars in 989 bytes} [Mon Dec 25 13:32:14 2023] GET / => generated 103167 bytes in 276 msecs (HTTP/1.1 200) 8 headers in 360 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+[pid: 1593|app: 0|req: 2/3] 127.0.0.1 () {56 vars in 989 bytes} [Mon Dec 25 13:39:10 2023] GET / => generated 103429 bytes in 80 msecs (HTTP/1.1 200) 8 headers in 360 bytes (1 switches on core 0)
+[pid: 1598|app: 0|req: 1/4] 127.0.0.1 () {56 vars in 989 bytes} [Mon Dec 25 13:41:00 2023] GET / => generated 103334 bytes in 220 msecs (HTTP/1.1 200) 8 headers in 360 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+[pid: 1599|app: 0|req: 2/5] 127.0.0.1 () {50 vars in 918 bytes} [Mon Dec 25 13:41:23 2023] GET /admin/ => generated 0 bytes in 30 msecs (HTTP/1.1 302) 11 headers in 471 bytes (1 switches on core 0)
+[pid: 1599|app: 0|req: 3/6] 127.0.0.1 () {50 vars in 911 bytes} [Mon Dec 25 13:41:23 2023] GET /admin/login/?next=/admin/ => generated 15495 bytes in 110 msecs (HTTP/1.1 200) 10 headers in 471 bytes (1 switches on core 0)
+Mon Dec 25 13:41:24 2023 - SIGPIPE: writing to a closed pipe/socket/fd (probably the client disconnected) on request /favicon.ico (ip 127.0.0.1) !!!
+Mon Dec 25 13:41:24 2023 - uwsgi_response_writev_headers_and_body_do(): Broken pipe [core/writer.c line 306] during GET /favicon.ico (127.0.0.1)
+OSError: write error
+[pid: 1598|app: 0|req: 2/7] 127.0.0.1 () {48 vars in 785 bytes} [Mon Dec 25 13:41:24 2023] GET /favicon.ico => generated 0 bytes in 7 msecs (HTTP/1.1 404) 6 headers in 0 bytes (0 switches on core 0)
+[pid: 1594|app: 0|req: 1/8] 127.0.0.1 () {58 vars in 1089 bytes} [Mon Dec 25 13:41:26 2023] POST /admin/login/?next=/admin/ => generated 0 bytes in 493 msecs (HTTP/1.1 302) 12 headers in 634 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+/home/mehdi/Env/mywebsite/lib/python3.10/site-packages/admin_interface/templatetags/admin_interface_tags.py:29: UserWarning: Language chooser requires 'django.middleware.locale.LocaleMiddleware' in your MIDDLEWARE to work.
+  warnings.warn(
+[pid: 1593|app: 0|req: 3/9] 127.0.0.1 () {52 vars in 943 bytes} [Mon Dec 25 13:41:27 2023] GET /admin/ => generated 26732 bytes in 110 msecs (HTTP/1.1 200) 10 headers in 471 bytes (1 switches on core 0)
+/home/mehdi/Env/mywebsite/lib/python3.10/site-packages/admin_interface/templatetags/admin_interface_tags.py:29: UserWarning: Language chooser requires 'django.middleware.locale.LocaleMiddleware' in your MIDDLEWARE to work.
+  warnings.warn(
+[pid: 1598|app: 0|req: 3/10] 127.0.0.1 () {52 vars in 956 bytes} [Mon Dec 25 13:41:31 2023] GET /admin/website/product/ => generated 71029 bytes in 237 msecs (HTTP/1.1 200) 10 headers in 471 bytes (1 switches on core 0)
+[pid: 1594|app: 0|req: 2/11] 127.0.0.1 () {48 vars in 809 bytes} [Mon Dec 25 13:41:32 2023] GET /admin/jsi18n/ => generated 3343 bytes in 20 msecs (HTTP/1.1 200) 7 headers in 230 bytes (1 switches on core 0)
+[pid: 1598|app: 0|req: 4/12] 127.0.0.1 () {52 vars in 980 bytes} [Mon Dec 25 13:41:36 2023] GET /admin/website/product/add/ => generated 61334 bytes in 96 msecs (HTTP/1.1 200) 10 headers in 471 bytes (2 switches on core 0)
+[pid: 1598|app: 0|req: 5/13] 127.0.0.1 () {48 vars in 813 bytes} [Mon Dec 25 13:41:36 2023] GET /admin/jsi18n/ => generated 3343 bytes in 9 msecs (HTTP/1.1 200) 7 headers in 230 bytes (2 switches on core 0)
+[pid: 1598|app: 0|req: 6/14] 127.0.0.1 () {58 vars in 1251 bytes} [Mon Dec 25 14:09:08 2023] POST /admin/website/product/add/ => generated 0 bytes in 122 msecs (HTTP/1.1 302) 11 headers in 688 bytes (2 switches on core 0)
+/home/mehdi/Env/mywebsite/lib/python3.10/site-packages/admin_interface/templatetags/admin_interface_tags.py:29: UserWarning: Language chooser requires 'django.middleware.locale.LocaleMiddleware' in your MIDDLEWARE to work.
+  warnings.warn(
+[pid: 1599|app: 0|req: 4/15] 127.0.0.1 () {52 vars in 1261 bytes} [Mon Dec 25 14:09:09 2023] GET /admin/website/product/394/change/ => generated 62230 bytes in 99 msecs (HTTP/1.1 200) 11 headers in 569 bytes (1 switches on core 0)
+[pid: 1599|app: 0|req: 5/16] 127.0.0.1 () {48 vars in 820 bytes} [Mon Dec 25 14:09:09 2023] GET /admin/jsi18n/ => generated 3343 bytes in 5 msecs (HTTP/1.1 200) 7 headers in 230 bytes (1 switches on core 0)
+Mon Dec 25 14:09:09 2023 - SIGPIPE: writing to a closed pipe/socket/fd (probably the client disconnected) on request /favicon.ico (ip 127.0.0.1) !!!
+Mon Dec 25 14:09:09 2023 - uwsgi_response_writev_headers_and_body_do(): Broken pipe [core/writer.c line 306] during GET /favicon.ico (127.0.0.1)
+OSError: write error
+[pid: 1599|app: 0|req: 6/17] 127.0.0.1 () {48 vars in 837 bytes} [Mon Dec 25 14:09:09 2023] GET /favicon.ico => generated 0 bytes in 2 msecs (HTTP/1.1 404) 6 headers in 0 bytes (0 switches on core 0)
+[pid: 1599|app: 0|req: 7/18] 127.0.0.1 () {52 vars in 928 bytes} [Mon Dec 25 14:09:18 2023] GET /categories/ => generated 46254 bytes in 95 msecs (HTTP/1.1 200) 8 headers in 359 bytes (1 switches on core 0)
+[pid: 1599|app: 0|req: 8/19] 127.0.0.1 () {52 vars in 1028 bytes} [Mon Dec 25 14:09:33 2023] GET /categories/?name=&brand=6&category=&description=&button= => generated 22461 bytes in 42 msecs (HTTP/1.1 200) 8 headers in 359 bytes (1 switches on core 0)
+[pid: 1593|app: 0|req: 4/20] 127.0.0.1 () {52 vars in 1022 bytes} [Mon Dec 25 14:09:41 2023] GET /products/394/test-product-001/ => generated 19312 bytes in 33 msecs (HTTP/1.1 200) 8 headers in 359 bytes (1 switches on core 0)
+[pid: 1599|app: 0|req: 9/21] 127.0.0.1 () {52 vars in 936 bytes} [Mon Dec 25 14:10:06 2023] GET / => generated 103134 bytes in 92 msecs (HTTP/1.1 200) 8 headers in 360 bytes (1 switches on core 0)
+[pid: 1598|app: 0|req: 7/22] 127.0.0.1 () {52 vars in 928 bytes} [Mon Dec 25 14:10:30 2023] GET /categories/ => generated 46254 bytes in 52 msecs (HTTP/1.1 200) 8 headers in 359 bytes (1 switches on core 0)
+[pid: 1599|app: 0|req: 10/23] 127.0.0.1 () {52 vars in 1028 bytes} [Mon Dec 25 14:10:37 2023] GET /categories/?name=&brand=6&category=&description=&button= => generated 22461 bytes in 38 msecs (HTTP/1.1 200) 8 headers in 359 bytes (1 switches on core 0)
+[pid: 1594|app: 0|req: 3/24] 127.0.0.1 () {52 vars in 1022 bytes} [Mon Dec 25 14:10:43 2023] GET /products/394/test-product-001/ => generated 19312 bytes in 94 msecs (HTTP/1.1 200) 8 headers in 359 bytes (1 switches on core 0)
+Mon Dec 25 14:25:44 2023 - SIGPIPE: writing to a closed pipe/socket/fd (probably the client disconnected) on request /categories/?name=&brand=6&category=&description=&button= (ip 127.0.0.1) !!!
+Mon Dec 25 14:25:44 2023 - uwsgi_response_writev_headers_and_body_do(): Broken pipe [core/writer.c line 306] during GET /categories/?name=&brand=6&category=&description=&button= (127.0.0.1)
+OSError: write error
+[pid: 1598|app: 0|req: 8/25] 127.0.0.1 () {50 vars in 1003 bytes} [Mon Dec 25 14:25:44 2023] GET /categories/?name=&brand=6&category=&description=&button= => generated 0 bytes in 45 msecs (HTTP/1.1 200) 8 headers in 0 bytes (0 switches on core 0)
+[pid: 1593|app: 0|req: 5/26] 127.0.0.1 () {50 vars in 973 bytes} [Mon Dec 25 14:25:58 2023] GET /admin/website/product/394/change/ => generated 0 bytes in 7 msecs (HTTP/1.1 302) 11 headers in 498 bytes (1 switches on core 0)
+[pid: 1593|app: 0|req: 6/27] 127.0.0.1 () {50 vars in 966 bytes} [Mon Dec 25 14:25:59 2023] GET /admin/login/?next=/admin/website/product/394/change/ => generated 15549 bytes in 19 msecs (HTTP/1.1 200) 10 headers in 471 bytes (1 switches on core 0)
+[pid: 1598|app: 0|req: 9/28] 127.0.0.1 () {58 vars in 1170 bytes} [Mon Dec 25 14:26:01 2023] POST /admin/login/?next=/admin/website/product/394/change/ => generated 0 bytes in 403 msecs (HTTP/1.1 302) 12 headers in 661 bytes (1 switches on core 0)
+[pid: 1598|app: 0|req: 10/29] 127.0.0.1 () {52 vars in 1024 bytes} [Mon Dec 25 14:26:01 2023] GET /admin/website/product/394/change/ => generated 61988 bytes in 65 msecs (HTTP/1.1 200) 10 headers in 471 bytes (1 switches on core 0)
+[pid: 1598|app: 0|req: 11/30] 127.0.0.1 () {48 vars in 820 bytes} [Mon Dec 25 14:26:02 2023] GET /admin/jsi18n/ => generated 3343 bytes in 5 msecs (HTTP/1.1 200) 7 headers in 230 bytes (1 switches on core 0)
+SIGINT/SIGTERM received...killing workers...
+Mon Dec 25 14:31:15 2023 - received message 0 from emperor
+worker 1 buried after 0 seconds
+worker 3 buried after 0 seconds
+worker 2 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+goodbye to uWSGI.
+unlink(): Permission denied [core/uwsgi.c line 1665]
+*** Starting uWSGI 2.0.23 (64bit) on [Thu Dec 28 12:07:46 2023] ***
+compiled with version: 11.4.0 on 24 December 2023 13:15:07
+os: Linux-6.2.0-39-generic #40~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Nov 16 10:53:04 UTC 2
+nodename: vm
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /etc/uwsgi/vassals
+writing pidfile to /tmp/uwsgi_mywebsite.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/mehdi/mywebsite
+your processes number limit is 47875
+your memory page size is 4096 bytes
+ *** WARNING: you have enabled harakiri without post buffering. Slow upload could be rejected on post-unbuffered webservers *** 
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /run/uwsgi/mywebsite.sock fd 3
+setgid() to 33
+set additional group 4 (adm)
+set additional group 24 (cdrom)
+set additional group 27 (sudo)
+set additional group 30 (dip)
+set additional group 46 (plugdev)
+set additional group 122 (lpadmin)
+set additional group 135 (lxd)
+set additional group 136 (sambashare)
+setuid() to 1000
+Python version: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+PEP 405 virtualenv detected: /home/mehdi/Env/mywebsite
+Set PythonHome to /home/mehdi/Env/mywebsite
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55a54e46c420
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 437520 bytes (427 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 3 seconds on interpreter 0x55a54e46c420 pid: 897 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 897)
+spawned uWSGI worker 1 (pid: 1663, cores: 1)
+spawned uWSGI worker 2 (pid: 1664, cores: 1)
+spawned uWSGI worker 3 (pid: 1665, cores: 1)
+spawned uWSGI worker 4 (pid: 1666, cores: 1)
+spawned uWSGI worker 5 (pid: 1667, cores: 1)
+/home/mehdi/Env/mywebsite/lib/python3.10/site-packages/admin_interface/templatetags/admin_interface_tags.py:29: UserWarning: Language chooser requires 'django.middleware.locale.LocaleMiddleware' in your MIDDLEWARE to work.
+  warnings.warn(
+[pid: 1667|app: 0|req: 1/1] 127.0.0.1 () {50 vars in 999 bytes} [Thu Dec 28 09:08:39 2023] GET /admin/website/product/394/change/ => generated 61988 bytes in 740 msecs (HTTP/1.1 200) 10 headers in 471 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+[pid: 1667|app: 0|req: 2/2] 127.0.0.1 () {50 vars in 1003 bytes} [Thu Dec 28 09:08:42 2023] GET /categories/?name=&brand=6&category=&description=&button= => generated 22461 bytes in 65 msecs (HTTP/1.1 200) 8 headers in 359 bytes (1 switches on core 0)
+Thu Dec 28 09:08:43 2023 - SIGPIPE: writing to a closed pipe/socket/fd (probably the client disconnected) on request /favicon.ico (ip 127.0.0.1) !!!
+Thu Dec 28 09:08:43 2023 - uwsgi_response_writev_headers_and_body_do(): Broken pipe [core/writer.c line 306] during GET /favicon.ico (127.0.0.1)
+OSError: write error
+[pid: 1666|app: 0|req: 1/3] 127.0.0.1 () {48 vars in 837 bytes} [Thu Dec 28 09:08:43 2023] GET /favicon.ico => generated 0 bytes in 201 msecs (HTTP/1.1 404) 6 headers in 0 bytes (0 switches on core 0)
+announcing my loyalty to the Emperor...
+[pid: 1664|app: 0|req: 1/4] 127.0.0.1 () {52 vars in 1022 bytes} [Thu Dec 28 09:08:51 2023] GET /products/394/test-product-001/ => generated 19312 bytes in 140 msecs (HTTP/1.1 200) 8 headers in 359 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+[pid: 1665|app: 0|req: 1/5] 192.168.128.1 () {40 vars in 654 bytes} [Thu Dec 28 14:00:38 2023] GET / => generated 143 bytes in 110 msecs (HTTP/1.1 400) 4 headers in 172 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+[pid: 1667|app: 0|req: 3/6] 192.168.128.1 () {40 vars in 625 bytes} [Thu Dec 28 14:00:39 2023] GET /favicon.ico => generated 143 bytes in 25 msecs (HTTP/1.1 400) 4 headers in 172 bytes (2 switches on core 0)
+[pid: 1667|app: 0|req: 4/7] 192.168.128.1 () {40 vars in 654 bytes} [Thu Dec 28 14:03:06 2023] GET / => generated 143 bytes in 11 msecs (HTTP/1.1 400) 4 headers in 172 bytes (2 switches on core 0)
+[pid: 1665|app: 0|req: 2/8] 127.0.0.1 () {52 vars in 936 bytes} [Thu Dec 28 14:06:03 2023] GET / => generated 103044 bytes in 144 msecs (HTTP/1.1 200) 8 headers in 360 bytes (1 switches on core 0)
+Thu Dec 28 14:07:48 2023 - received message 0 from emperor
+SIGINT/SIGTERM received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+goodbye to uWSGI.
+unlink(): Permission denied [core/uwsgi.c line 1665]
+*** Starting uWSGI 2.0.23 (64bit) on [Thu Dec 28 17:07:51 2023] ***
+compiled with version: 11.4.0 on 24 December 2023 13:15:07
+os: Linux-6.2.0-39-generic #40~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Nov 16 10:53:04 UTC 2
+nodename: vm
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /etc/uwsgi/vassals
+writing pidfile to /tmp/uwsgi_mywebsite.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/mehdi/mywebsite
+your processes number limit is 47875
+your memory page size is 4096 bytes
+ *** WARNING: you have enabled harakiri without post buffering. Slow upload could be rejected on post-unbuffered webservers *** 
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /run/uwsgi/mywebsite.sock fd 3
+setgid() to 33
+set additional group 4 (adm)
+set additional group 24 (cdrom)
+set additional group 27 (sudo)
+set additional group 30 (dip)
+set additional group 46 (plugdev)
+set additional group 122 (lpadmin)
+set additional group 135 (lxd)
+set additional group 136 (sambashare)
+setuid() to 1000
+Python version: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+PEP 405 virtualenv detected: /home/mehdi/Env/mywebsite
+Set PythonHome to /home/mehdi/Env/mywebsite
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55ed31ba5420
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 437520 bytes (427 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x55ed31ba5420 pid: 10050 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 10050)
+spawned uWSGI worker 1 (pid: 10056, cores: 1)
+spawned uWSGI worker 2 (pid: 10057, cores: 1)
+spawned uWSGI worker 3 (pid: 10058, cores: 1)
+spawned uWSGI worker 4 (pid: 10059, cores: 1)
+spawned uWSGI worker 5 (pid: 10060, cores: 1)
+[pid: 10060|app: 0|req: 1/1] 192.168.128.1 () {40 vars in 654 bytes} [Thu Dec 28 14:07:58 2023] GET / => generated 143 bytes in 60 msecs (HTTP/1.1 400) 4 headers in 172 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+SIGINT/SIGTERM received...killing workers...
+Thu Dec 28 14:08:22 2023 - received message 0 from emperor
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+goodbye to uWSGI.
+unlink(): Permission denied [core/uwsgi.c line 1665]
+*** Starting uWSGI 2.0.23 (64bit) on [Thu Dec 28 17:08:48 2023] ***
+compiled with version: 11.4.0 on 24 December 2023 13:15:07
+os: Linux-6.2.0-39-generic #40~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Nov 16 10:53:04 UTC 2
+nodename: vm
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /etc/uwsgi/vassals
+writing pidfile to /tmp/uwsgi_mywebsite.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/mehdi/mywebsite
+your processes number limit is 47875
+your memory page size is 4096 bytes
+ *** WARNING: you have enabled harakiri without post buffering. Slow upload could be rejected on post-unbuffered webservers *** 
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /run/uwsgi/mywebsite.sock fd 3
+setgid() to 33
+set additional group 4 (adm)
+set additional group 24 (cdrom)
+set additional group 27 (sudo)
+set additional group 30 (dip)
+set additional group 46 (plugdev)
+set additional group 122 (lpadmin)
+set additional group 135 (lxd)
+set additional group 136 (sambashare)
+setuid() to 1000
+Python version: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+PEP 405 virtualenv detected: /home/mehdi/Env/mywebsite
+Set PythonHome to /home/mehdi/Env/mywebsite
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x56017d3b3420
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 437520 bytes (427 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 3 seconds on interpreter 0x56017d3b3420 pid: 894 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 894)
+spawned uWSGI worker 1 (pid: 1571, cores: 1)
+spawned uWSGI worker 2 (pid: 1572, cores: 1)
+spawned uWSGI worker 3 (pid: 1573, cores: 1)
+spawned uWSGI worker 4 (pid: 1574, cores: 1)
+spawned uWSGI worker 5 (pid: 1575, cores: 1)
+[pid: 1572|app: 0|req: 1/1] 192.168.128.1 () {40 vars in 654 bytes} [Thu Dec 28 14:08:53 2023] GET / => generated 143 bytes in 392 msecs (HTTP/1.1 400) 4 headers in 172 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+[pid: 1573|app: 0|req: 1/2] 192.168.128.1 () {40 vars in 654 bytes} [Thu Dec 28 14:10:18 2023] GET / => generated 143 bytes in 60 msecs (HTTP/1.1 400) 4 headers in 172 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+Thu Dec 28 14:13:08 2023 - received message 0 from emperor
+SIGINT/SIGTERM received...killing workers...
+worker 1 buried after 0 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+goodbye to uWSGI.
+unlink(): Permission denied [core/uwsgi.c line 1665]
+*** Starting uWSGI 2.0.23 (64bit) on [Thu Dec 28 17:13:11 2023] ***
+compiled with version: 11.4.0 on 24 December 2023 13:15:07
+os: Linux-6.2.0-39-generic #40~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Nov 16 10:53:04 UTC 2
+nodename: vm
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /etc/uwsgi/vassals
+writing pidfile to /tmp/uwsgi_mywebsite.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/mehdi/mywebsite
+your processes number limit is 47875
+your memory page size is 4096 bytes
+ *** WARNING: you have enabled harakiri without post buffering. Slow upload could be rejected on post-unbuffered webservers *** 
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /run/uwsgi/mywebsite.sock fd 3
+setgid() to 33
+set additional group 4 (adm)
+set additional group 24 (cdrom)
+set additional group 27 (sudo)
+set additional group 30 (dip)
+set additional group 46 (plugdev)
+set additional group 122 (lpadmin)
+set additional group 135 (lxd)
+set additional group 136 (sambashare)
+setuid() to 1000
+Python version: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+PEP 405 virtualenv detected: /home/mehdi/Env/mywebsite
+Set PythonHome to /home/mehdi/Env/mywebsite
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55910a714420
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 437520 bytes (427 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x55910a714420 pid: 3607 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 3607)
+spawned uWSGI worker 1 (pid: 3613, cores: 1)
+spawned uWSGI worker 2 (pid: 3614, cores: 1)
+spawned uWSGI worker 3 (pid: 3615, cores: 1)
+spawned uWSGI worker 4 (pid: 3616, cores: 1)
+spawned uWSGI worker 5 (pid: 3617, cores: 1)
+[pid: 3616|app: 0|req: 1/1] 127.0.0.1 () {52 vars in 906 bytes} [Thu Dec 28 14:15:28 2023] GET / => generated 103157 bytes in 371 msecs (HTTP/1.1 200) 8 headers in 360 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+[pid: 3617|app: 0|req: 1/2] 127.0.0.1 () {52 vars in 920 bytes} [Thu Dec 28 14:16:02 2023] GET /brands/ => generated 19912 bytes in 119 msecs (HTTP/1.1 200) 8 headers in 359 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+[pid: 3614|app: 0|req: 1/3] 127.0.0.1 () {52 vars in 943 bytes} [Thu Dec 28 14:16:05 2023] GET /brands/ALCIBAY/ => generated 22504 bytes in 120 msecs (HTTP/1.1 200) 8 headers in 359 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+[pid: 3617|app: 0|req: 2/4] 127.0.0.1 () {52 vars in 943 bytes} [Thu Dec 28 14:17:19 2023] GET /categories/ => generated 46254 bytes in 66 msecs (HTTP/1.1 200) 8 headers in 359 bytes (2 switches on core 0)
+SIGINT/SIGTERM received...killing workers...
+Thu Dec 28 14:18:49 2023 - received message 0 from emperor
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+goodbye to uWSGI.
+unlink(): Permission denied [core/uwsgi.c line 1665]
+*** Starting uWSGI 2.0.23 (64bit) on [Thu Dec 28 17:18:52 2023] ***
+compiled with version: 11.4.0 on 24 December 2023 13:15:07
+os: Linux-6.2.0-39-generic #40~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Nov 16 10:53:04 UTC 2
+nodename: vm
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /etc/uwsgi/vassals
+writing pidfile to /tmp/uwsgi_mywebsite.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/mehdi/mywebsite
+your processes number limit is 47875
+your memory page size is 4096 bytes
+ *** WARNING: you have enabled harakiri without post buffering. Slow upload could be rejected on post-unbuffered webservers *** 
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /run/uwsgi/mywebsite.sock fd 3
+setgid() to 33
+set additional group 4 (adm)
+set additional group 24 (cdrom)
+set additional group 27 (sudo)
+set additional group 30 (dip)
+set additional group 46 (plugdev)
+set additional group 122 (lpadmin)
+set additional group 135 (lxd)
+set additional group 136 (sambashare)
+setuid() to 1000
+Python version: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+PEP 405 virtualenv detected: /home/mehdi/Env/mywebsite
+Set PythonHome to /home/mehdi/Env/mywebsite
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55bf7205b420
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 437520 bytes (427 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x55bf7205b420 pid: 6012 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 6012)
+spawned uWSGI worker 1 (pid: 6018, cores: 1)
+spawned uWSGI worker 2 (pid: 6019, cores: 1)
+spawned uWSGI worker 3 (pid: 6020, cores: 1)
+spawned uWSGI worker 4 (pid: 6021, cores: 1)
+spawned uWSGI worker 5 (pid: 6022, cores: 1)
+[pid: 6021|app: 0|req: 1/1] 127.0.0.1 () {52 vars in 917 bytes} [Thu Dec 28 14:18:56 2023] GET / => generated 103392 bytes in 183 msecs (HTTP/1.1 200) 8 headers in 360 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+{% extends "website/base.html" %}
+{% load static %}
+
+{% block head %}
+<title>PANY | About us</title>
+
+<meta name="author" content="themsflat.com">
+
+<!-- Mobile Specific Metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- Theme style -->
+<link rel="stylesheet" type="text/css" href="{% static "website/stylesheet/style.css" %}">
+
+<!-- Responsive -->
+<link rel="stylesheet" type="text/css" href="{% static "website/stylesheet/responsive.css" %}">
+
+{% endblock %}
+
+{% block body %}
+
+{% endblock %}
+
+{% block mainnav %}
+<div class="nav-wrap">
+  <nav id="mainnav" class="mainnav">
+    <ul class="menu">
+      <li>
+        <a class="text-shadow1" href="{% url 'website:home' %}" title="">HOME</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:brand_list' %}" title="">BRANDS</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:project_list' %}" title="">PROJECTS</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:category_list' %}" title="">PRODUCTS</a>
+      </li>
+      <li class="active">
+        <a class="text-shadow1" href="{% url 'website:about_us' %}" title="">ABOUT US</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:contact_us' %}">CONTACT US</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'library:pdffile_list' %}" title="">DOCUMENTS</a>
+      </li>
+    </ul><!-- /.menu -->
+  </nav> <!-- /#mainnav -->
+</div> <!-- .nav-wrap -->
+{% endblock %}
+
+{% block content %}
+
+{% for i in theme %}
+
+<div class="page-title">
+    <div id="background" style="">
+        <img  src="{% for i in theme %}   {{ i.header_background_about_usURL }} {% endfor %}" class="stretch" alt="" />
+    </div>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="page-title-content text-center">
+      <div class="page-title-heading ">
+        <h3 class="title text-shadow1"><a href="{% url 'website:about_us' %}">ABOUT US</a></h3>
+      </div>
+      <div class="breadcrumbs">
+        <ul>
+          <li class="home text-shadow1"><a href="{% url 'website:home' %}">Home</a></li>
+          <li><a class="text-shadow1" href="{% url 'website:about_us' %}">About Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div> <!-- /.page-title -->
+
+
+
+<section class="flat-row flat-about-us style3">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="flat-textbox textbox-about-us">
+          <div class="flat-title" >
+            <h2 class="title"> About us </h2>
+          </div>
+          <div class="textbox-content">
+            <p>{{ i.about_us_text }}</p>
+            <div class="signature">
+              <img src="{{ i.about_us_signatureURL }}" alt="signature">
+              <h5 class="name">{{ i.about_us_name }}</h5>
+              <h6 class="job">{{ i.about_us_position }}</h6>
+            </div>
+          </div>
+        </div>
+      </div> <!-- /.col-md-7 -->
+      <div class="col-md-4">
+        <div class="image-single image-about text-right">
+          <img src="{{ i.about_us_imageURL }}" alt="PanyCompany">
+        </div>
+      </div> <!-- /.col-md-5 -->
+    </div>
+  </div>
+</section> <!-- /.flat-about-us -->
+
+<section class="flat-services style3 fix-float-box equalize equalize-auto bg-f7f7f7">
+
+  <div class="container-fluid text-white fix-float-box darken p-5" style="background-image: url('{% for i in theme %}   {{ i.background_categoriesURL }} {% endfor %} ');">
+  <div class="container p-3 darken" style="border: 2px solid red;">
+      <div>
+        <h2 class="pb-2">Our Solutions</h2>
+        <p>{{ i.our_category_text }}</p>
+      </div>
+  </div>
+  </div>
+
+  {% endfor %} <!-- /Theme - part-1(END) -  -->
+
+
+
+
+
+
+</section> <!-- /.flat-services -->
+
+
+
+
+
+<a id="scroll-top"></a> <!-- /#scroll-top -->
+{% endblock %}
+
+
+{% block partners %}
+{{ block.super }}
+{% endblock %}
+
+
+{% block js %}
+<!-- Javascript -->
+<script src="{% static 'website/javascript/dclock.js' %}"></script>
+<script src="{% static 'website/javascript/jquery.min.js' %}"></script>
+<script src="{% static 'website/javascript/plugins.js' %}"></script>
+<script src="{% static 'website/javascript/bootstrap.min.js' %}"></script>
+<script src="{% static 'website/javascript/flex-slider.min.js' %}"></script>
+<script src="{% static 'website/javascript/jquery-countTo.js' %}"></script>
+<script src="{% static 'website/javascript/equalize.min.js' %}"></script>
+<script src="{% static 'website/javascript/owl.carousel.min.js' %}"></script>
+<script src="{% static 'website/javascript/jquery.validate.min.js' %}"></script>
+<script src="{% static 'website/javascript/main.js' %}"></script>
+
+<!-- Slider -->
+<script src="{% static 'website/rev-slider/js/jquery.themepunch.tools.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/jquery.themepunch.revolution.min.js' %}"></script>
+<script src="{% static 'website/javascript/rev-slider.js' %}"></script>
+<!-- Load Extensions only on Local File Systems ! The following part can be removed on Server for On Demand Loading -->
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.actions.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.carousel.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.kenburn.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.layeranimation.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.migration.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.navigation.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.parallax.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.slideanims.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.video.min.js' %}"></script>
+{% endblock %}

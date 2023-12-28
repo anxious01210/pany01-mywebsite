@@ -1,0 +1,237 @@
+{% extends "website/base.html" %}
+{% load static %}
+
+{% block head %}
+<title>PANY | Brand Detail</title>
+<meta name="author" content="themsflat.com">
+<!-- Mobile Specific Metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- Theme style -->
+<link rel="stylesheet" type="text/css" href="{% static "website/stylesheet/style.css" %}">
+<!-- Woocomerce -->
+<link rel="stylesheet" type="text/css" href="{% static "website/stylesheet/woocommerce.css" %}">
+<!-- Responsive -->
+<link rel="stylesheet" type="text/css" href="{% static "website/stylesheet/responsive.css" %}">
+
+
+{% endblock %}
+
+{% block body %}
+woocommerce woocommerce-page
+{% endblock %}
+
+
+{% block mainnav %}
+<div class="nav-wrap">
+  <nav id="mainnav" class="mainnav">
+    <ul class="menu">
+      <li>
+        <a class="text-shadow1" href="{% url 'website:home' %}" title="">HOME</a>
+      </li>
+      <li class="active">
+        <a class="text-shadow1" href="{% url 'website:brand_list' %}" title="">BRANDS</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:project_list' %}" title="">PROJECTS</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:category_list' %}" title="">PRODUCTS</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:about_us' %}" title="">ABOUT US</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:contact_us' %}">CONTACT US</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'library:pdffile_list' %}" title="">DOCUMENTS</a>
+      </li>
+    </ul><!-- /.menu -->
+  </nav> <!-- /#mainnav -->
+</div> <!-- .nav-wrap -->
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="page-title ">
+    <div id="background" style="">
+        <img  src="{% for i in theme %}   {{ i.header_background_brandURL }} {% endfor %}" class="stretch" alt="" />
+    </div>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="page-title-content text-center">
+      <div class="page-title-heading ">
+        <h3 class="title text-shadow1"><a href="{% url 'website:brand_detail' brand.slug %}">BRAND DETAILS</a></h3>
+      </div>
+      <div class="breadcrumbs">
+        <ul>
+          <li class="home text-shadow1"><a href="{% url 'website:home' %}">Home</a></li>
+          <li><a class="text-shadow1" href="{% url 'website:brand_list' %}">Brands</a></li>
+          <li><a class="text-shadow1" href="{% url 'website:brand_detail' brand.slug %}">Brand Details</a></li>
+          <li><a class="text-shadow1" href=""> {{ brand.name }} </a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div> <!-- /.page-title -->
+
+
+<section class=" pd-top-80 pd-bottom-60 main-shop-detail">
+  <div class="container pb-5 text-center">
+    <h1 class="product_title"> {{ brand.name }}  </h1>
+  </div>
+  <div class="container">
+
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content-wrap-woocommerce">
+          <div class="main-content-woocommerce">
+            <div class="product type-product clearfix">
+              <center>
+                <div class="">
+                  <img src="{{ brand.image_1URL }}" alt="PANY" >
+                </div>
+              </center>
+
+
+
+              <!-- /.entry-summary -->
+
+              <div class="woocommerce-tabs wc-tabs-wrapper">
+                <ul class="tabs">
+                  <li><a class="tab active" data-id ='#tab-description' href="">Description</a></li>
+
+                </ul>
+                <div id="tab-description" class="tab-content">
+                  <p> {{ brand.company_bio }} </p>
+                </div>
+
+
+              </div>
+            </div> <!-- /.product-detail -->
+          </div>
+        </div>
+      </div> <!-- /.col-md-12 -->
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</section> <!--/.main-shop-detail -->
+
+<hr>
+<hr>
+
+<center>
+  <div class="content-wrap main-project-detail pd-top-80 pd-bottom-60 ">
+    <div class="wrap-related-project">
+        <div class="container-fluid">
+            <div class="row justufy-content-center">
+                <div class="col-12 p-3">
+                    <div class="col-md-12">
+                        <div class="flat-title">
+                            <h2 class="title center-title">Related Products</h2>
+                        </div> <!-- /.flat-title -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <center>
+            <div class="slider owl-carousel mx-1">
+              {% for i in brand.brands.all %}
+                <div class="card m-2 h-100" style="width: 14rem;">
+                    <center>
+                        <img class="card-img-top img-thumbnail" src="{{ i.image_1URL }}" alt="PanyCompany" style=" max-width:210px; max-height:210px;">
+                    </center>
+                    <div class="card-body align-items-end" style="overflow:auto;">
+                    <h5 class="card-title text-center">{{ i.name|truncatechars:18 }}</h5>
+                    <p class="card-text">{{ i.description|truncatechars:40 }}</p>
+                    <a href="{{ i.get_absolute_url }}" class="btn btn-primary mt-3">Details</a>
+                    </div>
+                </div>
+              {% endfor %}
+            </div>
+        </center>
+    </div> <!-- /.wrap-related-project -->
+  </div> <!-- /.content-wrap -->
+</center>
+
+<hr>
+<hr>
+
+
+
+{% endblock %}
+
+
+{% block partners %}
+{{ block.super }}
+{% endblock %}
+
+
+{% block js %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+<!-- The owlCarousel-script must come after jQuery.js/jQuery.css/owlCarousel.js -->
+<script>
+  $(".slider").owlCarousel({
+    margin:10,
+    autoWidth:false,
+    loop: true,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
+    responsiveClass:true,
+    responsive:{
+        0:{
+            items:1,
+            nav:true
+        },
+        600:{
+            items:3,
+            nav:false
+        },
+        1000:{
+            items:6,
+            nav:false
+        },
+        1800:{
+            items:7,
+            nav:false
+        }
+    }
+  });
+</script>
+
+<!--<script src="{% static "website/javascript/owly.js" %}"></script>-->
+<!-- Javascript -->
+<script src="{% static "website/javascript/iPhone.js" %}"></script>
+<script src="{% static "website/javascript/dclock.js" %}"></script>
+<script src="{% static "website/javascript/jquery.min.js" %}"></script>
+<script src="{% static "website/javascript/plugins.js" %}"></script>
+<script src="{% static "website/javascript/bootstrap.min.js" %}"></script>
+<script src="{% static "website/javascript/equalize.min.js" %}"></script>
+<script src="{% static "website/javascript/jquery-countTo.js" %}"></script>
+<script src="{% static "website/javascript/jquery.validate.min.js" %}"></script>
+<script src="{% static "website/javascript/main.js" %}"></script>
+<!-- Owl carousel js -->
+<script src="{% static "website/javascript/owl.carousel.min.js" %}"></script>
+<!-- Slider -->
+<script src="{% static "website/rev-slider/js/jquery.themepunch.tools.min.js" %}"></script>
+<script src="{% static "website/rev-slider/js/jquery.themepunch.revolution.min.js" %}"></script>
+<script src="{% static "website/javascript/rev-slider.js" %}"></script>
+<!-- Load Extensions only on Local File Systems ! The following part can be removed on Server for On Demand Loading -->
+<script src="{% static "website/rev-slider/js/extensions/revolution.extension.actions.min.js" %}"></script>
+<script src="{% static "website/rev-slider/js/extensions/revolution.extension.carousel.min.js" %}"></script>
+<script src="{% static "website/rev-slider/js/extensions/revolution.extension.kenburn.min.js" %}"></script>
+<script src="{% static "website/rev-slider/js/extensions/revolution.extension.layeranimation.min.js" %}"></script>
+<script src="{% static "website/rev-slider/js/extensions/revolution.extension.migration.min.js" %}"></script>
+<script src="{% static "website/rev-slider/js/extensions/revolution.extension.navigation.min.js" %}"></script>
+<script src="{% static "website/rev-slider/js/extensions/revolution.extension.parallax.min.js" %}"></script>
+<script src="{% static "website/rev-slider/js/extensions/revolution.extension.slideanims.min.js" %}"></script>
+<script src="{% static "website/rev-slider/js/extensions/revolution.extension.video.min.js" %}"></script>
+
+{% endblock %}

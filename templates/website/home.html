@@ -1,0 +1,1088 @@
+{% extends "website/base.html" %}
+{% load static %}
+{% load thumbnail %}
+
+
+
+{% block head %}
+<title>PANY | Home</title>
+
+<meta name="author" content="themsflat.com">
+
+<!-- Mobile Specific Metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- Boostrap style -->
+<link rel="stylesheet" type="text/css" href="{% static 'website/stylesheet/bootstrap.css' %}">
+
+<!-- Theme style -->
+<link rel="stylesheet" type="text/css" href="{% static 'website/stylesheet/style.css' %}">
+
+<!-- Responsive -->
+<link rel="stylesheet" type="text/css" href="{% static 'website/stylesheet/responsive.css' %}">
+{% endblock %}
+
+{% block body %}
+
+{% endblock %}
+
+{% block mainnav %}
+
+<div class="nav-wrap">
+  <nav id="mainnav" class="mainnav">
+    <ul class="menu">
+      <li  class="active">
+        <a class="text-shadow1" href="{% url 'website:home' %}" title="">HOME</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:brand_list' %}" title="">BRANDS</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:project_list' %}" title="">PROJECTS</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:category_list' %}" title="">PRODUCTS</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:about_us' %}" title="">ABOUT US</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:contact_us' %}">CONTACT US</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'library:pdffile_list' %}" title="">DOCUMENTS</a>
+      </li>
+    </ul><!-- /.menu -->
+  </nav> <!-- /#mainnav -->
+</div> <!-- .nav-wrap -->
+
+{% endblock %}
+
+{% block content %}
+
+
+
+{% for i in theme %} <!-- /Theme - part-1(START) -  -->
+<div class="flat-slider style3">
+  <!-- SLIDER -->
+  <div class="rev_slider_wrapper fullwidthbanner-container" >
+    <div id="rev-slider1" class="rev_slider fullwidthabanner">
+        <ul>
+            <!-- Slide 1 -->
+            <li data-transition="random" class="bg-f7f7f7" >
+                  <!-- Main Image -->
+                  <div class="tp-simpleresponsive">
+                    <!--<img class="tp-slider-alternative-image" style="width: 100%; height: auto;" src="{{ i.slyder_image_1URL }}" alt="" data-bgposition="center center" data-no-retina>-->
+                    <img class="tp-slider-alternative-image" style="width: 100%; height: auto;" src="{% thumbnail i.slyder_image_1 1920x850 crop="smart" %}" alt="PANY" data-bgposition="center center" data-no-retina>
+                  </div>
+
+                  <!-- Layers -->
+                  <div class="tp-caption tp-resizeme font-rubik font-weight-700 text-center center-mobile"
+                  data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                  data-y="['middle','middle','middle','middle']" data-voffset="['-65','-65','-65','-95']"
+                  data-fontsize="['48','48','38','18']"
+                  data-lineheight="['72','42','32','20']"
+                  data-width="full"
+                  data-height="none"
+                  data-whitespace="normal"
+                  data-transform_idle="o:1;"
+                  data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+                  data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+                  data-mask_in="x:0px;y:[100%];"
+                  data-mask_out="x:inherit;y:inherit;"
+                  data-start="1000"
+                  data-splitin="none"
+                  data-splitout="none"
+                  data-responsive_offset="on">
+                  <div class="text-white letter-spacing-30 text-shadow1">
+                    {{ i.slyder_title_1 }}
+                  </div>
+                </div>
+
+                <div class="tp-caption tp-resizeme text-white font-rubik font-weight-400 text-center center-mobile"
+                data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                data-y="['middle','middle','middle','middle']" data-voffset="['59','59','59','-10']"
+                data-fontsize="['18','18','16','14']"
+                data-lineheight="['32','32','22','20']"
+                data-width="full"
+                data-height="none"
+                data-whitespace="normal"
+                data-transform_idle="o:1;"
+                data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+                data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+                data-mask_in="x:0px;y:[100%];"
+                data-mask_out="x:inherit;y:inherit;"
+                data-start="1000"
+                data-splitin="none"
+                data-splitout="none"
+                data-responsive_offset="on"
+                data-paddingleft = "['180','180','180','10']"
+                data-paddingright = "['180','180','180','10']"
+                data-margintop = "['20','20','20','0']"
+                data-marginbottom = "['20','20','20','0']" >
+                <div class="text-shadow3">
+                  {{ i.slyder_text_1 }}
+                </div>
+              </div>
+
+              <div class="tp-caption text-left center-mobile"
+              data-x="['left','left','left','center']" data-hoffset="['-4','-4','-4','0']"
+              data-y="['middle','middle','middle','middle']" data-voffset="['153','153','153','90']"
+              data-width="full"
+              data-height="none"
+              data-whitespace="normal"
+              data-transform_idle="o:1;"
+              data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+              data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+              data-mask_in="x:0px;y:[100%];"
+              data-mask_out="x:inherit;y:inherit;"
+              data-start="1000"
+              data-splitin="none"
+              data-splitout="none"
+              data-responsive_offset="on"
+              data-margintop= "['50','50','50','50']"
+              data-marginbottom= "['50','50','50','50']">
+              <a href="{% url 'website:brand_list' %}" class="btn btn-styl  button-started  ">BRANDS</a>
+            </div>
+          </li><!-- /End Slide 1 -->
+
+            <!-- Slide 2 -->
+            <li data-transition="random" class="bg-f7f7f7">
+            <!-- Main Image -->
+            <div class="tp-simpleresponsive">
+                <!--<img class="tp-slider-alternative-image" style="width: 100%; height: auto;"  src="{{ i.slyder_image_2URL }}" alt="" data-bgposition="center center" data-no-retina>-->
+                <img class="tp-slider-alternative-image" style="width: 100%; height: auto;" src="{% thumbnail i.slyder_image_2 1920x850 crop="smart" %}" alt="PANY" data-bgposition="center center" data-no-retina>
+            </div>
+
+            <!-- Layers -->
+            <div class="tp-caption tp-resizeme font-rubik font-weight-700 text-center center-mobile"
+            data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+            data-y="['middle','middle','middle','middle']" data-voffset="['-65','-65','-65','-95']"
+            data-fontsize="['48','48','38','18']"
+            data-lineheight="['72','42','32','20']"
+            data-width="full"
+            data-height="none"
+            data-whitespace="normal"
+            data-transform_idle="o:1;"
+            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+            data-mask_in="x:0px;y:[100%];"
+            data-mask_out="x:inherit;y:inherit;"
+            data-start="1000"
+            data-splitin="none"
+            data-splitout="none"
+            data-responsive_offset="on">
+            <div class="text-white letter-spacing-30 text-shadow1">
+              {{ i.slyder_title_2 }}
+            </div>
+          </div>
+
+          <div class="tp-caption tp-resizeme text-white font-rubik font-weight-400 text-center center-mobile"
+          data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+          data-y="['middle','middle','middle','middle']" data-voffset="['59','59','59','-10']"
+          data-fontsize="['18','18','16','14']"
+          data-lineheight="['32','32','22','20']"
+          data-width="full"
+          data-height="none"
+          data-whitespace="normal"
+          data-transform_idle="o:1;"
+          data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+          data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+          data-mask_in="x:0px;y:[100%];"
+          data-mask_out="x:inherit;y:inherit;"
+          data-start="1000"
+          data-splitin="none"
+          data-splitout="none"
+          data-responsive_offset="on"
+          data-paddingleft = "['180','180','180','10']"
+          data-paddingright = "['180','180','180','10']"
+          data-margintop = "['20','20','20','0']"
+          data-marginbottom = "['20','20','20','0']" >
+          <div class="text-shadow3">
+            {{ i.slyder_text_2 }}
+          </div>
+        </div>
+
+        <div class="tp-caption text-center center-mobile"
+        data-x="['left','left','left','center']" data-hoffset="['-4','-4','-4','0']"
+        data-y="['middle','middle','middle','middle']" data-voffset="['153','153','153','90']"
+        data-width="full"
+        data-height="none"
+        data-whitespace="normal"
+        data-transform_idle="o:1;"
+        data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+        data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+        data-mask_in="x:0px;y:[100%];"
+        data-mask_out="x:inherit;y:inherit;"
+        data-start="1000"
+        data-splitin="none"
+        data-splitout="none"
+        data-responsive_offset="on"
+        data-margintop= "['50','50','50','50']"
+        data-marginbottom= "['50','50','50','50']">
+        <a href="{% url 'website:contact_us' %}" class="btn btn-styl button-contact style3">CONTACT US</a>
+
+        </div>
+        </li><!-- /End Slide 2 -->
+
+            <!-- Slide 3 -->
+            <li data-transition="random" class="bg-f7f7f7">
+              <!-- Main Image -->
+              <div class="tp-simpleresponsive">
+                <!--<img class="tp-slider-alternative-image" style="width: 100%; height: auto;"  src="{{ i.slyder_image_3URL }}" alt="" data-bgposition="center center" data-no-retina>-->
+                <img class="tp-slider-alternative-image" style="width: 100%; height: auto;" src="{% thumbnail i.slyder_image_3 1920x850 crop="smart" %}" alt="PANY" data-bgposition="center center" data-no-retina>
+              </div>
+
+              <!-- Layers -->
+              <div class="tp-caption tp-resizeme font-rubik font-weight-700 text-center center-mobile"
+              data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+              data-y="['middle','middle','middle','middle']" data-voffset="['-65','-65','-65','-95']"
+              data-fontsize="['48','48','38','18']"
+              data-lineheight="['72','42','32','20']"
+              data-width="full"
+              data-height="none"
+              data-whitespace="normal"
+              data-transform_idle="o:1;"
+              data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+              data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+              data-mask_in="x:0px;y:[100%];"
+              data-mask_out="x:inherit;y:inherit;"
+              data-start="1000"
+              data-splitin="none"
+              data-splitout="none"
+              data-responsive_offset="on">
+              <div class="text-white letter-spacing-30 text-shadow1">
+                {{ i.slyder_title_3 }}
+              </div>
+            </div>
+
+            <div class="tp-caption tp-resizeme text-white font-rubik font-weight-400 text-center center-mobile"
+            data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+            data-y="['middle','middle','middle','middle']" data-voffset="['59','59','59','-10']"
+            data-fontsize="['18','18','16','14']"
+            data-lineheight="['32','32','22','20']"
+            data-width="full"
+            data-height="none"
+            data-whitespace="normal"
+            data-transform_idle="o:1;"
+            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+            data-mask_in="x:0px;y:[100%];"
+            data-mask_out="x:inherit;y:inherit;"
+            data-start="1000"
+            data-splitin="none"
+            data-splitout="none"
+            data-responsive_offset="on">
+            <div class="text-shadow3">
+              {{ i.slyder_text_3 }}
+            </div>
+            </div>
+
+            <div class="tp-caption text-right center-mobile"
+            data-x="['left','left','left','center']" data-hoffset="['-4','-4','-4','0']"
+            data-y="['middle','middle','middle','middle']" data-voffset="['153','153','153','90']"
+            data-width="full"
+            data-height="none"
+            data-whitespace="normal"
+            data-transform_idle="o:1;"
+            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+            data-mask_in="x:0px;y:[100%];"
+            data-mask_out="x:inherit;y:inherit;"
+            data-start="1000"
+            data-splitin="none"
+            data-splitout="none"
+            data-responsive_offset="on"
+            data-paddingtop= "['50','50','50','50']"
+            data-paddingbottom= "['50','50','50','50']">
+
+            <a href="{% url 'website:project_list' %}" class="btn btn-styl  button-started  ">PROJECTS</a>
+            </div>
+            </li> <!-- /End Slide 3 -->
+
+            <!-- Slide 4 -->
+            <li data-transition="random" class="bg-f7f7f7">
+              <!-- Main Image -->
+              <div class="tp-simpleresponsive">
+                <!--<img class="tp-slider-alternative-image" style="width: 100%; height: auto;"  src="{{ i.slyder_image_4URL }}" alt="" data-bgposition="center center" data-no-retina>-->
+                <img class="tp-slider-alternative-image" style="width: 100%; height: auto;" src="{% thumbnail i.slyder_image_4 1920x850 crop="smart" %}" alt="PANY" data-bgposition="center center" data-no-retina>
+              </div>
+
+              <!-- Layers -->
+              <div class="tp-caption tp-resizeme font-rubik font-weight-700 text-center center-mobile"
+              data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+              data-y="['middle','middle','middle','middle']" data-voffset="['-65','-65','-65','-95']"
+              data-fontsize="['48','48','38','18']"
+              data-lineheight="['72','42','32','20']"
+              data-width="full"
+              data-height="none"
+              data-whitespace="normal"
+              data-transform_idle="o:1;"
+              data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+              data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+              data-mask_in="x:0px;y:[100%];"
+              data-mask_out="x:inherit;y:inherit;"
+              data-start="1000"
+              data-splitin="none"
+              data-splitout="none"
+              data-responsive_offset="on">
+              <div class="text-white letter-spacing-30 text-shadow1">
+                {{ i.slyder_title_4 }}
+              </div>
+            </div>
+
+            <div class="tp-caption tp-resizeme text-white font-rubik font-weight-400 text-center center-mobile"
+            data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+            data-y="['middle','middle','middle','middle']" data-voffset="['59','59','59','-10']"
+            data-fontsize="['18','18','16','14']"
+            data-lineheight="['32','32','22','20']"
+            data-width="full"
+            data-height="none"
+            data-whitespace="normal"
+            data-transform_idle="o:1;"
+            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+            data-mask_in="x:0px;y:[100%];"
+            data-mask_out="x:inherit;y:inherit;"
+            data-start="1000"
+            data-splitin="none"
+            data-splitout="none"
+            data-responsive_offset="on">
+            <div class="text-shadow3">
+              {{ i.slyder_text_4 }}
+            </div>
+            </div>
+
+            <div class="tp-caption text-left center-mobile"
+            data-x="['left','left','left','center']" data-hoffset="['-4','-4','-4','0']"
+            data-y="['middle','middle','middle','middle']" data-voffset="['153','153','153','90']"
+            data-width="full"
+            data-height="none"
+            data-whitespace="normal"
+            data-transform_idle="o:1;"
+            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+            data-mask_in="x:0px;y:[100%];"
+            data-mask_out="x:inherit;y:inherit;"
+            data-start="1000"
+            data-splitin="none"
+            data-splitout="none"
+            data-responsive_offset="on"
+            data-paddingtop= "['50','50','50','50']"
+            data-paddingbottom= "['50','50','50','50']">
+            <a href="{% url 'website:contact_us' %}" class="btn btn-styl button-contact style3">CONTACT US</a>
+            </div>
+            </li> <!-- /End Slide 4 -->
+
+            <!-- Slide 5 -->
+            <li data-transition="random" class="bg-f7f7f7">
+              <!-- Main Image -->
+              <div class="tp-simpleresponsive">
+                <!--<img class="tp-slider-alternative-image" style="width: 100%; height: 100%;"  src="{{ i.slyder_image_5URL }}" alt="" data-bgposition="center center" data-no-retina>-->
+                <img class="tp-slider-alternative-image" style="width: 100%; height: auto;" src="{% thumbnail i.slyder_image_5 1920x850 crop="smart" %}" alt="PANY" data-bgposition="center center" data-no-retina>
+              </div>
+
+              <!-- Layers -->
+              <div class="tp-caption tp-resizeme font-rubik font-weight-700 text-center center-mobile"
+              data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+              data-y="['middle','middle','middle','middle']" data-voffset="['-65','-65','-65','-95']"
+              data-fontsize="['48','48','38','18']"
+              data-lineheight="['72','42','32','20']"
+              data-width="full"
+              data-height="none"
+              data-whitespace="normal"
+              data-transform_idle="o:1;"
+              data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+              data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+              data-mask_in="x:0px;y:[100%];"
+              data-mask_out="x:inherit;y:inherit;"
+              data-start="1000"
+              data-splitin="none"
+              data-splitout="none"
+              data-responsive_offset="on">
+              <div class="text-white letter-spacing-30 text-shadow1">
+                {{ i.slyder_title_5 }}
+              </div>
+            </div>
+
+            <div class="tp-caption tp-resizeme text-white font-rubik font-weight-400 text-center center-mobile"
+            data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+            data-y="['middle','middle','middle','middle']" data-voffset="['59','59','59','-10']"
+            data-fontsize="['18','18','16','14']"
+            data-lineheight="['32','32','22','20']"
+            data-width="full"
+            data-height="none"
+            data-whitespace="normal"
+            data-transform_idle="o:1;"
+            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+            data-mask_in="x:0px;y:[100%];"
+            data-mask_out="x:inherit;y:inherit;"
+            data-start="1000"
+            data-splitin="none"
+            data-splitout="none"
+            data-responsive_offset="on"
+            data-paddingleft = "['180','180','180','10']"
+            data-paddingright = "['180','180','180','10']"
+            data-margintop = "['20','20','20','0']"
+            data-marginbottom = "['20','20','20','0']" >
+            <div class="text-shadow3">
+              {{ i.slyder_text_5 }}
+            </div>
+            </div>
+
+            <div class="tp-caption text-center center-mobile"
+            data-x="['left','left','left','center']" data-hoffset="['-4','-4','-4','0']"
+            data-y="['middle','middle','middle','middle']" data-voffset="['153','153','153','90']"
+            data-width="full"
+            data-height="none"
+            data-whitespace="normal"
+            data-transform_idle="o:1;"
+            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+            data-mask_in="x:0px;y:[100%];"
+            data-mask_out="x:inherit;y:inherit;"
+            data-start="1000"
+            data-splitin="none"
+            data-splitout="none"
+            data-responsive_offset="on"
+            data-margintop= "['50','50','50','50']"
+            data-marginbottom= "['50','50','50','50']">
+            <a href="{% url 'website:product_list' %}" class=" btn btn-styl  button-started  ">PRODUCTS</a>
+
+            </div>
+            </li><!-- /End Slide 5 -->
+
+            <!-- Slide 6 -->
+            <li data-transition="random" class="bg-f7f7f7">
+              <!-- Main Image -->
+              <div class="tp-simpleresponsive">
+                <!--<img class="tp-slider-alternative-image" style="width: 100%; height: 100%;"  src="{{ i.slyder_image_6URL }}" alt="" data-bgposition="center center" data-no-retina>-->
+                <img class="tp-slider-alternative-image" style="width: 100%; height: auto;" src="{% thumbnail i.slyder_image_6 1920x850 crop="smart" %}" alt="PANY" data-bgposition="center center" data-no-retina>
+              </div>
+
+              <!-- Layers -->
+              <div class="tp-caption tp-resizeme font-rubik font-weight-700 text-center center-mobile"
+              data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+              data-y="['middle','middle','middle','middle']" data-voffset="['-65','-65','-65','-95']"
+              data-fontsize="['48','48','38','18']"
+              data-lineheight="['72','42','32','20']"
+              data-width="full"
+              data-height="none"
+              data-whitespace="normal"
+              data-transform_idle="o:1;"
+              data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+              data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+              data-mask_in="x:0px;y:[100%];"
+              data-mask_out="x:inherit;y:inherit;"
+              data-start="1000"
+              data-splitin="none"
+              data-splitout="none"
+              data-responsive_offset="on">
+              <div class="text-white letter-spacing-30 text-shadow1">
+                {{ i.slyder_title_6 }}
+              </div>
+            </div>
+
+            <div class="tp-caption tp-resizeme text-white font-rubik font-weight-400 text-center center-mobile"
+            data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+            data-y="['middle','middle','middle','middle']" data-voffset="['59','59','59','-10']"
+            data-fontsize="['18','18','16','14']"
+            data-lineheight="['32','32','22','20']"
+            data-width="full"
+            data-height="none"
+            data-whitespace="normal"
+            data-transform_idle="o:1;"
+            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+            data-mask_in="x:0px;y:[100%];"
+            data-mask_out="x:inherit;y:inherit;"
+            data-start="1000"
+            data-splitin="none"
+            data-splitout="none"
+            data-responsive_offset="on"
+            data-paddingleft = "['180','180','180','10']"
+            data-paddingright = "['180','180','180','10']"
+            data-margintop = "['20','20','20','0']"
+            data-marginbottom = "['20','20','20','0']" >
+            <div class="text-shadow3">
+              {{ i.slyder_text_6 }}
+            </div>
+            </div>
+
+            <div class="tp-caption text-right center-mobile"
+            data-x="['left','left','left','center']" data-hoffset="['-4','-4','-4','0']"
+            data-y="['middle','middle','middle','middle']" data-voffset="['153','153','153','90']"
+            data-width="full"
+            data-height="none"
+            data-whitespace="normal"
+            data-transform_idle="o:1;"
+            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+            data-mask_in="x:0px;y:[100%];"
+            data-mask_out="x:inherit;y:inherit;"
+            data-start="1000"
+            data-splitin="none"
+            data-splitout="none"
+            data-responsive_offset="on"
+            data-margintop= "['50','50','50','50']"
+            data-marginbottom= "['50','50','50','50']">
+
+            <a href="{% url 'website:contact_us' %}" class="btn btn-styl button-contact style3">CONTACT US</a>
+            </div>
+            </li><!-- /End Slide 6 -->
+
+            <!-- Slide 7 -->
+            <li data-transition="random" class="bg-f7f7f7">
+              <!-- Main Image -->
+              <div class="tp-simpleresponsive">
+              <!--<img class="tp-slider-alternative-image" style="width: 100%; height: 100%;"  src="{{ i.slyder_image_7URL }}" alt="" data-bgposition="center center" data-no-retina>-->
+              <img class="tp-slider-alternative-image" style="width: 100%; height: auto;" src="{% thumbnail i.slyder_image_7 1920x850 crop="smart" %}" alt="PANY" data-bgposition="center center" data-no-retina>
+              </div>
+
+              <!-- Layers -->
+              <div class="tp-caption tp-resizeme font-rubik font-weight-700 text-center center-mobile"
+              data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+              data-y="['middle','middle','middle','middle']" data-voffset="['-65','-65','-65','-95']"
+              data-fontsize="['48','48','38','18']"
+              data-lineheight="['72','42','32','20']"
+              data-width="full"
+              data-height="none"
+              data-whitespace="normal"
+              data-transform_idle="o:1;"
+              data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+              data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+              data-mask_in="x:0px;y:[100%];"
+              data-mask_out="x:inherit;y:inherit;"
+              data-start="1000"
+              data-splitin="none"
+              data-splitout="none"
+              data-responsive_offset="on">
+              <div class="text-white letter-spacing-30 text-shadow1">
+                {{ i.slyder_title_7 }}
+              </div>
+            </div>
+
+            <div class="tp-caption tp-resizeme text-white font-rubik font-weight-400 text-center center-mobile"
+            data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+            data-y="['middle','middle','middle','middle']" data-voffset="['59','59','59','-10']"
+            data-fontsize="['18','18','16','14']"
+            data-lineheight="['32','32','22','20']"
+            data-width="full"
+            data-height="none"
+            data-whitespace="normal"
+            data-transform_idle="o:1;"
+            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+            data-mask_in="x:0px;y:[100%];"
+            data-mask_out="x:inherit;y:inherit;"
+            data-start="1000"
+            data-splitin="none"
+            data-splitout="none"
+            data-responsive_offset="on"
+            data-paddingleft = "['180','180','180','10']"
+            data-paddingright = "['180','180','180','10']"
+            data-margintop = "['20','20','20','0']"
+            data-marginbottom = "['20','20','20','0']" >
+            <div class="text-shadow3">
+              {{ i.slyder_text_7 }}
+            </div>
+            </div>
+
+            <div class="tp-caption text-left center-mobile"
+            data-x="['left','left','left','center']" data-hoffset="['-4','-4','-4','0']"
+            data-y="['middle','middle','middle','middle']" data-voffset="['153','153','153','90']"
+            data-width="full"
+            data-height="none"
+            data-whitespace="normal"
+            data-transform_idle="o:1;"
+            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+            data-mask_in="x:0px;y:[100%];"
+            data-mask_out="x:inherit;y:inherit;"
+            data-start="1000"
+            data-splitin="none"
+            data-splitout="none"
+            data-responsive_offset="on"
+            data-margintop= "['50','50','50','50']"
+            data-marginbottom= "['50','50','50','50']">
+            <a href="{% url 'website:brand_list' %}" class="btn btn-styl  button-started  ">BRANDS</a>
+            </div>
+            </li><!-- /End Slide 7 -->
+
+            <!-- Slide 8 -->
+            <li data-transition="random" class="bg-f7f7f7">
+              <!-- Main Image -->
+              <div class="tp-simpleresponsive">
+                <!--<img class="tp-slider-alternative-image" style="width: 100%; height: 100%;"  src="{{ i.slyder_image_8URL }}" alt="" data-bgposition="center center" data-no-retina>-->
+                <img class="tp-slider-alternative-image" style="width: 100%; height: auto;" src="{% thumbnail i.slyder_image_8 1920x850 crop="smart" %}" alt="PANY" data-bgposition="center center" data-no-retina>
+              </div>
+
+              <!-- Layers -->
+              <div class="tp-caption tp-resizeme font-rubik font-weight-700 text-center center-mobile"
+              data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+              data-y="['middle','middle','middle','middle']" data-voffset="['-65','-65','-65','-95']"
+              data-fontsize="['48','48','38','18']"
+              data-lineheight="['72','42','32','20']"
+              data-width="full"
+              data-height="none"
+              data-whitespace="normal"
+              data-transform_idle="o:1;"
+              data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+              data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+              data-mask_in="x:0px;y:[100%];"
+              data-mask_out="x:inherit;y:inherit;"
+              data-start="1000"
+              data-splitin="none"
+              data-splitout="none"
+              data-responsive_offset="on">
+              <div class="text-white letter-spacing-30 text-shadow1">
+                {{ i.slyder_title_8 }}
+              </div>
+            </div>
+
+            <div class="tp-caption tp-resizeme text-white font-rubik font-weight-400 text-center center-mobile"
+            data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+            data-y="['middle','middle','middle','middle']" data-voffset="['59','59','59','-10']"
+            data-fontsize="['18','18','16','14']"
+            data-lineheight="['32','32','22','20']"
+            data-width="full"
+            data-height="none"
+            data-whitespace="normal"
+            data-transform_idle="o:1;"
+            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+            data-mask_in="x:0px;y:[100%];"
+            data-mask_out="x:inherit;y:inherit;"
+            data-start="1000"
+            data-splitin="none"
+            data-splitout="none"
+            data-responsive_offset="on"
+            data-paddingleft = "['180','180','180','10']"
+            data-paddingright = "['180','180','180','10']"
+            data-margintop = "['20','20','20','0']"
+            data-marginbottom = "['20','20','20','0']" >
+            <div class="text-shadow3">
+              {{ i.slyder_text_8 }}
+            </div>
+            </div>
+
+            <div class="tp-caption text-center center-mobile"
+            data-x="['left','left','left','center']" data-hoffset="['-4','-4','-4','0']"
+            data-y="['middle','middle','middle','middle']" data-voffset="['153','153','153','90']"
+            data-width="full"
+            data-height="none"
+            data-whitespace="normal"
+            data-transform_idle="o:1;"
+            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+            data-mask_in="x:0px;y:[100%];"
+            data-mask_out="x:inherit;y:inherit;"
+            data-start="1000"
+            data-splitin="none"
+            data-splitout="none"
+            data-responsive_offset="on"
+            data-margintop= "['50','50','50','50']"
+            data-marginbottom= "['50','50','50','50']">
+            <a href="{% url 'website:contact_us' %}" class="btn btn-styl button-contact style3 ">CONTACT US</a>
+
+            </div>
+            </li><!-- /End Slide 8 -->
+
+        </ul>
+</div>
+</div>
+</div> <!-- /.flat-slider -->
+
+<div class="flat-quote style3 bg-f7f7f7">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 clearfix">
+        <div class="wrap-icon-quote">
+          <div class="icon-quote">
+            <span class="fas fa-comments" ></span>
+          </div>
+          <div class="content-quote">
+            <h2>{{ i.quote_title }}</h2>
+            <p>{{ i.quote_text }}</p>
+          </div>
+        </div> <!-- /.wrap-icon-quote -->
+
+        <div class="btn-quote style3 text-right">
+          <a href="{% url 'website:contact_us' %}" class=" btn btn-styl">GET A QUOTE</a>
+        </div> <!-- /.btn-quote -->
+      </div> <!-- /.col-md-12 -->
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</div> <!-- /.flat-quote -->
+
+
+<section class="flat-row flat-introduce">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="wrap-introduce">
+          <div class="content-introduce">
+            <h3 class="title"> <a href="">{{ i.intro_title }}</a></h3>
+            <p>{{ i.intro_description }}</p>
+            <div class="flat-row flat-counter style1">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-3 col-6">
+                    <div class="counter style1">
+                      <div class="content-counter">
+                        <div class="row">
+                          <div class="col-2">
+                            <h1 class="font-weight-bold text-danger ">+</h1>
+                          </div>
+                          <div class="numb-count" data-from="0" data-to="{{ i.projects_supplied }}" data-speed="4000" data-inviewport="yes">{{ i.projects_supplied }}</div>
+                        </div>
+                        <div class="name-count">Projects Completed</div>
+                      </div>
+                    </div><!-- /.flat-counter -->
+                  </div>
+
+                  <div class="col-md-3 col-6">
+                    <div class="counter style1">
+                      <div class="content-counter">
+                        <div class="row">
+                          <div class="col-2">
+                            <h1 class="font-weight-bold text-danger ">+</h1>
+                          </div>
+                          <div class="numb-count"  data-from="0" data-to="{{ i.products }}" data-speed="4000" data-inviewport="yes">{{ i.products }}</div>
+                        </div>
+                        <div class="name-count">Products</div>
+                      </div>
+                    </div><!-- /.flat-counter -->
+                  </div><!-- /.col-md-3 -->
+
+                  <div class="col-md-3 col-6">
+                    <div class="counter style1">
+                      <div class="content-counter">
+                        <div class="row">
+                          <div class="col-2">
+                            <h1 class="font-weight-bold text-danger">+ </h1>
+                          </div>
+                          <div class="numb-count" data-from="0" data-to="{{ i.trucks_per_year }}" data-speed="4000" data-inviewport="yes">{{ i.trucks_per_year }}</div>
+                        </div>
+                        <div class="name-count">Trucks per year</div>
+
+                      </div>
+                    </div><!-- /.flat-counter -->
+                  </div><!-- /.col-md-3 -->
+
+                  <div class="col-md-3 col-6">
+                    <div class="counter style1">
+                      <div class="content-counter ">
+                        <div class="row">
+                          <div class="col-2">
+                            <h1 class="font-weight-bold text-danger ">+</h1>
+                          </div>
+                          <div class="numb-count percent" data-from="0" data-to="{{ i.sale_points }}" data-speed="4000" data-inviewport="yes">{{ i.sale_points }}</div>
+                        </div>
+                        <div class="name-count">Sale Points </div>
+                      </div>
+                    </div><!-- /.flat-counter -->
+                  </div> <!-- /.col-md-3 -->
+                </div><!-- /.row -->
+              </div><!-- /.container -->
+            </div>
+          </div> <!-- /.content-introduce -->
+
+          <div class="wrap-experienced">
+            <img src="{{ i.experience_years_imageURL }}" alt="image">
+            <div class="experienced text-center">
+              <div class="counter style1">
+                <div class="content-counter">
+                  <div class="numb-count numb-year font-rubik font-weight-700" data-from="0" data-to="{{ i.experience_years }}" data-speed="2000" data-inviewport="yes">{{ i.experience_years }}</div>
+                </div>
+              </div> <!-- /.counter -->
+              <div class="experienced-text mg-top-40">YEARS OF</div>
+              <div class="experienced-text">EXPERIENCE</div>
+              <div class="experienced-text">  IN THE INDUSTRY</div>
+            </div>
+          </div> <!-- /.wrap-experienced -->
+        </div> <!-- /.wrap-introduce -->
+      </div> <!-- /.col-md-12 -->
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</section> <!-- /.flat-introduce -->
+
+
+
+<section class="flat-services style3 fix-float-box equalize equalize-auto bg-f7f7f7">
+
+  <!--<div class="container-fluid text-white fix-float-box darken p-5" style="background-image: url('{% for i in theme %}   {{ i.background_categoriesURL }} {% endfor %} ');">-->
+  <div class="container-fluid text-white fix-float-box darken p-5" style="background-image: url('{% for i in theme %}   {% thumbnail i.background_categories 1920x366 crop="smart" %} {% endfor %} ');">
+    <div class="container p-3 darken" style="border: 2px solid red;">
+      <div>
+        <h2 class="pb-2">Our Solutions</h2>
+        <p>{{ i.our_category_text }}</p>
+      </div>
+    </div>
+  </div>
+
+
+  {% endfor %} <!-- /Theme - part-1(END) -  -->
+
+</section> <!-- /.flat-services -->
+
+<section class="flat-row flat-whyus style3">
+  <div class="container">
+    <div class="flat-title">
+      <h2 class="title center-title">Why Choose Us</h2>
+    </div> <!-- /.flat-title -->
+
+    <div class="row">
+      {% for i in theme %}
+      <div class="col-lg-6 col-md-12">
+        <div class="flat-iconbox ">
+          <div class="iconbox iconbox-whyus style3">
+            <div class="iconbox-icon">
+              <i class="fa fa-briefcase"></i>
+            </div>
+            <div class="iconbox-content">
+              <h5 class="heading"><a href="">{{ i.why_choose_use_1_title }}</a></h5>
+              <p class="sub-heading">{{ i.why_choose_use_1_text }}</p>
+            </div>
+          </div> <!-- /.iconbox -->
+
+          <div class="iconbox iconbox-whyus style3">
+            <div class="iconbox-icon">
+              <i class="fa fa-thumbs-up"></i>
+            </div>
+            <div class="iconbox-content">
+              <h5 class="heading"><a href="">{{ i.why_choose_use_2_title }}</a></h5>
+              <p class="sub-heading">{{ i.why_choose_use_2_text }}</p>
+            </div>
+          </div> <!-- /.iconbox -->
+
+          <div class="iconbox iconbox-whyus style3">
+            <div class="iconbox-icon">
+              <i class="fa fa-heart"></i>
+            </div>
+            <div class="iconbox-content">
+              <h5 class="heading"><a href="">{{ i.why_choose_use_3_title }}</a></h5>
+              <p class="sub-heading">{{ i.why_choose_use_3_text }}</p>
+            </div>
+          </div> <!-- /.iconbox -->
+        </div> <!-- /.flat-iconbox -->
+      </div> <!-- /.col-md-6 -->
+      <div class="col-lg-6 col-md-12">
+        <div class="image-single">
+          <img src="{{ i.why_choose_use_imageURL }}" alt="PanyCompany">
+        </div> <!-- /.image-single -->
+      </div> <!-- /.col-md-6 -->
+      {% endfor %}
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</section> <!-- /.flat-whyus -->
+
+<section class="flat-projects clearfix style3 bg-f7f7f7 pt-4">
+  <div class="flat-title">
+    <h2 class="title center-title">Recent Projects</h2>
+  </div>
+  <div class="flat-imagebox isotope-project">
+
+    {% for project in recent_projects %}
+    <!--<a href="{% url 'website:project_detail' project.slug %}">    </a>-->
+    <div class="imagebox style3">
+      <!--<div class="imagebox-image " style="max-height:349px; max-width:639px;">-->
+      <div class="imagebox-image " >
+        <img class="img-fluid" src="{% thumbnail  project.image_1 639x349 crop="smart" %}"  alt="PANY" >
+        <!--<img class="img-fluid" src="{{ project.image_1URL }}" alt="PANY" >-->
+        <!--<img class="img-fluid" src="{{ project.image_1URL }}" alt="PANY" style="width:auto;height:300px;">-->
+        <!--<img class="img-fluid" src="{{ project.image_1URL }}" alt="PANY" >-->
+        <!--<img src="{% thumbnail product.image_1 150x150 crop="smart" %}" class="img-fluid img-thumbnail" alt="PANY">-->
+        <!--<img class="img-fluid" src="{% thumbnail  project.image_1URL 370x300 crop="smart" %}" class="img-fluid img-thumbnail" alt="PANY" >-->
+        <!--<img src="{% thumbnail  project.image_1URL 370x300  %}"  alt="PANY" >-->
+        <div class="overlay"></div>
+      </div>
+      <div class="imagebox-content">
+        <h3 class="heading"><a href="{% url 'website:project_detail' project.slug %}">{{ project.name }}</a></h3>
+        <div class="meta-project">
+        </div>
+      </div>
+    </div>
+
+    {% endfor %}
+
+  </div>
+
+</section> <!-- /.flat-projects -->
+    <div class="row d-flex justify-content-center pb-1">
+      <div class="style3 bg-f7f7f7">
+        <div class="btn-quote style3  ">
+          <a href="{% url 'website:project_list' %}" class=" btn btn-styl w-100 d-inline-block"><h6 class="font-weight-bold">More Projects ...</h6> </a>
+        </div> <!-- /.btn-quote -->
+      </div>
+    </div>
+
+<section class="flat-testimonial-contact clearfix fix-float-box bg-f7f7f7">
+  <div class="flat-testimonials-images">
+    <div class="flat-spacer clearfix" data-desktop="80" data-mobile="50" data-smobile="30"></div>
+    <div id="flat-testimonials-slider">
+      <ul class="slides">
+        {% for ct in testimonials %}
+        <li class="flex-active-slide" data-thumb="{{ ct.image_1URL }}">
+          <div class="testimonial  text-center">
+            <blockquote class="testimonial-text ">
+              {{ ct.testimonial }}
+            </blockquote>
+            <div class="author-info">
+              <h5 class="name"><a href="">{{ ct.name}}</a></h5>
+              <p class="info">Customer</p>
+            </div>
+          </div>
+        </li>
+        {% endfor %}
+      </ul><!-- /.slides -->
+    </div><!-- /.testimonial-slider -->
+    <div class="flat-spacer clearfix" data-desktop="80" data-mobile="50" data-smobile="30"></div>
+  </div><!-- /.flat-testimonials-images -->
+
+  <!--<div class="flat-contact-us parallax parallax1" style="background-image: url('{% for i in theme %}   {{ i.background_contact_usURL }} {% endfor %} ');">-->
+  <div class="flat-contact-us parallax parallax1" style="background-image: url('{% for i in theme %}   {% thumbnail i.background_contact_us 960x600 crop="smart" %} {% endfor %} ');">
+    <div class="overlay"></div>
+
+    <div class="flat-row flat-form-contact-us ">
+      <div class="flat-title">
+        <h2 class="title text-white center-title {% if sent %} d-none {% endif %} ">Contact Us</h2>
+      </div>
+
+      {% if sent %}
+      <center>
+        <br>
+        <br>
+        <div class="flat-title text-white" style="color: white; ">
+          <h2 class="title text-white center-title">E-mail sent successfully. </h2>
+        </div>
+      </center>
+      {% else %}
+
+
+      <form class="form-contact-us" method="post">
+        {% csrf_token %}
+        <div class="row">
+          <div class="col">
+            {{ form.name }}
+          </div>
+          <div class="col">
+            {{ form.email }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            {{ form.phone_number }}
+          </div>
+          <div class="col">
+            {{ form.city }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            {{ form.message }}
+          </div>
+        </div>
+
+        <div class="text-center">
+          <button type="submit" id="btn-comment" class="btn-effect" name="btn-comment" >
+            SEND COMMENT
+          </button>
+        </div>
+      </form>
+
+      {% endif %}
+    </div>
+  </div> <!-- /.flat-contact-us -->
+</section> <!-- /.flat-testimonial-contact -->
+
+<!-- /.flat-news (section) -->
+
+
+<center>
+  <div class="content-wrap main-project-detail pd-top-80 pd-bottom-60">
+    <div class="wrap-related-project ">
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="col-12 p-3">
+            <div class="col-md-12">
+              <div class="flat-title">
+                <h2 class="title center-title">Our Products</h2>
+              </div> <!-- /.flat-title -->
+            </div>
+            <div class="col-md-12 w-50"> <!-- Start of problem -->
+              <div class="flat-imagebox clearfix project-related">
+                <div class="flat-carousel">
+                  <div class="themesflat-carousel-box data-effect clearfix" data-column="5" data-column2="3" data-column3="1" data-dots="false" data-auto="true" data-nav="true" data-gap = '0'>
+                    <div class="owl-carousel owl-theme  owl-loaded owl-drag clearfix">
+                      {% for product in products %}
+                      <div class="imagebox imagebox-project style4">
+                        <div class="imagebox-border">
+                          <a href="{{ product.get_absolute_url }}">
+                            <div class="imagebox-image "  >
+                              <img src="{% thumbnail product.image_1 150x150 crop="smart" %}" class="img-fluid img-thumbnail" alt="PANY">
+
+                              <!--<div class="overlay d-md-none d-lg-block"></div>-->
+                              <div class="imagebox-content d-md-none d-lg-block ">
+                                <h5 class="heading ">
+                                  <a class="text-shadow3 text-white" style="background-color: rgba(213, 219, 222, .5);" href="{{ product.get_absolute_url }}">{{ product.name|truncatechars:14 }}</a>
+                                </h5>
+                              </div>
+                            </div>
+                          </a>
+                        </div> <!-- /.imagebox-image -->
+                      </div> <!-- /.imagebox-image -->
+                      {% endfor %}
+
+                    </div> <!-- /.imagebox-image -->
+                  </div>
+                </div>
+              </div>
+            </div> <!-- /.flat-imagebox --> <!-- end of problem -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</center>
+
+
+{% endblock %}
+
+{% block partners %}
+{{ block.super }}
+{% endblock %}
+
+{% block js %}
+<!-- Javascript -->
+<script src="{% static "website/javascript/dclock.js" %}"></script>
+<script src="{% static "website/javascript/jquery.min.js" %}"></script>
+<script src="{% static "website/javascript/plugins.js" %}"></script>
+<script src="{% static "website/javascript/bootstrap.min.js" %}"></script>
+<script src="{% static "website/javascript/flex-slider.min.js" %}"></script>
+<script src="{% static "website/javascript/jquery-countTo.js" %}"></script>
+<script src="{% static "website/javascript/equalize.min.js" %}"></script>
+<script src="{% static "website/javascript/owl.carousel.min.js" %}"></script>
+<script src="{% static "website/javascript/jquery.validate.min.js" %}"></script>
+<script src="{% static "website/javascript/main.js" %}"></script>
+
+<!-- Slider -->
+<script src="{% static "website/rev-slider/js/jquery.themepunch.tools.min.js" %}"></script>
+<script src="{% static "website/rev-slider/js/jquery.themepunch.revolution.min.js" %}"></script>
+<script src="{% static "website/javascript/rev-slider.js" %}"></script>
+
+<!-- Owl carousel js -->
+<script src="{% static "website/javascript/owl.carousel.min.js" %}"></script>
+
+<!-- Load Extensions only on Local File Systems ! The following part can be removed on Server for On Demand Loading -->
+<script src="{% static "website/rev-slider/js/extensions/revolution.extension.actions.min.js" %}"></script>
+<script src="{% static "website/rev-slider/js/extensions/revolution.extension.carousel.min.js" %}"></script>
+<script src="{% static "website/rev-slider/js/extensions/revolution.extension.kenburn.min.js" %}"></script>
+<script src="{% static "website/rev-slider/js/extensions/revolution.extension.layeranimation.min.js" %}"></script>
+<script src="{% static "website/rev-slider/js/extensions/revolution.extension.migration.min.js" %}"></script>
+<script src="{% static "website/rev-slider/js/extensions/revolution.extension.navigation.min.js" %}"></script>
+<script src="{% static "website/rev-slider/js/extensions/revolution.extension.parallax.min.js" %}"></script>
+<script src="{% static "website/rev-slider/js/extensions/revolution.extension.slideanims.min.js" %}"></script>
+<script src="{% static "website/rev-slider/js/extensions/revolution.extension.video.min.js" %}"></script>
+{% endblock %}

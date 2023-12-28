@@ -1,0 +1,235 @@
+{% extends "website/base.html" %}
+{% load static %}
+
+{% block head %}
+
+<title>PANY | Solution Detail</title>
+
+<meta name="author" content="themsflat.com">
+
+<!-- Mobile Specific Metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- Theme style -->
+<link rel="stylesheet" type="text/css" href="{% static "website/stylesheet/style.css" %}">
+
+<!-- Responsive -->
+<link rel="stylesheet" type="text/css" href="{% static "website/stylesheet/responsive.css" %}">
+
+
+{% endblock %}
+
+{% block mainnav %}
+<div class="nav-wrap">
+  <nav id="mainnav" class="mainnav">
+    <ul class="menu">
+      <li>
+        <a href="{% url 'website:home' %}" title="">HOME</a>
+      </li>
+      <li>
+        <a href="{% url 'website:brand_list' %}" title="">BRANDS</a>
+      </li>
+      <li class="active">
+        <a href="{% url 'website:solution_list' %}" title="">SOLUTIONS</a>
+      </li>
+      <li>
+        <a href="{% url 'website:project_list' %}" title="">PROJECTS</a>
+      </li>
+      <li>
+        <a href="{% url 'website:product_list' %}" title="">PRODUCTS</a>
+      </li>
+      <li>
+        <a href="{% url 'website:about_us' %}" title="">ABOUT US</a>
+      </li>
+      <li>
+        <a href="{% url 'website:contact_us' %}">CONTACT US</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'library:pdffile_list' %}" title="">DOCUMENTS</a>
+      </li>
+    </ul><!-- /.menu -->
+  </nav> <!-- /#mainnav -->
+</div> <!-- .nav-wrap -->
+{% endblock %}
+
+{% block body %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="page-title">
+    <div id="background" style="">
+        <img  src="{% for i in theme %}   {{ i.header_background_solutionURL }} {% endfor %}" class="stretch" alt="" />
+    </div>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="page-title-content text-center">
+      <div class="page-title-heading ">
+        <h3 class="title"><a href="{% url 'website:solution_detail' solution.slug %}">SOLUTION DETAILS</a></h3>
+      </div>
+      <div class="breadcrumbs">
+        <ul>
+          <li class="home"><a href="{% url 'website:home' %}">Home</a></li>
+          <li><a href="{% url 'website:solution_list' %}">Solutions</a></li>
+          <li><a href="{% url 'website:solution_detail' solution.slug %}">Solution Details</a></li>
+          <li><a href=""> {{ solution.name }} </a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div> <!-- /.page-title -->
+
+
+<center>
+
+
+  <div class="content-wrap main-service-detail">
+    <div class="container">
+      <div class="row">
+
+
+
+
+
+        <div class="col">
+          <div class="wrap-service-detail pd-top-80">
+            <div class="image-rallary mg-bottom-45">
+              <div class="themesflat-gallery  style-2 has-arrows arrow-center arrow-circle offset-v-82 has-thumb w170  clearfix" data-gap="0" data-column="1" data-column2="1" data-column3="1" data-auto="true">
+                <div class="owl-carousel owl-theme">
+                  <div class="gallery-item" >
+                    <div class="inner">
+                      <div class="thumb">
+                        <img src="{{ solution.image_2URL }}" alt="Image">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="gallery-item" >
+                    <div class="inner">
+                      <div class="thumb">
+                        <img src="{{ solution.image_3URL }}" alt="Image">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="gallery-item" >
+                    <div class="inner">
+                      <div class="thumb">
+                        <img src="{{ solution.image_4URL }}" alt="Image">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="gallery-item" >
+                    <div class="inner">
+                      <div class="thumb">
+                        <img src="{{ solution.image_5URL }}" alt="Image">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- /.themesflat-cousel-box -->
+            </div>
+            <div class="textbox textbox-service-detail text-left">
+              <h5 class="textbox-heading"><a href="#"> {{ solution.name }} </a></h5>
+              <div class="textbox-content">
+                <p> {{ solution.description }} </p>
+              </div>
+            </div>
+
+          </div>
+        </div> <!-- /.wrap-project-detail -->
+      </div> <!-- /.col-md-8 -->
+    </div>
+  </div>
+</div> <!-- /.content-wrap -->
+
+<center>
+  <div class="content-wrap main-project-detail pd-top-80 pd-bottom-60">
+    <div class="wrap-related-project w-50"> <!--  {% if solution.product_set.all|length >= 3 %} w-50 {% endif %} {% if solution.product_set.all|length == 2 %} w-75 {% endif %} {% if solution.product_set.all|length >= 2 %} w-25 {% endif %}  -->
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 py-3">
+            <div class="col-md-12">
+              <div class="flat-title">
+                <h2 class="title center-title">Related Products</h2>
+              </div> <!-- /.flat-title -->
+            </div>
+            <div class="col-md-12 {% if solution.product_set.all|length == 1 %} w-25 {% endif %} {% if solution.product_set.all|length == 2 %} w-50 {% endif %} {% if solution.product_set.all|length >= 3 %} w-75 {% endif %}">
+              <div class="flat-imagebox clearfix project-related">
+                <div class="flat-carousel">
+                  <div class="themesflat-carousel-box data-effect clearfix" data-column="{% if solution.product_set.all|length >= 3 %} 3 {% endif %} {% if solution.product_set.all|length == 2 %} 2 {% endif %} {% if solution.product_set.all|length == 1 %} 1 {% endif %}" data-column2="3" data-column3="2" data-dots= "false" data-auto="false" data-nav="false" data-gap = '0'>
+                    <div class="owl-carousel owl-theme  owl-loaded owl-drag clearfix">
+                      {% for product in solution.product_set.all %}
+                      <div class="imagebox imagebox-project style4">
+                        <div class="imagebox-border">
+                          <a href="{% url 'website:product_detail' product.slug %}">
+                            <div class="imagebox-image ">
+                              <img class="img-thumbnail" src="{{ product.image_1URL }}" alt="PANY">
+                              <div class="overlay d-md-none d-lg-block "></div>
+                              <div class="imagebox-content  d-md-none d-lg-block ">
+                                <h5 class="heading">
+                                  <a href="{% url 'website:product_detail' product.slug %}">{{ product.name }}</a>
+                                </h5>
+                                <div class="meta-project">
+                                  <a href="{% url 'website:brand_detail' product.brand.slug %}"> <h6>{{ product.brand }}</h6></a>
+                                </div>
+                              </div>
+                            </div>
+                          </a>
+                        </div> <!-- /.imagebox-image -->
+                      </div> <!-- /.imagebox-image -->
+                      {% endfor %}
+
+                    </div> <!-- /.imagebox-image -->
+                  </div>
+                </div>
+              </div>
+            </div> <!-- /.flat-imagebox -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</center>
+
+</center>
+
+{% endblock %}
+
+
+{% block partners %}
+{{ block.super }}
+{% endblock %}
+
+
+{% block js %}
+<!-- Javascript -->
+<script src="{% static "website/javascript/dclock.js" %}"></script>
+<script   src="{% static "website/javascript/jquery.min.js" %}"></script>
+<script   src="{% static "website/javascript/plugins.js" %}"></script>
+<script   src="{% static "website/javascript/bootstrap.min.js" %}"></script>
+<script   src="{% static "website/javascript/flex-slider.min.js" %}"></script>
+<script   src="{% static "website/javascript/jquery-countTo.js" %}"></script>
+<script   src="{% static "website/javascript/equalize.min.js" %}"></script>
+<script   src="{% static "website/javascript/jquery.validate.min.js" %}"></script>
+<script   src="{% static "website/javascript/main.js" %}"></script>
+
+
+<!-- Owl carousel js -->
+<script src="{% static "website/javascript/owl.carousel.min.js" %}"></script>
+<script src="{% static "website/javascript/owl.carousel2.thumbs.js" %}"></script>
+
+<!-- Slider -->
+<script src="{% static "website/rev-slider/js/jquery.themepunch.tools.min.js" %}"></script>
+<script src="{% static "website/rev-slider/js/jquery.themepunch.revolution.min.js" %}"></script>
+<script src="{% static "website/javascript/rev-slider.js" %}"></script>
+<!-- Load Extensions only on Local File Systems ! The following part can be removed on Server for On Demand Loading -->
+<script src="{% static "website/rev-slider/js/extensions/revolution.extension.actions.min.js" %}"></script>
+<script src="{% static "website/rev-slider/js/extensions/revolution.extension.carousel.min.js" %}"></script>
+<script src="{% static "website/rev-slider/js/extensions/revolution.extension.kenburn.min.js" %}"></script>
+<script src="{% static "website/rev-slider/js/extensions/revolution.extension.layeranimation.min.js" %}"></script>
+<script src="{% static "website/rev-slider/js/extensions/revolution.extension.migration.min.js" %}"></script>
+<script src="{% static "website/rev-slider/js/extensions/revolution.extension.navigation.min.js" %}"></script>
+<script src="{% static "website/rev-slider/js/extensions/revolution.extension.parallax.min.js" %}"></script>
+<script src="{% static "website/rev-slider/js/extensions/revolution.extension.slideanims.min.js" %}"></script>
+<script src="{% static "website/rev-slider/js/extensions/revolution.extension.video.min.js" %}"></script>
+{% endblock %}

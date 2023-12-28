@@ -1,0 +1,265 @@
+{% extends "website/base.html" %}
+{% load static %}
+
+{% block head %}
+
+<title>PANY | Solution List</title>
+
+<meta name="author" content="themsflat.com">
+
+<!-- Mobile Specific Metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- Theme style -->
+<link rel="stylesheet" type="text/css" href="{% static 'website/stylesheet/style.css' %}">
+
+<!-- Responsive -->
+<link rel="stylesheet" type="text/css" href="{% static 'website/stylesheet/responsive.css' %}">
+
+
+{% endblock %}
+
+{% block body %}
+
+{% endblock %}
+
+{% block mainnav %}
+<div class="nav-wrap">
+  <nav id="mainnav" class="mainnav">
+    <ul class="menu">
+      <li>
+        <a class="text-shadow1" href="{% url 'website:home' %}" title="">HOME</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:brand_list' %}" title="">BRANDS</a>
+      </li>
+      <li class="active">
+        <a class="text-shadow1" href="{% url 'website:solution_list' %}" title="">SOLUTIONS</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:project_list' %}" title="">PROJECTS</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:product_list' %}" title="">PRODUCTS</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:about_us' %}" title="">ABOUT US</a>
+      </li>
+      <li>
+        <a href="{% url 'website:contact_us' %}">CONTACT US</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'library:pdffile_list' %}" title="">DOCUMENTS</a>
+      </li>
+    </ul><!-- /.menu -->
+  </nav> <!-- /#mainnav -->
+</div> <!-- .nav-wrap -->
+{% endblock %}
+
+{% block content %}
+
+<div class="page-title" >
+    <div id="background" style="">
+        <img  src="{% for i in theme %}   {{ i.header_background_solutionURL }} {% endfor %}" class="stretch" alt="" />
+    </div>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="page-title-content text-center">
+      <div class="page-title-heading ">
+        <h3 class="title text-shadow1"><a href="{% url 'website:solution_list' %}">OUR SOLUTIONS</a></h3>
+      </div>
+      <div class="breadcrumbs">
+        <ul>
+          <li class="home text-shadow1"><a href="{% url 'website:home' %}">Home</a></li>
+          <li><a class="text-shadow1" href="{% url 'website:solution_list' %}">Our Solutions</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div> <!-- /.page-title -->
+
+
+<section class="flat-services style3 pd-top-80 pd-bottom-10">
+  <h2 class="title center-title text-center pb-5">Our Solutions</h2>
+  <div class="container">
+    <div class="row">
+      <div class="flat-imagebox clearfix ">
+
+        {% for solution in solutions %}
+        <div class="imagebox imagebox-service style4">
+          <div class="imagebox-border">
+            <div class="imagebox-image">
+              <a href="{% url 'website:solution_detail' solution.slug %}"><img src="{{ solution.image_1URL }}" alt="PANY"></a>
+            </div>
+            <div class="imagebox-content">
+              <h6 class="heading"><a href="{% url 'website:solution_detail' solution.slug %}">{{ solution.name }}</a></h6>
+              <p>{{ solution.description|truncatechars:30 }}</p>
+            </div>
+          </div>
+        </div> <!-- /.imagebox -->
+        {% endfor %}
+
+      </div> <!-- /.flat-imagebox -->
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</section>
+
+<section class="flat-testimonial-contact clearfix fix-float-box bg-f7f7f7">
+  <div class="flat-testimonials-images">
+    <div class="flat-spacer clearfix" data-desktop="80" data-mobile="50" data-smobile="30"></div>
+    <div id="flat-testimonials-slider">
+      <ul class="slides">
+        {% for ct in testimonials %}
+        <li class="flex-active-slide" data-thumb="{{ ct.image_1URL }}">
+          <div class="testimonial  text-center">
+            <blockquote class="testimonial-text ">
+              {{ ct.testimonial }}
+            </blockquote>
+            <div class="author-info">
+              <h5 class="name"><a href="">{{ ct.name}}</a></h5>
+              <p class="info">Customer</p>
+            </div>
+          </div>
+        </li>
+        {% endfor %}
+      </ul><!-- /.slides -->
+    </div><!-- /.testimonial-slider -->
+    <div class="flat-spacer clearfix" data-desktop="80" data-mobile="50" data-smobile="30"></div>
+  </div><!-- /.flat-testimonials-images -->
+
+  <div class="flat-contact-us parallax parallax1" style="background-image: url('{% for i in theme %}   {{ i.background_contact_usURL }} {% endfor %} ');">
+    <div class="overlay"></div>
+
+    <div class="flat-row flat-form-contact-us ">
+      <div class="flat-title">
+        <h2 class="title text-white center-title {% if sent %} d-none {% endif %} ">Contact Us To Consult</h2>
+      </div>
+
+      {% if sent %}
+      <center>
+        <br>
+        <br>
+        <div class="flat-title text-white" style="color: white; ">
+          <h2 class="title text-white center-title">E-mail sent successfully. </h2>
+        </div>
+      </center>
+      {% else %}
+
+      {# <--! action="{% url 'website:solution_list' %}" required="" --> #}
+      <form class="form-contact-us" method="post">
+        {% csrf_token %}
+        <div class="row">
+          <div class="col">
+            {{ form.name }}
+          </div>
+          <div class="col">
+            {{ form.email }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            {{ form.message }}
+          </div>
+        </div>
+
+        <div class="text-center">
+          <button type="submit" id="btn-comment" class="btn-effect" name="btn-comment" >
+            SEND COMMENT
+          </button>
+        </div>
+      </form>
+
+
+      {% endif %}
+    </div>
+  </div> <!-- /.flat-contact-us -->
+</section> <!-- /.flat-testimonial-contact -->
+
+<section class="flat-row flat-whyus style3">
+  <div class="container">
+    <div class="flat-title">
+      <h2 class="title center-title">Why Choose Us</h2>
+    </div> <!-- /.flat-title -->
+
+    <div class="row">
+      {% for i in theme %}
+      <div class="col-lg-6 col-md-12">
+        <div class="flat-iconbox ">
+          <div class="iconbox iconbox-whyus style3">
+            <div class="iconbox-icon">
+              <i class="fa fa-briefcase"></i>
+            </div>
+            <div class="iconbox-content">
+              <h5 class="heading"><a href="">{{ i.why_choose_use_1_title }}</a></h5>
+              <p class="sub-heading">{{ i.why_choose_use_1_text }}</p>
+            </div>
+          </div> <!-- /.iconbox -->
+
+          <div class="iconbox iconbox-whyus style3">
+            <div class="iconbox-icon">
+              <i class="fa fa-thumbs-up"></i>
+            </div>
+            <div class="iconbox-content">
+              <h5 class="heading"><a href="">{{ i.why_choose_use_2_title }}</a></h5>
+              <p class="sub-heading">{{ i.why_choose_use_2_text }}</p>
+            </div>
+          </div> <!-- /.iconbox -->
+
+          <div class="iconbox iconbox-whyus style3">
+            <div class="iconbox-icon">
+              <i class="fa fa-heart"></i>
+            </div>
+            <div class="iconbox-content">
+              <h5 class="heading"><a href="">{{ i.why_choose_use_3_title }}</a></h5>
+              <p class="sub-heading">{{ i.why_choose_use_3_text }}</p>
+            </div>
+          </div> <!-- /.iconbox -->
+        </div> <!-- /.flat-iconbox -->
+      </div> <!-- /.col-md-6 -->
+      <div class="col-lg-6 col-md-12">
+        <div class="image-single">
+          <img src="{{ i.why_choose_use_imageURL }}" alt="standell">
+        </div> <!-- /.image-single -->
+      </div> <!-- /.col-md-6 -->
+      {% endfor %}
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</section> <!-- /.flat-whyus -->
+
+
+
+{% endblock %}
+
+{% block js %}
+
+<!-- Javascript -->
+<script src="{% static 'website/javascript/dclock.js' %}"></script>
+<script   src="{% static 'website/javascript/jquery.min.js' %}"></script>
+<script   src="{% static 'website/javascript/plugins.js' %}"></script>
+<script   src="{% static 'website/javascript/bootstrap.min.js' %}"></script>
+<script   src="{% static 'website/javascript/flex-slider.min.js' %}"></script>
+<script   src="{% static 'website/javascript/jquery-countTo.js' %}"></script>
+<script   src="{% static 'website/javascript/equalize.min.js' %}"></script>
+<script   src="{% static 'website/javascript/jquery.validate.min.js' %}"></script>
+<script   src="{% static 'website/javascript/main.js' %}"></script>
+
+
+<!-- Owl carousel js -->
+<script src="{% static 'website/javascript/owl.carousel.min.js' %}"></script>
+
+<!-- Slider -->
+<script src="{% static 'website/rev-slider/js/jquery.themepunch.tools.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/jquery.themepunch.revolution.min.js' %}"></script>
+<script src="{% static 'website/javascript/rev-slider.js' %}"></script>
+<!-- Load Extensions only on Local File Systems ! The following part can be removed on Server for On Demand Loading -->
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.actions.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.carousel.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.kenburn.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.layeranimation.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.migration.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.navigation.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.parallax.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.slideanims.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.video.min.js' %}"></script>
+
+{% endblock %}

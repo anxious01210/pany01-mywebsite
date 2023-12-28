@@ -1,0 +1,226 @@
+{% extends "website/base.html" %}
+{% load static %}
+{% load render_table from django_tables2 %}
+
+
+{% block head %}
+<title>PANY | Contact us</title>
+
+<meta name="author" content="themsflat.com">
+
+<!-- Mobile Specific Metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- Theme style -->
+<link rel="stylesheet" type="text/css" href="{% static "website/stylesheet/style.css" %}">
+
+<!-- Responsive -->
+<link rel="stylesheet" type="text/css" href="{% static "website/stylesheet/responsive.css" %}">
+
+{% endblock %}
+
+{% block body %}
+
+{% endblock %}
+
+{% block mainnav %}
+
+<div class="nav-wrap">
+  <nav id="mainnav" class="mainnav">
+    <ul class="menu">
+      <li>
+        <a href="{% url 'website:home' %}" title="">HOME</a>
+      </li>
+      <li>
+        <a href="{% url 'website:brand_list' %}" title="">BRANDS</a>
+      </li>
+      <li>
+        <a href="{% url 'website:solution_list' %}" title="">SOLUTIONS</a>
+      </li>
+      <li>
+        <a href="{% url 'website:project_list' %}" title="">PROJECTS</a>
+      </li>
+      <li>
+        <a href="{% url 'website:product_list' %}" title="">PRODUCTS</a>
+      </li>
+      <li>
+        <a href="{% url 'website:about_us' %}" title="">ABOUT US</a>
+      </li>
+      <li  class="active">
+        <a href="{% url 'website:contact_us' %}">CONTACT US</a>
+      </li>
+    </ul><!-- /.menu -->
+  </nav> <!-- /#mainnav -->
+</div> <!-- .nav-wrap -->
+
+{% endblock %}
+
+{% block content %}
+<div class="page-title parallax parallax1 " style="background-image: url('{% for i in theme %}   {{ i.header_background_contact_usURL }} {% endfor %} ');">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="page-title-content text-center">
+      <div class="page-title-heading ">
+        <h3 class="title"><a href="{% url 'website:contact_us' %}">CONTACT US</a></h3>
+      </div>
+      <div class="breadcrumbs">
+        <ul>
+          <li class="home"><a href="{% url 'website:home' %}">Home</a></li>
+          <li><a href="{% url 'website:contact_us' %}">Contact us</a></li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</div> <!-- /.page-title -->
+<br><br>
+
+
+
+<div class="container jumbotron">
+  <h1 class="">Our <span>Sale Points</span> </h1>
+  <br>
+
+  <div class="container ">
+    <form class=""  method="get">
+      <div class="row">
+
+        <div class="col-4 d-flex justify-content-between">
+          <span class="p-2">Name: </span>
+          {{ myFilter.form.name }}
+        </div>
+
+        <div class="col-4 d-flex justify-content-between">
+          <span class="p-2">City: </span>
+          {{ myFilter.form.city }}
+        </div>
+        <div class="col-3">
+
+          <button  type="submit" name="button"> Sale Points Search </button>
+        </div>
+
+      </div>
+
+
+    </form>
+  </div>
+
+  <table class="table table-hover table-light table-sm table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Address</th>
+        <th scope="col">City</th>
+        <th scope="col">Phone Number</th>
+        <th scope="col">E-mail</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in sale_points %}
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{ i.name }}</td>
+        <td>{{ i.address }}</td>
+        <td>{{ i.city }}</td>
+        <td>{{ i.phone_number }}</td>
+        <td>{{ i.email }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <div class="pagination row d-flex justify-content-center mt-5 mb-0" style="background-color: #d0d9c4">
+    <span class="step-links font-weight-bold p-0">
+      {% include "pagination.html" with page=sale_points %}
+    </span>
+  </div>
+  <br>
+</div>
+
+<div class="content-wrap main-contact-page pd-top-10 pd-bottom-80 jumbotron" style="background-image:  url('{% for i in theme %} {{ i.background_contact_usURL }} {% endfor %}') ">
+  <div class="container">
+
+    <div class="wrap-contact-page pd-top-80 ">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-12 border pb-5 mr-5" style="background-color: #dbe9e9;">
+            <div class=" flat-form-contact-us">
+              <div class="flat-title">
+
+              </div>
+              {% if sent %}
+              <center>
+              <h2>E-mail sent successfully. </h2>
+              <br>
+              <br>
+              <br>
+              <p>We will contact you soon.</p>
+              <p>Thank you for your time.</p>
+            </center>
+              {% else %}
+              <h3 class="title pb-4">Leave Your Message {{ name }}</h3>
+
+              <form  method="POST">
+                {% csrf_token %}
+
+                {{ form }}
+
+                <div class="">
+                  <br>
+                  <input type="submit" name="" value="Submit">
+                </div>
+              </form>
+              {% endif %}
+
+            </div>
+          </div>
+
+          <div class="col-md-3 col-sm-12 border ml-5"  style="background-color: #dbe9e9; ">
+            <div class="sidebar-right">
+              <div class="widget widget-logo-info widget-text sidebar-right pt-5">
+                <div class="flat-title">
+                  <h3 class="title">Our Office</h3>
+                </div>
+                <ul class="info">
+                  <li class="phone"><a href="" class="data-hover">(+964) 750 450 6664</a></li>
+                  <li class="phone"><a href="" class="data-hover">(+964) 750 757 5757</a></li>
+                  <li class="mail"><a href="" class="data-hover">info@panycompany.com
+                    info@panycompany.com</a></li>
+                    <li class="address"><a href="#" class="data-hover">Ibrahim Khalil,  420011, Zakho - Iraq</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- /.content-wrap -->
+
+
+
+
+
+<br><br>
+  {% endblock %}
+
+  {% block partners %}
+  {{ block.super }}
+  {% endblock %}
+
+  {% block js %}
+  <!-- Javascript -->
+  <script src="{% static 'website/javascript/dclock.js' %}"></script>
+  <script src="{% static 'website/javascript/jquery.min.js' %}"></script>
+  <script src="{% static 'website/javascript/plugins.js' %}"></script>
+  <script src="{% static 'website/javascript/bootstrap.min.js' %}"></script>
+  <script src="{% static 'website/javascript/flex-slider.min.js' %}"></script>
+  <script src="{% static 'website/javascript/jquery-countTo.js' %}"></script>
+  <script src="{% static 'website/javascript/equalize.min.js' %}"></script>
+  <script src="{% static 'website/javascript/gmap3.min.js' %}"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtwK1Hd3iMGyF6ffJSRK7I_STNEXxPdcQ&region=GB"></script>
+  <script src="{% static 'website/javascript/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'website/javascript/jquery.validate.min.js' %}"></script>
+  <script src="{% static 'website/javascript/main.js' %}"></script>
+  {% endblock %}

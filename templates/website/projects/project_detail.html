@@ -1,0 +1,245 @@
+{% extends "website/base.html" %}
+{% load static %}
+
+{% block head %}
+
+<title>PANY | Project Detail</title>
+
+<meta name="author" content="themsflat.com">
+
+<!-- Mobile Specific Metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- Theme style -->
+<link rel="stylesheet" type="text/css" href="{% static "website/stylesheet/style.css" %}">
+
+<!-- Responsive -->
+<link rel="stylesheet" type="text/css" href="{% static "website/stylesheet/responsive.css" %}">
+
+
+{% endblock %}
+
+{% block body %}
+
+{% endblock %}
+
+{% block mainnav %}
+<div class="nav-wrap">
+  <nav id="mainnav" class="mainnav">
+    <ul class="menu">
+      <li>
+        <a class="text-shadow1" href="{% url 'website:home' %}" title="">HOME</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:brand_list' %}" title="">BRANDS</a>
+      </li>
+      <li class="active">
+        <a class="text-shadow1" href="{% url 'website:project_list' %}" title="">PROJECTS</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:category_list' %}" title="">PRODUCTS</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:about_us' %}" title="">ABOUT US</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:contact_us' %}">CONTACT US</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'library:pdffile_list' %}" title="">DOCUMENTS</a>
+      </li>
+    </ul><!-- /.menu -->
+  </nav> <!-- /#mainnav -->
+</div> <!-- .nav-wrap -->
+{% endblock %}
+
+{% block content %}
+
+<div class="page-title" >
+    <div id="background" style="">
+        <img style="position: scroll;" src="{% for i in theme %}   {{ i.header_background_projectURL }} {% endfor %}" class="stretch" alt="" />
+    </div>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="page-title-content text-center">
+      <div class="page-title-heading ">
+        <h3 class="title text-shadow1"><a href="">PROJECT DETAILS</a></h3>
+      </div>
+      <div class="breadcrumbs">
+        <ul>
+          <li class="home text-shadow1"><a href="{% url 'website:home' %}">Home</a></li>
+          <li><a class="text-shadow1" href="{% url 'website:project_list' %}">Projects</a></li>
+          <li><a class="text-shadow1" href="{% url 'website:project_detail' project.slug %}">Project Details</a></li>
+          <li><a class="text-shadow1" href=""> {{ project.name }} </a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div> <!-- /.page-title -->
+
+<center>
+
+
+  <div class="content-wrap main-project-detail pd-top-80 pd-bottom-60">
+
+    <hr class="w-25">
+    <br>
+    <div class="wrap-project-detail">
+      <div class="container">
+        <div class="row">
+
+          <div class="col">
+            <div class="project-content">
+              <div class="textbox textbox-project-detail pb-4">
+                <h3 class="textbox-heading pb-2"><a href="#">Project: {{ project.name }}</a></h3>
+                <div class="row justify-content-center">
+                  <div class="imagebox imagebox-project style4 v2">
+                    <div class="imagebox-border">
+                      <div class="imagebox-image ">
+                        <img src="{{ project.image_1URL }}" alt="standell" width="770px" height="530px">
+
+                      </div>
+                    </div> <!-- /.imagebox-image -->
+                  </div> <!-- /.imagebox-image -->
+
+
+                </div>
+                  <div class="textbox-content pt-4">
+                    <p>
+                      {{ project.description_1 }}
+                    </p>
+                  </div>
+              </div>
+                </div>
+                    {% if project.challenge %}
+                      <div class="textbox-content pt-4">
+                        <p>
+                          <strong>Project Challenge(s):</strong> {{ project.challenge }}
+                        </p>
+                      </div>
+                    {% endif %}
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /.wrap-project-detail -->
+
+
+
+<hr>
+<hr>
+
+
+    <div class="flat-title">
+        <h3 class="title center-title pt-4">Products used in the Project</h3>
+    </div> <!-- /.flat-title -->
+
+    <center>
+        <div class="container d-flex justify-content-center align-items-center">
+            <div class="row d-flex justify-content-center align-items-center mb-3 pb-3">
+                <p class="woocommerce-result-count">
+                    Total: {{ project.products.all|length }} result(s)
+                </p>
+                <div class="row">
+                    {% for i in project.products.all %}
+
+                        <div class="col m-2">
+                        <a href="{{ product.get_absolute_url }}">
+
+                        <div class="p-2 zoom">
+                          <img class="img-thumbnail" src="{{ i.image_1URL }}" alt="product" style="max-width:200px; max-height:200px;" height="200" width="200">
+
+                        </div>
+                        <br>
+                        <div class="text-center">
+                          <h5>{{ i.name|truncatechars:18 }}</h5>
+                        </div>
+                      </a>
+
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </center>
+<hr>
+<hr>
+
+
+  </center>
+  {% endblock %}
+
+
+  {% block partners %}
+  {{ block.super }}
+  {% endblock %}
+
+
+  {% block js %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <!-- The owlCarousel-script must come after jQuery.js/jQuery.css/owlCarousel.js -->
+    <script>
+      $(".slider").owlCarousel({
+        margin:10,
+        autoWidth:false,
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: true,
+        responsiveClass:true,
+        responsive:{
+            0:{
+                items:1,
+                nav:true
+            },
+            600:{
+                items:3,
+                nav:false
+            },
+            1000:{
+                items:6,
+                nav:false
+            },
+            1800:{
+                items:7,
+                nav:false
+            }
+        }
+      });
+    </script>
+
+  <!-- Javascript -->
+  <script src="{% static "website/javascript/iPhone.js" %}"></script>
+  <script src="{% static 'website/javascript/dclock.js' %}"></script>
+  <script src="{% static 'website/javascript/jquery.min.js' %}"></script>
+  <script src="{% static 'website/javascript/plugins.js' %}"></script>
+  <script src="{% static 'website/javascript/bootstrap.min.js' %}"></script>
+  <script src="{% static 'website/javascript/equalize.min.js' %}"></script>
+  <script src="{% static 'website/javascript/jquery.validate.min.js' %}"></script>
+  <script src="{% static 'website/javascript/main.js' %}"></script>
+  <!--<script src="{% static 'website/javascript/jquery-countTo.js' %}"></script>-->
+
+
+  <!-- Owl carousel js -->
+  <script src="{% static 'website/javascript/owl.carousel.min.js' %}"></script>
+
+  <!-- Slider -->
+  <!--<script src="{% static 'website/rev-slider/js/jquery.themepunch.tools.min.js' %}"></script>-->
+  <!--<script src="{% static 'website/rev-slider/js/jquery.themepunch.revolution.min.js' %}"></script>-->
+  <!--<script src="{% static 'website/javascript/rev-slider.js' %}"></script>-->
+  <!-- Load Extensions only on Local File Systems ! The following part can be removed on Server for On Demand Loading -->
+  <!--<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.actions.min.js' %}"></script>-->
+  <!--<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.carousel.min.js' %}"></script>-->
+  <!--<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.kenburn.min.js' %}"></script>-->
+  <!--<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.layeranimation.min.js' %}"></script>-->
+  <!--<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.migration.min.js' %}"></script>-->
+  <!--<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.navigation.min.js' %}"></script>-->
+  <!--<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.parallax.min.js' %}"></script>-->
+  <!--<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.slideanims.min.js' %}"></script>-->
+  <!--<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.video.min.js' %}"></script>-->
+  {% endblock %}

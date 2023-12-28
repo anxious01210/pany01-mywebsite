@@ -1,0 +1,192 @@
+{% extends "website/base.html" %}
+{% load static %}
+
+{% block head %}
+
+<title>PANY | Project List</title>
+
+<meta name="author" content="themsflat.com">
+
+<!-- Mobile Specific Metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- Theme style -->
+<link rel="stylesheet" type="text/css" href="{% static "website/stylesheet/style.css" %}">
+
+<!-- Responsive -->
+<link rel="stylesheet" type="text/css" href="{% static "website/stylesheet/responsive.css" %}">
+
+
+{% endblock %}
+
+{% block body %}
+
+{% endblock %}
+
+{% block mainnav %}
+<div class="nav-wrap">
+  <nav id="mainnav" class="mainnav">
+    <ul class="menu">
+      <li>
+        <a class="text-shadow1" href="{% url 'website:home' %}" title="">HOME</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:brand_list' %}" title="">BRANDS</a>
+      </li>
+      <li class="active">
+        <a class="text-shadow1" href="{% url 'website:project_list' %}" title="">PROJECTS</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:category_list' %}" title="">PRODUCTS</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:about_us' %}" title="">ABOUT US</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:contact_us' %}">CONTACT US</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'library:pdffile_list' %}" title="">DOCUMENTS</a>
+      </li>
+    </ul><!-- /.menu -->
+  </nav> <!-- /#mainnav -->
+</div> <!-- .nav-wrap -->
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="page-title  " >
+    <div id="background" style="">
+        <img  src="{% for i in theme %}   {{ i.header_background_projectURL }} {% endfor %}" class="stretch" alt="" />
+    </div>
+  <div class="overlay "></div>
+  <div class="container">
+    <div class="page-title-content text-center">
+      <div class="page-title-heading ">
+        <h3 class="title text-shadow1"><a href="{% url 'website:project_list' %}">PROJECT LIST</a></h3>
+      </div>
+      <div class="breadcrumbs">
+        <ul>
+          <li class="home text-shadow1"><a href="{% url 'website:home' %}">Home</a></li>
+          <li><a class="text-shadow1" href="{% url 'website:project_list' %}">Project list </a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div> <!-- /.page-title -->
+
+<div class="wrap-content main-project project-v1 pt-0">
+  <section class="flat-projects style3">
+    <div class="container">
+      <div class="row  ">
+        <div class="col-md-12">
+          <div class="flat-portfolio portfolio-project jumbotron pt-3 pb-2">
+            <h4>Filter by Project City:</h4>
+            <hr>
+            <ul class="portfolio-filter clearfix">
+              <li class="active"><a href="#" data-filter="*">All</a></li>
+              {% for city in menu_projects_cities %}
+              <li><a href="#" data-filter=".{{ city }}">{{ city }}</a></li>
+              {% endfor %}
+            </ul> <!-- /.portfolio-filter -->
+          </div> <!-- /flat-portfolio -->
+        </div> <!-- /.col-md-12 -->
+      </div> <!-- /.row -->
+      <br>
+      <br>
+
+      <div class="portfolio-wrap">
+        <div class="container pb-3">
+
+          <h5>Total number: {{ project_count }}</h5>
+        </div>
+        <div class="flat-imagebox isotope-project">
+          {% for project in projects %}
+
+
+          <div class="imagebox style3  {{ project.city }} ">
+            <a href="{% url 'website:project_detail' project.slug %}">
+              <div class="imagebox-image ">
+                <img class="img-thumbnail" src="{{ project.image_1URL }}" alt="PANY" >
+                <div class="overlay"></div>
+              </div>
+              <div class="imagebox-content">
+                <h3 class="heading"><a href="{{ get_absolute_url }}">{{ project }}</a></h3>
+                {% for c in project.categories.all %}
+                <h4 id="hover-pc01" class="heading"><a href="{% url 'website:product_list_by_category' c.slug %}"> {{ c }} </a></h4>
+                {% endfor %}
+                <div class="meta-project">
+                </div>
+              </div>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>  <!-- /.portfolio-wrap -->
+  </div> <!-- /.container-fluid -->
+
+
+  <hr>
+  <hr>
+
+</section>
+<div class="pagination row d-flex justify-content-center" style="background-color: #d0d9c4">
+  <span class="step-links font-weight-bold p-2">
+    {% include "pagination.html" with page=projects %}
+  </span>
+</div>
+
+{% endblock %}
+
+
+{% block partners %}
+
+    <center>
+      <div class="partner-clients">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="slide-client owl-carousel" data-auto="true" data-item="3" data-nav="false" data-dots="false">
+                {% for i  in brands %}
+                <div class="client">
+                  <a href="{% url 'website:brand_detail' i.slug %}">
+                    <img class="mx-5 px-5" src="{{ i.logoURL }}"  alt="PANY" style="max-width: 200px; ">
+                    <img  class="mx-5 px-5" src="{{ i.logo_hoverURL }}" alt="PANY" style="max-width: 200px; ">
+                  </a>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- /.partner-clients -->
+    </center>
+{% endblock %}
+
+
+{% block js %}
+    <!-- Javascript -->
+    <script src="{% static 'website/javascript/dclock.js' %}"></script>
+    <!-- Javascript -->
+    <script src="{% static 'website/javascript/jquery.min.js' %}"></script>
+    <script src="{% static 'website/javascript/plugins.js' %}"></script>
+    <script src="{% static 'website/javascript/bootstrap.min.js' %}"></script>
+    <script src="{% static 'website/javascript/flex-slider.min.js' %}"></script>
+    <script src="{% static 'website/javascript/jquery-countTo.js' %}"></script>
+    <script src="{% static 'website/javascript/jquery-fancybox.js' %}"></script>
+    <script src="{% static 'website/javascript/equalize.min.js' %}"></script>
+    <script src='{% static 'website/javascript/jquery-isotope.js' %}'></script>
+    <script src="{% static 'website/javascript/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'website/javascript/main.js' %}"></script>
+
+    <!-- Owl carousel js -->
+    <script src="{% static 'website/javascript/owl.carousel.js' %}"></script>
+
+    <!-- Slider -->
+    <script src="{% static 'website/rev-slider/js/jquery.themepunch.tools.min.js' %}"></script>
+    <script src="{% static 'website/rev-slider/js/jquery.themepunch.revolution.min.js' %}"></script>
+    <script src="{% static 'website/javascript/rev-slider.js' %}"></script>
+{% endblock %}

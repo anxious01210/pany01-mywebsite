@@ -1,0 +1,212 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"><!--<![endif]-->
+<head>
+  <!-- Basic Page Needs -->
+  <meta charset="UTF-8">
+  <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="{% static "website/apple-touch-icon.png" %}">
+<link rel="icon" type="image/png" sizes="32x32" href="{% static "website/favicon-32x32.png" %}">
+<link rel="icon" type="image/png" sizes="16x16" href="{% static "website/favicon-16x16.png" %}">
+<link rel="manifest" href="{% static "website/site.webmanifest" %}">
+<link rel="mask-icon" href="{% static "website/safari-pinned-tab.svg" %}" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+  {% block head %}
+
+  {% endblock %}
+
+</head>
+<body class="{% block body %}     {% endblock %}">
+  <div id="loading-overlay">
+    <div class="loader"></div>
+  </div> <!-- /.loading-overlay -->
+
+  <div class="top">
+    <div class="container-fluid">
+      <div class="row ">
+        <div class="col-11 col-lg-9  col-sm-12 px-5 align-items-center align-self-center">
+          <div class="flat-custom-info ">
+            <ul class="custom-info">
+            {% for i in theme %}
+              <li class="phone"><a href="">{{ i.phone_number }}</a></li>
+            {% endfor %}
+              <li class="mail"><a href="{% url 'website:contact_us' %}">info@panycompany.com</a></li>
+              <li class="datetime" ><a href="">{{ date|date:"D d M Y" }}</a></li>
+              <li class="time text-center" ><a href="" class="clock display"></a></li>
+            </ul>
+          </div><!-- /.custom-info -->
+        </div><!-- /.col-md-8 -->
+
+        <div class="col-auto px-5  align-items-center align-self-center text-center">
+          <div class=" text-right">
+            <ul class="nav social user-section">
+              <li class="nav-item" href="" title="Instagram">
+                <a class="nav-link" href="https://www.instagram.com/pany_company">
+                  <i class="fa fa-instagram" style="font-size:18px"></i>
+                </a>
+              </li>
+              <li class="nav-item" href="" title="Facebook">
+                <a class="nav-link" href="https://www.facebook.com/pany.company">
+                  <i class="fa fa-facebook-square" style="font-size:18px"></i>
+                </a>
+              </li>
+              <li class="nav-item" href="" title="Youtube">
+                <a class="nav-link" href="https://www.youtube.com/channel/UCwkM7QV3r37--dqMhyptyIg">
+                  <i class="fa fa-youtube-square" style="font-size:18px"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div> <!-- /.top header right-side social icons -->
+      </div>  <!-- /.row -->
+    </div> <!-- /.container -->
+  </div> <!-- /.Top -->
+
+  <header id="header" class="style3">
+    <div class="container-fluid container-header ">
+      <div class="row " >
+        <div class="col" >
+          <div class=" header-wrap style3 clearfix d-flex justify-content-between pl-lg-4 ">
+            <div id="logo" class="pb-0 pl-0  ">
+              <a href="{% url 'website:home' %}"><img src="{% for i in theme %}  {{ i.pany_logoURL }}   {% endfor %}" alt="logo" width="128" height="26" data-retina="{% for i in theme %}  {{ i.pany_logo_retinaURL }}   {% endfor %}" data-width="128" data-height="26"></a>
+            </div> <!-- /#logo -->
+            <div class="m-5 position-absolute">
+                <div class="mobile-button">
+                  <span></span>
+                </div>
+            </div>
+
+
+
+            {% block mainnav %}
+
+            {% endblock %}
+
+                <div class="row d-flex align-items-center d-inline d-flex flex-row">
+                    <div class="pr-1">
+                       <a class="link-hover" id="link-hover"   href="{{ menu_annual_catalogue.catalogue_pdf_URL }}" title=""><p class="border border-danger rounded px-1 ">Download Catalogue</p> </a>
+                    </div>
+                    <form class="form-inline px-0 mx-0 my-2 my-lg-0 d-flex" method=POST action="{% url 'website:category_list' %}">
+
+                        {% csrf_token %}
+                        <input class="form-control form-control-sm d-inline-flex mr-sm-2" style="font-size: small; padding: 4px; height: 25px;" type="search" placeholder="Search Products" aria-label="Search" name="p.name">
+                        <button class="btn btn-sm btn-outline-danger my-2 my-sm-0 " style="font-size: small; padding: 4px; height: 25px;" type="submit">Search</button>
+
+                    </form>
+                </div>
+          </div> <!-- /.header-wrap -->
+        </div>
+      </div> <!-- /.row -->
+    </div> <!-- container -->
+
+  </header> <!-- /#header -->
+
+
+
+  {% block content %}
+
+  {% endblock %}
+
+  {% block partners %}
+
+
+    <center>
+      <div class="partner-clients">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="slide-client owl-carousel" data-auto="true" data-item="5" data-nav="false" data-dots="false">
+                {% for i  in brands %}
+                <div class="client">
+                  <a href="{% url 'website:brand_detail' i.slug %}">
+                    <img class="" src="{{ i.logoURL }}"  alt="PANY" style="max-width: 100px; max-height: 100px;">
+                    <img class="" src="{{ i.logo_hoverURL }}" alt="PANY" style="max-width: 100px; max-height: 100px;">
+                  </a>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- /.partner-clients -->
+    </center>
+  {% endblock %}
+
+  <footer id="footer">
+    <div class="footer-widgets pd-top-100 pd-bottom-80" style="background-image: url('{% for i in theme %}  {{ i.footer_imageURL }}  {% endfor %}');">
+      <div class="container">
+        <div class="row">
+          <div class="col-1">
+
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="widget widget-about">
+
+              <div id="logo-ft">
+                <a href="{% url 'website:home' %}"><img src="{% for i in theme %}  {{ i.pany_logoURL }}   {% endfor %}" alt="logo-ft"  width="128" height="26" data-retina="{% for i in theme %}  {{ i.pany_logo_retinaURL }}   {% endfor %}" data-width="128" data-height="26"></a>
+              </div>
+              <div class="copyright">
+                <p class="text-widget pd-right-40 text-white">© <a class="font-weight-bold" style="letter-spacing: 4px; " href="{% url 'website:home' %}">PANYCOMPANY</a> <br> All Right Reserved.</p>
+              </div>
+              <ul class="social">
+                <li>
+                  <a class="" href="https://www.instagram.com/pany_company" title="Instagram">
+                    <i class="fa fa-instagram" style="font-size:24px; "></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="" href="https://www.facebook.com/pany.company" title="Facebook">
+                    <i class="fa fa-facebook-square" style="font-size:24px; "></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="" href="https://www.youtube.com/channel/UCwkM7QV3r37--dqMhyptyIg" title="Youtube">
+                    <i class="fa fa-youtube-square" style="font-size:24px; "></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="widget widget-contact">
+              <div class="widget widget-about">
+                <div class="copyright">
+                    {% for i in theme %}
+                        <p class=" text-widget  text-white"> <a class="font-weight-bold lead" style="font-size: 16px;" href="">{{ i.phone_number }}</a> </p>
+                    {% endfor %}
+                </div>
+              </div>
+              <p class="text-widget text-white">info@panycompany.com </p>
+              <p class="text-widget pd-right-40 text-white" >Ibrahim Khalil <br> 42002, Zakho - Iraq </p>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6">
+            <div class="widget widget-services">
+              <ul>
+                <li><a class=" text-white" href="{% url 'website:brand_list' %}">Brands</a></li>
+                <li><a class=" text-white" href="{% url 'website:project_list' %}">Projects</a></li>
+                <li><a class=" text-white" href="{% url 'website:category_list' %}">Products</a></li>
+                <li><a class=" text-white" href="{% url 'website:about_us' %}">About us</a></li>
+                <li><a class=" text-white" href="{% url 'website:contact_us' %}">Contact us</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer> <!-- /#footer -->
+
+  <a id="scroll-top"></a> <!-- /#scroll-top -->
+
+  {% block js %}
+
+  {% endblock %}
+
+</body>
+</html>

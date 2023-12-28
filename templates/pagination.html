@@ -1,0 +1,19 @@
+{% load extras %}
+<div class="pagination" style="font-size: 110%;">
+  <span class="step-links">
+    {% if page.has_previous %}
+    <a class="px-2" href="{% my_url 1 'page' request.GET.urlencode %}">&laquo; First</a>
+    <a href="{% my_url page.previous_page_number 'page' request.GET.urlencode %}">Previous</a>
+    {% endif %}
+    <span class="current px-3">
+
+
+      Page {{ page.number }}  of {{ page.paginator.num_pages }}.
+
+    </span>
+    {% if page.has_next %}
+    <a href="{% my_url page.next_page_number 'page' request.GET.urlencode %}">Next</a>
+    <a class="px-2" href="{% my_url page.paginator.num_pages 'page' request.GET.urlencode %}">Last &raquo;</a>
+    {% endif %}
+  </span>
+</div>

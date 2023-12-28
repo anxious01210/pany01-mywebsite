@@ -1,0 +1,357 @@
+{% extends "website/base.html" %}
+
+{% load static %}
+
+{% block head %}
+<title>PANY | Product Detail</title>
+
+<meta name="author" content="themsflat.com">
+
+<!-- Mobile Specific Metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- Theme style -->
+<link rel="stylesheet" type="text/css" href="{% static 'website/stylesheet/style.css' %}">
+
+<!-- Woocomerce -->
+<link rel="stylesheet" type="text/css" href="{% static 'website/stylesheet/woocommerce.css' %}">
+
+<!-- Responsive -->
+<link rel="stylesheet" type="text/css" href="{% static 'website/stylesheet/responsive.css' %}">
+
+
+{% endblock %}
+
+{% block body %}
+woocommerce woocommerce-page
+{% endblock %}
+
+{% block mainnav %}
+<div class="nav-wrap">
+  <nav id="mainnav" class="mainnav">
+    <ul class="menu">
+      <li>
+        <a class="text-shadow1" href="{% url 'website:home' %}" title="">HOME</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:brand_list' %}" title="">BRANDS</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:project_list' %}" title="">PROJECTS</a>
+      </li>
+      <li class="active">
+        <a class="text-shadow1" href="{% url 'website:category_list' %}" title="">PRODUCTS</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:about_us' %}" title="">ABOUT US</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:contact_us' %}">CONTACT US</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'library:pdffile_list' %}" title="">DOCUMENTS</a>
+      </li>
+    </ul><!-- /.menu -->
+  </nav> <!-- /#mainnav -->
+</div> <!-- .nav-wrap -->
+{% endblock %}
+
+{% block content %}
+
+<div class="page-title" >
+    <div id="background" style="">
+        <img  src="{% for i in theme %}   {{ i.header_background_productURL }} {% endfor %}" class="stretch" alt="" />
+    </div>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="page-title-content text-center">
+      <div class="page-title-heading ">
+        <h3 class="title text-shadow1"><a href="{{ product.get_absolute_url }}">PRODUCT DETAILS</a></h3>
+      </div>
+      <div class="breadcrumbs">
+        <ul>
+          <li class="home text-shadow1"><a href="{% url 'website:home' %}">Home</a></li>
+          <li><a class="text-shadow1" href="{% url 'website:product_list' %}">Products</a></li>
+          <li><a class="text-shadow1" href="{% url 'website:product_detail' product.id product.slug %}">Product Details</a></li>
+          <li><a class="text-shadow1" href=""> {{ product.name }} </a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div> <!-- /.page-title -->
+
+
+
+<section class=" pd-top-80 pd-bottom-60 main-shop-detail">
+    <div class="container pb-3 text-center">
+    <h1 class="product_title"> {{ product.name }}  </h1>
+    </div>
+    <div class="container d-flex justify-content-center mb-4">
+      <p class="p-0 text-justify">{{ description01|safe }}<span id="dots">...</span><span id="more">{{ description02|safe }}</span>
+        <button type="button" class="btn btn-light btn-sm w-auto p-0 m-0" style="height: 22px;"  onclick="readMore()" id="readMoreBtn"><p class="text-lowercase">Read more</p></button>
+    </div>
+    <div class="container">
+
+
+    <div class="row d-flex justify-content-between align-items-between">
+      <div class="col">
+        <div class="content-wrap-woocommerce">
+          <div class="main-content-woocommerce">
+            <div class="product type-product clearfix">
+
+              <div class="images">
+                  <div class="row d-flex justify-content-between align-items-between">
+                    <div class="col">
+                        <img  src="{{ product.image_1URL }}" alt="." width="300" height="300">
+                    </div>
+                    {% if product.image_2URL != "" %}
+                        <div class="col">
+                            <img  src="{{ product.image_2URL }}" alt="." width="300" height="300">
+                        </div>
+
+                    {% endif %}
+                  </div>
+              </div>
+              <div class="images summary entry-summary  ">
+                <br>
+                {% if product.category != None %}
+                    <p><strong>Category:</strong> {{ product.category }} </p>
+
+                {% endif  %}
+
+                {% if product.brand != None %}
+                    <p><strong>Brand:</strong> {{ product.brand }} </p>
+
+                {% endif  %}
+
+                {% if product.features != "" %}
+                    <p ><strong>Features:</strong> {{ product.features }} </p>
+
+                {% endif  %}
+
+                {% if product.application != "" %}
+                    <p ><strong>Application:</strong> {{ product.application }} </p>
+
+                {% endif  %}
+
+                {% if product.packaging != "" %}
+                    <p ><strong>Packaging:</strong> {{ product.packaging }} </p>
+                {% endif  %}
+
+                {% if product.type != "" %}
+                    <p ><strong>Type:</strong> {{ product.type }} </p>
+                {% endif  %}
+
+                {% if product.size != "" %}
+                    <p ><strong>Size:</strong> {{ product.size }} </p>
+                {% endif  %}
+
+                {% if product.mesh_size != "" %}
+                    <p ><strong>Mesh size:</strong> {{ product.mesh_size }} </p>
+                {% endif  %}
+
+                {% if product.mass_per_unit != "" %}
+                    <p ><strong>Mass per unit:</strong> {{ product.mass_per_unit }} </p>
+                {% endif  %}
+
+                {% if product.weight != "" %}
+                    <p ><strong>Weight:</strong> {{ product.weight }} </p>
+                {% endif  %}
+
+                {% if product.shelf_life != "" %}
+                    <p ><strong>Shelf life:</strong> {{ product.shelf_life }} </p>
+                {% endif  %}
+
+                {% if product.consumption != "" %}
+                    <p ><strong>Consumption:</strong> {{ product.consumption }} </p>
+                {% endif  %}
+
+                {% if product.coverage != "" %}
+                    <p ><strong>Coverage:</strong> {{ product.coverage }} </p>
+                {% endif  %}
+
+                {% if product.application_tools != "" %}
+                    <p ><strong>Application tools:</strong> {{ product.application_tools }} </p>
+                {% endif  %}
+
+                {% if product.application_area != "" %}
+                    <p ><strong>Application area:</strong> {{ product.application_area }} </p>
+                {% endif  %}
+
+                {% if product.mixing_ratio != "" %}
+                    <p ><strong>Mixing ratio:</strong> {{ product.mixing_ratio }} </p>
+                {% endif  %}
+
+                {% if product.color != "" %}
+                    <p ><strong>Color:</strong> {{ product.color }} </p>
+                {% endif  %}
+
+                {% if product.thinner != "" %}
+                    <p ><strong>Thinner:</strong> {{ product.thinner }} </p>
+                {% endif  %}
+
+                {% if product.waiting_time_between_the_coats != "" %}
+                    <p ><strong>Waiting time between the coats:</strong> {{ product.waiting_time_between_the_coats }} </p>
+                {% endif  %}
+
+                {% if product.pot_life != "" %}
+                    <p ><strong>Pot life:</strong> {{ product.pot_life }} </p>
+                {% endif  %}
+
+                {% if product.first_component != "" %}
+                    <p ><strong>First component:</strong> {{ product.first_component }} </p>
+                {% endif  %}
+
+                {% if product.second_component != "" %}
+                    <p ><strong>Second component:</strong> {{ product.second_component }} </p>
+                {% endif  %}
+
+                {% if product.third_component != "" %}
+                    <p ><strong>Third component:</strong> {{ product.third_component }} </p>
+                {% endif  %}
+
+                {% if product.composition != "" %}
+                    <p ><strong>Composition:</strong> {{ product.composition }} </p>
+                {% endif  %}
+
+                {% if product.tack_free_drying_time != "" %}
+                    <p ><strong>Tack free drying time:</strong> {{ product.tack_free_drying_time }} </p>
+                {% endif  %}
+
+                {% if product.complete_drying_time != "" %}
+                    <p ><strong>Cdensityomplete drying time:</strong> {{ product.complete_drying_time }} </p>
+                {% endif  %}
+
+                {% if product.density != "" %}
+                    <p ><strong>Density:</strong> {{ product.density }} </p>
+                {% endif  %}
+
+                {% if product.surface_temperature != "" %}
+                    <p ><strong>Surface temperature:</strong> {{ product.surface_temperature }} </p>
+                {% endif  %}
+
+                {% if product.application_temprature != "" %}
+                    <p ><strong>Application temprature:</strong> {{ product.application_temprature }} </p>
+                {% endif  %}
+
+                {% if product.dimensions != "" %}
+                    <p ><strong>Dimensions:</strong> {{ product.dimensions }} </p>
+                {% endif  %}
+
+                {% if product.length != "" %}
+                    <p ><strong>Length:</strong> {{ product.length }} </p>
+                {% endif  %}
+
+                {% if product.width != "" %}
+                    <p ><strong>Width:</strong> {{ product.width }} </p>
+                {% endif  %}
+
+                {% if product.surface != "" %}
+                    <p ><strong>Surface:</strong> {{ product.surface }} </p>
+                {% endif  %}
+
+                {% if product.thickness != "" %}
+                    <p ><strong>Thickness:</strong> {{ product.thickness }} </p>
+                {% endif  %}
+
+                {% if product.cutting_type != "" %}
+                    <p ><strong>Cutting type:</strong> {{ product.cutting_type }} </p>
+                {% endif  %}
+
+                {% if product.body != "" %}
+                    <p ><strong>Body:</strong> {{ product.body }} </p>
+                {% endif  %}
+
+                {% if product.resistance != "" %}
+                    <p ><strong>Resistance:</strong> {{ product.resistance }} </p>
+                {% endif  %}
+
+                {% if product.resistance_to_solvents_and_oils != "" %}
+                    <p ><strong>Resistance to solvents and oils:</strong> {{ product.resistance_to_solvents_and_oils }} </p>
+                {% endif  %}
+
+                {% if product.resistance_to_acids_and_alkali != "" %}
+                    <p ><strong>Resistance to acids and alkali:</strong> {{ product.resistance_to_acids_and_alkali }} </p>
+                {% endif  %}
+
+                {% if product.thermal_conductivity != "" %}
+                    <p ><strong>Thermal conductivity:</strong> {{ product.thermal_conductivity }} </p>
+                {% endif  %}
+
+                {% if product.fire_resistance != "" %}
+                    <p ><strong>Fire resistance:</strong> {{ product.fire_resistance }} </p>
+                {% endif  %}
+
+                {% if product.compression_resistance != "" %}
+                    <p ><strong>Compression resistance:</strong> {{ product.compression_resistance }} </p>
+                {% endif  %}
+
+                {% if product.compression_strength != "" %}
+                    <p ><strong>Compression strength:</strong> {{ product.compression_strength }} </p>
+                {% endif  %}
+
+
+
+                {% if product.technical_manualURL != "" %}
+                    <a href="{{ product.technical_manualURL }}"> Technical Manual </a>
+
+                {% endif  %}
+
+                {% if product.product_manualURL != "" %}
+                    <p ><a href="{{ product.product_manualURL }}"> Product Manual </a></p>
+                {% endif  %}
+
+              </div>
+
+
+            </div> <!-- /.product-detail -->
+          </div>
+        </div>
+      </div> <!-- /.col-md-12 -->
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</section> <!--/.main-shop-detail -->
+
+
+
+
+{% endblock %}
+
+
+{% block partners %}
+{{ block.super }}
+{% endblock %}
+
+
+
+{% block js %}
+<!-- Javascript -->
+<script src="{% static 'website/javascript/dclock.js' %}"></script>
+<script src="{% static 'website/javascript/jquery.min.js' %}"></script>
+<script src="{% static 'website/javascript/plugins.js' %}"></script>
+<script src="{% static 'website/javascript/bootstrap.min.js' %}"></script>
+<script src="{% static 'website/javascript/equalize.min.js' %}"></script>
+<script src="{% static 'website/javascript/jquery-countTo.js' %}"></script>
+<script src="{% static 'website/javascript/jquery.validate.min.js' %}"></script>
+<script src="{% static 'website/javascript/main.js' %}"></script>
+
+
+
+<!-- Owl carousel js -->
+<script src="{% static 'website/javascript/owl.carousel.min.js' %}"></script>
+
+<!-- Slider -->
+<script src="{% static 'website/rev-slider/js/jquery.themepunch.tools.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/jquery.themepunch.revolution.min.js' %}"></script>
+<script src="{% static 'website/javascript/rev-slider.js' %}"></script>
+<!-- Load Extensions only on Local File Systems ! The following part can be removed on Server for On Demand Loading -->
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.actions.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.carousel.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.kenburn.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.layeranimation.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.migration.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.navigation.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.parallax.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.slideanims.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.video.min.js' %}"></script>
+{% endblock %}

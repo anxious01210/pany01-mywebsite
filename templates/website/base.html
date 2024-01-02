@@ -23,6 +23,10 @@
 
 </head>
 <body class="{% block body %}     {% endblock %}">
+  {% comment %} 
+    dummy <script> tag right after <body>, so that Firefox will show the page after all the css from <head> is loaded 
+  {% endcomment %}
+  <script>0</script> 
   <div id="loading-overlay">
     <div class="loader"></div>
   </div> <!-- /.loading-overlay -->

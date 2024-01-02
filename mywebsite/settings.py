@@ -20,18 +20,25 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'j*kxps1yp+5s$f$(3%jfhy$m)+56wd)+rqhoil#gv&tqp*optc'
+SECRET_KEY = "j*kxps1yp+5s$f$(3%jfhy$m)+56wd)+rqhoil#gv&tqp*optc"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['panyproject.pythonanywhere.com', 'www.panycompany.com', '0.0.0.0', '127.0.0.1', ]
+ALLOWED_HOSTS = [
+    "panyproject.pythonanywhere.com",
+    "www.panycompany.com",
+    "0.0.0.0",
+    "127.0.0.1",
+    "192.168.128.136",
+]
 
 # debug-toolbar
 INTERNAL_IPS = [
     # ...
     "127.0.0.1",
-    '0.0.0.0',
+    "0.0.0.0",
+    "192.168.128.136",
     # ...
 ]
 
@@ -41,29 +48,33 @@ INTERNAL_IPS = [
 
 # Application definition
 INSTALLED_APPS = [
-    'website.apps.WebsiteConfig',
-    'django_filters',
-    'admin_interface',
-    'colorfield',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django.contrib.sites',
-    'django.contrib.sitemaps',
-    'import_export',
-    'phonenumber_field',
-    'django_tables2',
-    'tinymce',
-    'library.apps.LibraryConfig',
-    'pdf2image',
-    'easy_thumbnails',
+    "website.apps.WebsiteConfig",
+    # Blog-app
+    "blog.apps.BlogConfig",
+    "django_filters",
+    "admin_interface",
+    "colorfield",
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "django.contrib.sites",
+    "django.contrib.sitemaps",
+    "import_export",
+    "phonenumber_field",
+    "django_tables2",
+    "tinymce",
+    "library.apps.LibraryConfig",
+    "pdf2image",
+    "easy_thumbnails",
     # 'view_breadcrumbs', # for class-based views - pip uninstall django-view-breadcrumbs
     # 'django_bootstrap_breadcrumbs', # for function-based views - pip uninstall django-bootstrap-breadcrumbs
     # debug-toolbar
-    'debug_toolbar', 
+    "debug_toolbar",
+    # django-taggit
+    "taggit",
 ]
 
 # Django_tables2
@@ -76,42 +87,44 @@ IMPORT_EXPORT_USE_TRANSACTIONS = True
 SITE_ID = 1
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
     # debug-toolbar
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
-ROOT_URLCONF = 'mywebsite.urls'
+ROOT_URLCONF = "mywebsite.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / "templates",],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-                'website.context_processors.menu_categories',
-                'website.context_processors.menu_brands',
-                'website.context_processors.menu_projects_cities',
-                'library.context_processors.menu_pdffiles_types',
-                'library.context_processors.menu_annual_catalogue',
-                'website.context_processors.theme',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [
+            BASE_DIR / "templates",
+        ],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+                "website.context_processors.menu_categories",
+                "website.context_processors.menu_brands",
+                "website.context_processors.menu_projects_cities",
+                "library.context_processors.menu_pdffiles_types",
+                "library.context_processors.menu_annual_catalogue",
+                "website.context_processors.theme",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'mywebsite.wsgi.application'
+WSGI_APPLICATION = "mywebsite.wsgi.application"
 
 
 # Database
@@ -125,18 +138,18 @@ WSGI_APPLICATION = 'mywebsite.wsgi.application'
 # }
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
         # 'NAME': 'PanyCompany$default',PanyCompany$DB01
-        'NAME': 'PanyProject$DB01',
-        'USER': 'PanyProject',
-        'PASSWORD': 'Diagonal1!DB',
+        "NAME": "PanyProject$DB01",
+        "USER": "PanyProject",
+        "PASSWORD": "Diagonal1!DB",
         # 'HOST': 'PanyProject.mysql.pythonanywhere-services.com',
-        'HOST': 'localhost',
-        'OPTIONS': {
+        "HOST": "localhost",
+        "OPTIONS": {
             # 'init_command': 'SET innodb_strict_mode=1',
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-            'charset': 'utf8mb4',
+            "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
+            "charset": "utf8mb4",
         },
     }
 }
@@ -147,16 +160,16 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
 
@@ -164,9 +177,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
@@ -178,7 +191,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
 # STATIC_DIR = '/static/'
 
 STATICFILES_DIRS = [
@@ -186,17 +199,18 @@ STATICFILES_DIRS = [
     # '/var/www/static/',
 ]
 
-# This is where Django looks for static files to serve the HTMLs after you did "python3.8 manage.py collectstatic" which after collecting the files it automatically puts all of the files into staticfiles directory.
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+# This is where Django looks for static files to serve the HTMLs after you did "python3.8 manage.py collectstatic"
+# which after collecting the files it automatically puts all of the files into staticfiles directory.
+STATIC_ROOT = BASE_DIR / "staticfiles"
 # STATIC_ROOT = BASE_DIR / 'static'
 
-MEDIA_ROOT  = BASE_DIR / 'media'
-MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_URL = "/media/"
 
 # Email Settings
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'info@panycompany.com'
-EMAIL_HOST_PASSWORD = 'ihwjxixolihprzia'
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = "info@panycompany.com"
+EMAIL_HOST_PASSWORD = "ihwjxixolihprzia"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 # EMAIL_USE_SSL = False
@@ -204,4 +218,4 @@ EMAIL_USE_TLS = True
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Added after upgrade to Django 3.2 - is a must
-DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"

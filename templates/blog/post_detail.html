@@ -1,539 +1,321 @@
-<!DOCTYPE html>
-<!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"><!--<![endif]-->
-    <head>
-        <!-- Basic Page Needs -->
-        <meta charset="UTF-8">
-        <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-        <title>Standell - Multipurpose Construction HTML Template</title>
+{% extends "website/base.html" %}
+{% load static %}
+{% load thumbnail %}
+{% block head %}
+<title>PANY | Post</title>
+<!-- Basic Page Needs -->
+<meta charset="UTF-8">
+<!--[if IE]>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
 
-        <meta name="author" content="themsflat.com">
+<meta name="author" content="themsflat.com">
 
-        <!-- Mobile Specific Metas -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- Mobile Specific Metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-        <!-- Theme style -->
-        <link rel="stylesheet" type="text/css" href="stylesheet/style.css">
+<!-- Theme style -->
+<link rel="stylesheet" type="text/css" href="{% static 'website/stylesheet/stylePostDetail.css' %}">
+<!--<link rel="stylesheet" type="text/css" href="{% static 'website/stylesheet/contentTinymce.css' %}">-->
+<link rel="stylesheet" href="{% static 'tinymce/skins/ui/oxide/content.min.css' %}">
+<!-- Responsive -->
+<link rel="stylesheet" type="text/css" href="{% static 'website/stylesheet/responsive.css' %}">
+<link href="images/favicon.ico" rel="shortcut icon">
+{% endblock %}
 
-        <!-- Responsive -->
-        <link rel="stylesheet" type="text/css" href="stylesheet/responsive.css">
-        <link href="images/favicon.ico" rel="shortcut icon">
-    </head>
-    <body>
-        <div id="loading-overlay">
-            <div class="loader"></div>
-        </div> <!-- /.loading-overlay -->
-        
-        <div class="top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-sm-12">
-                        <div class="flat-custom-info">
-                            <ul class="custom-info">
-                                <li class="datetime"><a href="#">Monday - Friday: 08 AM - 06 PM</a></li>
-                                <li class="phone"><a href="#">(+88) 012-3455-678</a></li>
-                                <li class="mail"><a href="#">hello@standell.com</a></li>
-                            </ul>
-                        </div><!-- /.custom-info -->
-                    </div><!-- /.col-md-8 -->
+{% block body %}
 
-                    <div class="col-lg-4 col-sm-12">
-                        <div class="flat-user-section text-right">
-                            <ul class="user-section">
-                                <li class="login"><a href="#">Login</a></li>
-                                <li class="cart"><a href="#">Cart (0)</a></li>
-                            </ul>
-                        </div><!-- /.user-section -->
-                    </div><!-- /.col-md-4 -->
-                </div> <!-- /.row -->
-            </div> <!-- /.container -->
-        </div> <!-- /.Top -->
+{% endblock %}
 
-        <header id="header" class="style3" >
-            <div class="container container-header">
-                <div class="row" >
-                    <div class="col-md-12" >
-                        <div class="header-wrap style3 clearfix">
-                            <div id="logo">
-                                <a href="index.html"><img src="images/logo.png" alt="logo" width="128" height="26" data-retina="images/logo-2x.png" data-width="128" data-height="26"></a>
-                            </div> <!-- /#logo -->
+{% block mainnav %}
 
-                            <div class="mobile-button">
-                                <span></span>
-                            </div>
+<div class="nav-wrap">
+  <nav id="mainnav" class="mainnav">
+    <ul class="menu">
+      <li>
+        <a class="text-shadow1" href="{% url 'website:home' %}" title="">HOME</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:brand_list' %}" title="">BRANDS</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:project_list' %}" title="">PROJECTS</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:category_list' %}" title="">PRODUCTS</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:about_us' %}" title="">ABOUT US</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'website:contact_us' %}">CONTACT US</a>
+      </li>
+      <li>
+        <a class="text-shadow1" href="{% url 'library:pdffile_list' %}" title="">DOCUMENTS</a>
+      </li>
+      <li class="active">
+        <a class="text-shadow1" href="{% url 'blog:post_list' %}" title="">BLOG</a>
+      </li>
+    </ul>
+    <!-- /.menu -->
+  </nav>
+  <!-- /#mainnav -->
+</div>
+<!-- .nav-wrap -->
 
-                            <div class="show-search">
-                                <a href="#"><i class="fa fa-search"></i></a> 
-                                <div class="submenu top-search widget_search">
-                                    <form role="search" method="get" class="search-form" action="#">
+{% endblock %}
 
-                                        <input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" />
+{% block content %}
 
-                                        <button type="submit" class="search-submit"><i class="fa fa-search"></i></button>
-                                    </form>                                
-                                </div>        
-                            </div> 
+<div class="page-title parallax parallax1 ">
+  <div id="background" style="">
+    <img src="{% for i in theme %}   {{ i.header_background_blog.url }} {% endfor %}" class="stretch" alt=""/>
+  </div>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="page-title-content text-center">
+      <div class="page-title-heading ">
+        <h3 class="title"><a href="{{ post.get_absolute_url }}">POST DETAILS</a></h3>
+      </div>
+      <div class="breadcrumbs">
+        <ul>
+          <li class="home"><a href="{% url 'website:home' %}">Home</a></li>
+          <li><a href="{% url 'blog:post_list' %}">Blog</a></li>
+          <li><a href="{{ post.get_absolute_url }}">Post Details</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div> <!-- /.page-title -->
 
-                            <div class="nav-wrap">
-                                <nav id="mainnav" class="mainnav">
-                                    <ul class="menu">
-                                        <li>
-                                            <a href="#" title="">HOME</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="index.html" title="">HOME 01</a></li>
-                                                <li><a href="index2.html" title="">HOME 02</a></li>
-                                                <li><a href="index3.html" title="">HOME 03</a></li>
-                                                <li><a href="index4.html" title="">HOME 04</a></li>
-                                                <li><a href="index5.html" title="">HOME 05</a></li>
-                                            </ul><!-- /.sub-menu -->
-                                        </li>
-                                        <li>
-                                            <a href="about.html" title="">ABOUT US</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="">SERVICE</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="service1.html" title="">SERVICE 01</a></li>
-                                                <li><a href="service2.html" title="">SERVICE 02</a></li>
-                                                <li><a href="service-detail.html" title="">SERVICE DETAIL</a></li>
-                                            </ul><!-- /.sub-menu -->
-                                        </li>
-                                        <li>
-                                            <a href="#" title="">PROJECTS</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="projects1.html" title="">PROJECT (1)</a></li>
-                                                <li><a href="projects2.html" title="">PROJECT (2)</a></li>
-
-                                                <li><a href="project-detail.html" title="">PROJECT DETAIL</a></li>
-                                            </ul><!-- /.sub-menu -->
-                                        </li>
-                                        <li  class="active">
-                                            <a href="#" title="">BLOG</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="blog.html" title="">BLOG</a></li>
-                                                <li><a href="blog-detail.html" title="">BLOG DETAIL</a></li>
-                                            </ul><!-- /.sub-menu -->
-                                        </li>
-                                        <li>
-                                            <a href="#" title="">PAGE</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="FAQs.html" title="">FAQS</a></li>
-                                                <li><a href="error.html" title="">ERROR PAGE</a></li>
-                                            </ul><!-- /.sub-menu -->
-                                        </li>
-                                        <li>
-                                            <a href="shop.html" title="">SHOP</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="shop.html" title="">SHOP</a></li>
-                                                <li><a href="shop-detail.html" title="">SHOP DETAIL</a></li>
-                                                <li><a href="cart.html">SHOPPING CART</a></li>
-                                                <li><a href="checkout.html">CHECKOUT CART</a></li>
-                                            </ul><!-- /.sub-menu -->
-                                        </li>
-                                        <li>
-                                            <a href="contact-us.html">CONTACT</a>
-                                        </li>
-                                    </ul><!-- /.menu -->
-                                </nav> <!-- /#mainnav -->
-                            </div> <!-- .nav-wrap -->
-                        </div> <!-- /.header-wrap -->
-                    </div>
-                </div> <!-- /.row -->
-            </div> <!-- container -->
-        </header> <!-- /#header -->
-        
-        <div class="page-title parallax parallax1 ">
-            <div class="overlay"></div>
-            <div class="container">
-                <div class="page-title-content text-center">
-                    <div class="page-title-heading ">
-                        <h3 class="title"><a href="#">BLOG DETAILS</a></h3>
-                    </div>
-                    <div class="breadcrumbs">
-                        <ul>
-                            <li class="home"><a href="#">Home</a></li>
-                            <li><a href="#">Blog Details</a></li>
-                        </ul>
-                    </div>
-                </div>
+<div class="main-blog-details">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="post-wrap blog-single">
+          <article class="main-single">
+            <div class="feature-post">
+              <img src="{{ post.image_1.url }}" alt="PanyCompany">
             </div>
-        </div> <!-- /.page-title -->
-        
-        <div class="main-blog-details">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="post-wrap blog-single" >
-                            <article class="main-single">
-                                <div class="feature-post">
-                                    <img src="images/blog/post-new.jpg" alt="standell" >
-                                </div>
-                                <div class="content-post">
-                                    <h2 class="post-title">
-                                        <a href="#">Carillion: UK guaranteeing Middle East deals, claims Oman</a>
-                                    </h2>
-                                    <div class="post-meta">
-                                        <ul>
-                                            <li class="time"><a href="#">12 Feb 2018</a></li>
-                                            <li class="categories"><a href="#">Construction</a></li>
+            <div class="content-post">
+              <h2 class="post-title">
+                <a href="#">{{ post.title }}</a>
+              </h2>
+              <div class="post-meta">
+                <ul>
+                  <li class="time"><a href="#">{{ post.publish }}</a></li>
+                  <li class="categories"><a href="#">{{ post.tags.all|join:", "|upper }}</a></li>
 
-                                        </ul>
-                                    </div>
-                                    <div class="post-content">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel urna eget lectus molestie rhoncus sed in nunc. Vestib tincidunt facilisis ligula sed viverra. Duis porttitor sapien maximus, volutpat massa malesuada. Curabitur orci est, molestie eget orci, tincidunt dictum felis. Cras ante nunc, pharetra eu rutrum aliquet, gestas eget ex. Suspendisse potenti vietlott
-                                        Quisque asvitae eros efficitur lacus viverra molestie at ut mi. Quisque id mollis nibh...</p>
+                </ul>
+              </div>
+              <div class="post-content">
 
-                                        <p> Fusce imperdiet, eros non fringilla auctor, dolor leo blandit magna, in pretium erat elit id neque. Nulla sagittis consequat arcu euscura dignissim. Donec ultricies id ante vel blandit. Integer sit amet erat tincidunt, dictum orci non, tincidunt nisi. Crasania nisl eu aliquet pharetra. Duis finibus pulvinar tellus, sed convallis lectus faucibus vitae. Fusce rhoncus placerat magna, nec fermentum ex tristique eu. Donec aliquet purus lectus, ut finibus augue porta ac. Nullam ultricies tempus libero.</p>
-                                        
-                                        <blockquote>
-                                            The whole difference between construction and creation is exactly this: that a thing constructed can only be loved after it is constructed; but a thing created is loved before it exists.
-                                        </blockquote>
+                <blockquote>
+                  The whole difference between construction and creation is exactly this: that a thing
+                  constructed can only be loved after it is constructed; but a thing created is loved
+                  before it exists.
+                </blockquote>
 
-                                        <p>
+                <p class="">
 
-                                            Proin ac neque quis ex malesuada feugiat sed at ligula. Donec efficitur nisl tortor, eget auctor ex lobortis id. Duis cursus turpis nec venenatis dapibus. Nunc eget rhoncus purus, a semper orci. Mauris blandit non arcu malesuada aliquam. Fusce iaculis augue ut neque sollicitudin, quis interdum enim consectetur. Nullam ut facilisis erat, eget viverra sem. Nulla lobortis tempor magna in maximus. Fusce nec ante et nunc elementum rutrum ut in odio. Quisque cursus sit amet massa in mollis suspendisse ut ipsum a orci scelerisque tincidunt. Curabitur pellentesque lobortis ligula, in scelerisque felis volutpat nec.
-                                        </p>
-                                        <p>
-                                            Aenean et enim aliquet, rutrum ante auctor, euismod urna. Phasellus ac erat faucibus, laoreet massa id, sagittis orci. In placerat pharetra lectus vitae gravida. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus massa massa, porttitor eget consectetur sed, vulputate ac velit. Integer ullamcorper ante ex. Quisque vitae eleifend elit.
-                                            Vestibulum mi lectus, euismod in nunc, posuere eleifend sapien. In commodo euismod lectus quis porttitor.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="post-categories">
-                                    <a href="#">CONSTRUCTION</a>
-                                    <a href="#">BUSINESS</a>
-                                </div>
-                                <div class="wrap-author">
-                                    <div class="author-info">
+                </p>
 
-                                        <div class="author-avatar">
-                                            <img src="images/blog/author.jpg" alt="image">
-                                        </div>                  
-                                        <div class="author-detail">
-                                            <h6>WRITTEN BY TANISA KRUSH</h6>
-                                            <p class="author-body">Mauris lectus justo, tempor ac auctor at, congue id erat. Pellentesque et massa odio. Fusce vel fermentum tortor, nec gravida ligula. Vivamus at malesuada tortor, in posuere ex. Phasellus pretium turpis non ipsum vestibulum, a finibus quam rhoncus. </p>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
 
-                                    <div id="respond" class="comment-respond">
-                                        <h3 class="title comment-title">Leave Your Comment</h3>
-                                        <form class="comment-form">
-
-                                            <p class="comment-form-author">
-                                                <!-- <label>Name *</label> -->
-                                                <input id="author" name="author" type="text" placeholder="Your Name" required="required">
-                                            </p>
-                                            <p class="comment-form-email">
-                                                <!-- <label>Email *</label> -->
-                                                <input id="email" name="email" type="email" placeholder="Your Email" required="required">
-                                            </p>
-                                            <div class="clearfix"></div>
-                                            <p class="comment-form-comment">
-                                                <!-- <label>Comment</label>  -->
-                                                <textarea id="comment" name="comment" placeholder="Your Message" required="required"></textarea>
-                                            </p>
-                                            <p class="submit-form">
-                                                <button name="submit" type="submit" id="submit" class="submit btn btn-styl" >SEND COMMENT</button>
-                                            </p>
-                                        </form>
-                                    </div>
-                                </div>
-
-                            </article>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="sidebar clearfix">
-                            <div class=" widget-search">
-                                <form action="#" id="searchform" method="get">
-                                    <div>
-                                        <input type="text" id="s" class="sss" placeholder="Search ...">
-                                        <input type="submit" value="&#x55;" id="searchsubmitsibar">
-                                    </div>
-                                </form>
-                            </div>
-                            <div class=" widget-recent-news">
-                                <div class="title-link">
-                                    <h5 class="widget-title">Recent News</h5>
-                                </div>
-                                <ul class="categories">
-                                    <li>
-                                        <div class="thumb-new">
-                                            <a href="#"><img src="images/blog/recent-new-1.jpg" alt="image"></a>
-                                        </div>
-                                        <div class="thumb-new-content clearfix">
-                                            <h5 class="thumb-new-title"><a href="#">Interserve 'culture of late payment' slammed</a></h5>
-                                            <p class="thumb-new-day">12 Feb 2018</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="thumb-new">
-                                            <a href="#"><img src="images/blog/recent-new-2.jpg" alt="image"></a>
-                                        </div>
-                                        <div class="thumb-new-content clearfix">
-                                            <h5 class="thumb-new-title"><a href="#">The challenges of this lucrative market</a></h5>
-                                            <p class="thumb-new-day">12 Feb 2018</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="thumb-new">
-                                            <a href="#"><img src="images/blog/recent-new-3.jpg" alt="image"></a>
-                                        </div>
-                                        <div class="thumb-new-content clearfix">
-                                            <h5 class="thumb-new-title "><a href="#">Laing O'Rourke FD: We'll be back in profit this year</a></h5>
-                                            <p class="thumb-new-day">12 Feb 2018</p>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class=" widget-tags">
-                                <div class="title-link">
-                                    <h3 class="widget-title">Tags</h3>
-                                </div>
-                                <ul class="tags">
-                                    <li>
-                                        <a href="#">CONSTRUCTION</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">BUSINESS</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">PROJECTS</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">BUILDING</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">ARCHITECTURE</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class=" widget-categories">
-                                <div class="title-link">
-                                    <h3 class="widget-title">Categories</h3>
-                                </div>
-                                <ul class="categories">
-                                    <li>
-                                        <a href="#">Business</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Projects</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Management</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Best Builders</a>
-                                    </li>
-                                     <li>
-                                        <a href="#">Construction</a>
-                                    </li>
-                                     <li>
-                                        <a href="#">Honored</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Marketing Plan</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">New Buildings</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Test Progress</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Material</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                <div class="tinymce-content">
+                  {{ post.body|safe }}
                 </div>
+
+
+              </div>
             </div>
-        </div> <!-- /.main-blog-details -->
+            <div class="post-categories">
 
-        <div class="partner-clients">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="slide-client owl-carousel" data-auto="true" data-item="5" data-nav="false" data-dots="false">
-                            <div class="client">
-                                <a href="#">
-                                    <img src="images/partner-logo-1.png"  alt="standell">
-                                    <img src="images/partner-logo-1-hover.png" alt="standell">
-                                </a>
-                            </div>
-                            <div class="client ">
-                                <a href="#" >
-                                    <img src="images/partner-logo-2.png" alt="standell">
-                                    <img src="images/partner-logo-2-hover.png" alt="standell">
-                                </a>
-                            </div>
-                            <div class="client">
-                                <a href="#">
-                                    <img src="images/partner-logo-3.png" alt="standell">
-                                    <img src="images/partner-logo-3-hover.png" alt="standell">
-                                </a>
-                            </div>
-                            <div class="client">
-                                <a href="#">
-                                    <img src="images/partner-logo-4.png" alt="standell">
-                                    <img src="images/partner-logo-4-hover.png" alt="standell">
-                                </a>
-                            </div>
-                            <div class="client">
-                                <a href="#">
-                                    <img src="images/partner-logo-5.png" alt="standell">
-                                    <img src="images/partner-logo-5-hover.png" alt="standell">
-                                </a>
-                            </div>
-                            <div class="client">
-                                <a href="#">
-                                    <img src="images/partner-logo-1.png" alt="standell">
-                                    <img src="images/partner-logo-1-hover.png" alt="standell">
-                                </a>
-                            </div>
-                            <div class="client ">
-                                <a href="#" >
-                                    <img src="images/partner-logo-2.png" alt="standell">
-                                    <img src="images/partner-logo-2-hover.png" alt="standell">
-                                </a>
-                            </div>
-                            <div class="client">
-                                <a href="#">
-                                    <img src="images/partner-logo-3.png" alt="standell">
-                                    <img src="images/partner-logo-3-hover.png" alt="standell">
-                                </a>
-                            </div>
-                            <div class="client">
-                                <a href="#">
-                                    <img src="images/partner-logo-4.png" alt="standell">
-                                    <img src="images/partner-logo-4-hover.png" alt="standell">
-                                </a>
-                            </div>
-                            <div class="client">
-                                <a href="#">
-                                    <img src="images/partner-logo-5.png" alt="standell">
-                                    <img src="images/partner-logo-5-hover.png" alt="standell">
-                                </a>
-                            </div>
+              <a href="#">Tags: {{ post.tags.all|join:", "|upper }}</a
 
-                        </div>
-                    </div>
+            </div>
+            <div class="wrap-author">
+              <div class="author-info">
+
+                <div class="author-avatar">
+                  <img src="images/blog/author.jpg" alt="image">
                 </div>
-            </div>
-        </div> <!-- /.partner-clients -->
-
-        <footer id="footer">
-            <div class="footer-widgets pd-top-100 pd-bottom-80">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-6">
-                            <div class="widget widget-about">
-                                <div id="logo-ft">
-                                    <a href="#"><img src="images/logo-footer.png" alt="logo-ft"  width="128" height="26" data-retina="./images/logofooter@2x.png" data-width="128" data-height="26"></a>
-                                </div>
-                                
-                                <div class="copyright">
-                                    <p class="text-widget pd-right-40">© <a href="#">STANDELL</a> Construction 2018. All Right Reserved.</p>
-                                </div>
-                                <ul class="social">
-                                    <li>
-                                        <a href="#" title="">
-                                            <i class="fa fa-twitter-square"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="">
-                                            <i class="fa fa-facebook-square"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="">
-                                            <i class="fa fa-vimeo-square"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="">
-                                            <i class="fa fa-linkedin-square"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="">
-                                            <i class="fa fa-rss-square"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="widget widget-contact">
-                                <h5><a href="#">(+88) 012-3455-678</a></h5>
-                                <p class="text-widget">support@standell.com hello@standell.com</p>
-                                <p class="text-widget pd-right-40" >3919 New Cut Rd, Ellicott City, Maryland, US</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="widget widget-services">
-                                <ul>
-                                    <li><a href="">Policy</a></li>
-                                    <li><a href="">Term & Conditions</a></li>
-                                    <li><a href="">Help</a></li>
-                                    <li><a href="">FAQs</a></li>
-                                    <li><a href="">Site map</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="widget widget-subscribe">
-                                <div class="title-link">
-                                    <h5 class="widget-title">Subscribe</h5>
-                                </div>
-                                <p class="text-widget">Subscribe to our email newsletter for useful tips and valuable resources.</p>
-                                <div class="subscribe-search">
-                                    <form id="subscribe-form" method="post" action="./lib/subscribe.php"  >
-                                        <div id="subscribe-content">
-                                            <div class="wrap-input">
-                                                <input type="email" tabindex="2" id="subscribe-email" name="subscribe-email" class="mailchimp-email" placeholder="Your email..." required>
-                                            </div>
-                                            <button type="submit" id="subscribe-button" class="submit-button btn-effect"><i class="fa  fa-paper-plane"></i></button>
-                                        </div>
-                                        <div id="subscribe-msg"></div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="author-detail">
+                  <h6>WRITTEN BY {{ post.author|upper }}</h6>
+                  <p class="author-body">Mauris lectus justo, tempor ac auctor at, congue id erat.
+                    Pellentesque et massa odio. Fusce vel fermentum tortor, nec gravida ligula.
+                    Vivamus at malesuada tortor, in posuere ex. Phasellus pretium turpis non ipsum
+                    vestibulum, a finibus quam rhoncus. </p>
                 </div>
+                <div class="clearfix"></div>
+              </div>
+
+              <div id="respond" class="comment-respond">
+                <h3 class="title comment-title">Leave Your Comment</h3>
+                <form class="comment-form">
+
+                  <p class="comment-form-author">
+                    <!-- <label>Name *</label> -->
+                    <input id="author" name="author" type="text" placeholder="Your Name"
+                           required="required">
+                  </p>
+                  <p class="comment-form-email">
+                    <!-- <label>Email *</label> -->
+                    <input id="email" name="email" type="email" placeholder="Your Email"
+                           required="required">
+                  </p>
+                  <div class="clearfix"></div>
+                  <p class="comment-form-comment">
+                    <!-- <label>Comment</label>  -->
+                    <textarea id="comment" name="comment" placeholder="Your Message"
+                              required="required"></textarea>
+                  </p>
+                  <p class="submit-form">
+                    <button name="submit" type="submit" id="submit" class="submit btn btn-styl">SEND
+                      COMMENT
+                    </button>
+                  </p>
+                </form>
+              </div>
             </div>
-        </footer> <!-- /#footer -->
 
-        <a id="scroll-top"></a> <!-- /#scroll-top -->
+          </article>
+          <div class="clearfix"></div>
+        </div>
+        <div class="sidebar clearfix">
+          <div class=" widget-search">
+            <form action="#" id="searchform" method="get">
+              <div>
+                <input type="text" id="s" class="sss" placeholder="Search ...">
+                <input type="submit" value="&#x55;" id="searchsubmitsibar">
+              </div>
+            </form>
+          </div>
+          <div class=" widget-recent-news">
+            <div class="title-link">
+              <h5 class="widget-title">Recent News</h5>
+            </div>
+            <ul class="categories">
+              <li>
+                <div class="thumb-new">
+                  <a href="#"><img src="images/blog/recent-new-1.jpg" alt="image"></a>
+                </div>
+                <div class="thumb-new-content clearfix">
+                  <h5 class="thumb-new-title"><a href="#">Interserve 'culture of late payment'
+                    slammed</a></h5>
+                  <p class="thumb-new-day">12 Feb 2018</p>
+                </div>
+              </li>
+              <li>
+                <div class="thumb-new">
+                  <a href="#"><img src="images/blog/recent-new-2.jpg" alt="image"></a>
+                </div>
+                <div class="thumb-new-content clearfix">
+                  <h5 class="thumb-new-title"><a href="#">The challenges of this lucrative market</a>
+                  </h5>
+                  <p class="thumb-new-day">12 Feb 2018</p>
+                </div>
+              </li>
+              <li>
+                <div class="thumb-new">
+                  <a href="#"><img src="images/blog/recent-new-3.jpg" alt="image"></a>
+                </div>
+                <div class="thumb-new-content clearfix">
+                  <h5 class="thumb-new-title "><a href="#">Laing O'Rourke FD: We'll be back in profit
+                    this year</a></h5>
+                  <p class="thumb-new-day">12 Feb 2018</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class=" widget-tags">
+            <div class="title-link">
+              <h3 class="widget-title">Tags</h3>
+            </div>
+            <ul class="tags">
+              {% for i in tags %}
+              <li>
+                <a href="#">{{ i|upper }}</a>
+              </li>
+              {% endfor %}
 
-        <!-- Javascript -->
-        <script src="javascript/jquery.min.js"></script>
-        <script src="javascript/plugins.js"></script>
-        <script src="javascript/bootstrap.min.js"></script>
-        <script src="javascript/equalize.min.js"></script>
-        <script src="javascript/jquery-countTo.js"></script>
-        <script src="javascript/owl.carousel.min.js"></script>
-        <script src="javascript/jquery.validate.min.js"></script>
-        <script src="javascript/main.js"></script>
+            </ul>
+          </div>
+          <div class=" widget-categories">
+            <div class="title-link">
+              <h3 class="widget-title">Categories</h3>
+            </div>
+            <ul class="categories">
+              <li>
+                <a href="#">Business</a>
+              </li>
+              <li>
+                <a href="#">Projects</a>
+              </li>
+              <li>
+                <a href="#">Management</a>
+              </li>
+              <li>
+                <a href="#">Best Builders</a>
+              </li>
+              <li>
+                <a href="#">Construction</a>
+              </li>
+              <li>
+                <a href="#">Honored</a>
+              </li>
+              <li>
+                <a href="#">Marketing Plan</a>
+              </li>
+              <li>
+                <a href="#">New Buildings</a>
+              </li>
+              <li>
+                <a href="#">Test Progress</a>
+              </li>
+              <li>
+                <a href="#">Material</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> <!-- /.main-blog-details -->
 
-        <!-- Slider -->
-        <script src="rev-slider/js/jquery.themepunch.tools.min.js"></script>
-        <script src="rev-slider/js/jquery.themepunch.revolution.min.js"></script>
-        <script src="javascript/rev-slider.js"></script>
 
-        <!-- Load Extensions only on Local File Systems ! The following part can be removed on Server for On Demand Loading -->  
-        <script src="rev-slider/js/extensions/revolution.extension.actions.min.js"></script>
-        <script src="rev-slider/js/extensions/revolution.extension.carousel.min.js"></script>
-        <script src="rev-slider/js/extensions/revolution.extension.kenburn.min.js"></script>
-        <script src="rev-slider/js/extensions/revolution.extension.layeranimation.min.js"></script>
-        <script src="rev-slider/js/extensions/revolution.extension.migration.min.js"></script>
-        <script src="rev-slider/js/extensions/revolution.extension.navigation.min.js"></script>
-        <script src="rev-slider/js/extensions/revolution.extension.parallax.min.js"></script>
-        <script src="rev-slider/js/extensions/revolution.extension.slideanims.min.js"></script>
-        <script src="rev-slider/js/extensions/revolution.extension.video.min.js"></script>
-    </body>
-</html>
+<br><br>
+{% endblock %}
+
+{% block partners %}
+{{ block.super }}
+{% endblock %}
+
+{% block js %}
+
+<!-- Javascript -->
+<script src="{% static 'website/javascript/jquery.min.js' %}"></script>
+<script src="{% static 'website/javascript/plugins.js' %}"></script>
+<script src="{% static 'website/javascript/bootstrap.min.js' %}"></script>
+<script src="{% static 'website/javascript/equalize.min.js' %}"></script>
+<script src="{% static 'website/javascript/jquery-countTo.js' %}"></script>
+<script src="{% static 'website/javascript/owl.carousel.min.js' %}"></script>
+<script src="{% static 'website/javascript/jquery.validate.min.js' %}"></script>
+<script src="{% static 'website/javascript/main.js' %}"></script>
+
+<!-- Slider -->
+<script src="{% static 'website/rev-slider/js/jquery.themepunch.tools.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/jquery.themepunch.revolution.min.js' %}"></script>
+<script src="{% static 'website/javascript/rev-slider.js' %}"></script>
+
+<!-- Load Extensions only on Local File Systems ! The following part can be removed on Server for On Demand Loading -->
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.actions.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.carousel.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.kenburn.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.layeranimation.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.migration.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.navigation.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.parallax.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.slideanims.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.video.min.js' %}"></script>
+
+{% endblock %}

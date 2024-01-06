@@ -4,20 +4,20 @@
 {% block head %}
 <title>PANY | Blog</title>
 
-<meta name="author" content="themsflat.com" />
+<meta name="author" content="themsflat.com"/>
 
 <!-- Mobile Specific Metas -->
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 <!-- Boostrap style -->
 
-<link rel="stylesheet" type="text/css" href="{% static 'website/stylesheet/bootstrap.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'website/stylesheet/bootstrap.css' %}"/>
 
 <!-- Theme style -->
-<link rel="stylesheet" type="text/css" href="{% static 'website/stylesheet/style.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'website/stylesheet/style.css' %}"/>
 
 <!-- Responsive -->
-<link rel="stylesheet" type="text/css" href="{% static 'website/stylesheet/responsive.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'website/stylesheet/responsive.css' %}"/>
 
 {% endblock %}
 
@@ -66,6 +66,9 @@
 {% block content %}
 
 <div class="page-title parallax parallax1">
+  <div id="background" style="">
+    <img src="{% for i in theme %}   {{ i.header_background_blog.url }} {% endfor %}" class="stretch" alt=""/>
+  </div>
   <div class="overlay"></div>
   <div class="container">
     <div class="page-title-content text-center">
@@ -88,232 +91,33 @@
     <div class="row">
       <div class="col-md-12">
         <div class="content-wrap fix-float-box">
+
+          {% for post in posts %}
           <article class="post">
             <div class="post-border">
               <div class="featured-post">
-                <a href="#"><img src="{% static 'images/blog/new-1.jpg' %}" alt="image" /></a>
+                <a href="{{ post.get_absolute_url }}"><img src="{{ post.image_1.url }}" alt="image"/></a>
               </div>
               <div class="content-post">
                 <h5 class="post-title">
-                  <a href="#">Carillion: UK guaranteeing Middle East deals, claims
-                    Oman</a>
+                  <a href="#">{{ post.title }}</a>
                 </h5>
                 <div class="post-meta">
                   <ul>
-                    <li class="time"><a href="#">12 Feb 2018</a></li>
-                    <li class="categories"><a href="#">Construction</a></li>
+                    <li class="time"><a href="#">{{ post.publish }}</a></li>
+                    <li class="categories"><a href="#">{{ post.tags.all|join:", " }}</a></li>
                   </ul>
                 </div>
                 <div class="post-content">
                   <p>
-                    Integer luctus diam ac scerisque consectetur. Vimus dot
-                    euismod nec lacus sit amet. Aenean interdus mid vitae...
+                    {{ post.body|safe|truncatechars:10 }}
                   </p>
                 </div>
               </div>
             </div>
           </article>
-          <article class="post">
-            <div class="post-border">
-              <div class="featured-post">
-                <a href="#"><img src="{% static 'images/blog/new-2.jpg' %}" alt="image" /></a>
-              </div>
-              <div class="content-post">
-                <h5 class="post-title">
-                  <a href="#">Manufacturing gets a boost in February; construction falls
-                    flat in January</a>
-                </h5>
-                <div class="post-meta">
-                  <ul>
-                    <li class="time"><a href="#">12 Feb 2018</a></li>
-                    <li class="categories"><a href="#">Infrastructure</a></li>
-                  </ul>
-                </div>
-                <div class="post-content">
-                  <p>
-                    Integer luctus diam ac scerisque consectetur. Vimus dot
-                    euismod nec lacus sit amet. Aenean interdus mid vitae...
-                  </p>
-                </div>
-              </div>
-            </div>
-          </article>
-          <article class="post">
-            <div class="post-border">
-              <div class="featured-post">
-                <a href="#"><img src="{% static 'images/blog/new-3.jpg' %}" alt="image" /></a>
-              </div>
-              <div class="content-post">
-                <h5 class="post-title">
-                  <a href="#">Why nearly 100 people toured one Denver home in three days
-                  </a>
-                </h5>
-                <div class="post-meta">
-                  <ul>
-                    <li class="time"><a href="#">12 Feb 2018</a></li>
-                    <li class="categories"><a href="#">Manfrastructure</a></li>
-                  </ul>
-                </div>
-                <div class="post-content">
-                  <p>
-                    Integer luctus diam ac scerisque consectetur. Vimus dot
-                    euismod nec lacus sit amet. Aenean interdus mid vitae...
-                  </p>
-                </div>
-              </div>
-            </div>
-          </article>
-          <article class="post">
-            <div class="post-border">
-              <div class="featured-post">
-                <a href="#"><img src="{% static 'images/blog/new-4.jpg' %}" alt="image" /></a>
-              </div>
-              <div class="content-post">
-                <h5 class="post-title">
-                  <a href="#">Lockheed Martin secures $481 million contract to build four
-                    MMSC ships</a>
-                </h5>
-                <div class="post-meta">
-                  <ul>
-                    <li class="time"><a href="#">12 Feb 2018</a></li>
-                    <li class="categories"><a href="#">Construction</a></li>
-                  </ul>
-                </div>
-                <div class="post-content">
-                  <p>
-                    Integer luctus diam ac scerisque consectetur. Vimus dot
-                    euismod nec lacus sit amet. Aenean interdus mid vitae...
-                  </p>
-                </div>
-              </div>
-            </div>
-          </article>
-          <article class="post">
-            <div class="post-border">
-              <div class="featured-post">
-                <a href="#"><img src="{% static 'images/blog/new-5.jpg' %}" alt="image" /></a>
-              </div>
-              <div class="content-post">
-                <h5 class="post-title">
-                  <a href="#">How Internet of Thing can transform the construction
-                    industry</a>
-                </h5>
-                <div class="post-meta">
-                  <ul>
-                    <li class="time"><a href="#">12 Feb 2018</a></li>
-                    <li class="categories"><a href="#">Infrastructure</a></li>
-                  </ul>
-                </div>
-                <div class="post-content">
-                  <p>
-                    Integer luctus diam ac scerisque consectetur. Vimus dot
-                    euismod nec lacus sit amet. Aenean interdus mid vitae...
-                  </p>
-                </div>
-              </div>
-            </div>
-          </article>
-          <article class="post">
-            <div class="post-border">
-              <div class="featured-post">
-                <a href="#"><img src="{% static 'images/blog/new-6.jpg' %}" alt="image" /></a>
-              </div>
-              <div class="content-post">
-                <h5 class="post-title">
-                  <a href="#">Laing O'Rourke secures $955mn to transform Sydney's Central
-                    Station
-                  </a>
-                </h5>
-                <div class="post-meta">
-                  <ul>
-                    <li class="time"><a href="#">12 Feb 2018</a></li>
-                    <li class="categories"><a href="#">Manfrastructure</a></li>
-                  </ul>
-                </div>
-                <div class="post-content">
-                  <p>
-                    Integer luctus diam ac scerisque consectetur. Vimus dot
-                    euismod nec lacus sit amet. Aenean interdus mid vitae...
-                  </p>
-                </div>
-              </div>
-            </div>
-          </article>
-          <article class="post">
-            <div class="post-border">
-              <div class="featured-post">
-                <a href="#"><img src="{% static 'images/blog/new-7.jpg' %}" alt="image" /></a>
-              </div>
-              <div class="content-post">
-                <h5 class="post-title">
-                  <a href="#">Dubai's Damac awards $163mn Aykon City construction
-                    contract to CSCEC</a>
-                </h5>
-                <div class="post-meta">
-                  <ul>
-                    <li class="time"><a href="#">12 Feb 2018</a></li>
-                    <li class="categories"><a href="#">Construction</a></li>
-                  </ul>
-                </div>
-                <div class="post-content">
-                  <p>
-                    Integer luctus diam ac scerisque consectetur. Vimus dot
-                    euismod nec lacus sit amet. Aenean interdus mid vitae...
-                  </p>
-                </div>
-              </div>
-            </div>
-          </article>
-          <article class="post">
-            <div class="post-border">
-              <div class="featured-post">
-                <a href="#"><img src="{% static 'images/blog/new-8.jpg' %}" alt="image" /></a>
-              </div>
-              <div class="content-post">
-                <h5 class="post-title">
-                  <a href="#">Tesla begins construction on world's largest solar
-                    rooftop</a>
-                </h5>
-                <div class="post-meta">
-                  <ul>
-                    <li class="time"><a href="#">12 Feb 2018</a></li>
-                    <li class="categories"><a href="#">Infrastructure</a></li>
-                  </ul>
-                </div>
-                <div class="post-content">
-                  <p>
-                    Integer luctus diam ac scerisque consectetur. Vimus dot
-                    euismod nec lacus sit amet. Aenean interdus mid vitae...
-                  </p>
-                </div>
-              </div>
-            </div>
-          </article>
-          <article class="post">
-            <div class="post-border">
-              <div class="featured-post">
-                <a href="#"><img src="{% static 'images/blog/new-9.jpg' %}" alt="image" /></a>
-              </div>
-              <div class="content-post">
-                <h5 class="post-title">
-                  <a href="#">Vantage Data Centers raises $1.1bn to fund two US
-                    construction projects</a>
-                </h5>
-                <div class="post-meta">
-                  <ul>
-                    <li class="time"><a href="#">12 Feb 2018</a></li>
-                    <li class="categories"><a href="#">Manfrastructure</a></li>
-                  </ul>
-                </div>
-                <div class="post-content">
-                  <p>
-                    Integer luctus diam ac scerisque consectetur. Vimus dot
-                    euismod nec lacus sit amet. Aenean interdus mid vitae...
-                  </p>
-                </div>
-              </div>
-            </div>
-          </article>
+          {% endfor %}
+
         </div>
       </div>
       <div class="pagination-wrap blog-pagination">
@@ -329,183 +133,14 @@
 </div>
 <!-- /.main-content -->
 
-<div class="partner-clients">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="slide-client owl-carousel" data-auto="true" data-item="5" data-nav="false" data-dots="false">
-          <div class="client">
-            <a href="#">
-              <img src="{% static 'images/partner-logo-1.png' %}" alt="standell" />
-              <img src="{% static 'images/partner-logo-1-hover.png' %}" alt="standell" />
-            </a>
-          </div>
-          <div class="client">
-            <a href="#">
-              <img src="{% static 'images/partner-logo-2.png' %}" alt="standell" />
-              <img src="{% static 'images/partner-logo-2-hover.png' %}" alt="standell" />
-            </a>
-          </div>
-          <div class="client">
-            <a href="#">
-              <img src="{% static 'images/partner-logo-3.png' %}" alt="standell" />
-              <img src="{% static 'images/partner-logo-3-hover.png' %}" alt="standell" />
-            </a>
-          </div>
-          <div class="client">
-            <a href="#">
-              <img src="{% static 'images/partner-logo-4.png' %}" alt="standell" />
-              <img src="{% static 'images/partner-logo-4-hover.png' %}" alt="standell" />
-            </a>
-          </div>
-          <div class="client">
-            <a href="#">
-              <img src="{% static 'images/partner-logo-5.png' %}" alt="standell" />
-              <img src="{% static 'images/partner-logo-5-hover.png' %}" alt="standell" />
-            </a>
-          </div>
-          <div class="client">
-            <a href="#">
-              <img src="{% static 'images/partner-logo-1.png' %}" alt="standell" />
-              <img src="{% static 'images/partner-logo-1-hover.png' %}" alt="standell" />
-            </a>
-          </div>
-          <div class="client">
-            <a href="#">
-              <img src="{% static 'images/partner-logo-2.png' %}" alt="standell" />
-              <img src="{% static 'images/partner-logo-2-hover.png' %}" alt="standell" />
-            </a>
-          </div>
-          <div class="client">
-            <a href="#">
-              <img src="{% static 'images/partner-logo-3.png' %}" alt="standell" />
-              <img src="{% static 'images/partner-logo-3-hover.png' %}" alt="standell" />
-            </a>
-          </div>
-          <div class="client">
-            <a href="#">
-              <img src="{% static 'images/partner-logo-4.png' %}" alt="standell" />
-              <img src="{% static 'images/partner-logo-4-hover.png' %}" alt="standell" />
-            </a>
-          </div>
-          <div class="client">
-            <a href="#">
-              <img src="{% static 'images/partner-logo-5.png' %}" alt="standell" />
-              <img src="{% static 'images/partner-logo-5-hover.png' %}" alt="standell" />
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- /.partner-clients -->
 
-<footer id="footer">
-  <div class="footer-widgets pd-top-100 pd-bottom-80">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-3 col-md-6">
-          <div class="widget widget-about">
-            <div id="logo-ft">
-              <a href="#"><img src="{% static 'images/logo-footer.png' %}" alt="logo-ft" width="128" height="26"
-                  data-retina="./images/logofooter@2x.png" data-width="128" data-height="26" /></a>
-            </div>
-            <div class="copyright">
-              <p class="text-widget pd-right-40">
-                © <a href="#">STANDELL</a> Construction 2018. All Right
-                Reserved.
-              </p>
-            </div>
-            <ul class="social">
-              <li>
-                <a href="#" title="">
-                  <i class="fa fa-twitter-square"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#" title="">
-                  <i class="fa fa-facebook-square"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#" title="">
-                  <i class="fa fa-vimeo-square"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#" title="">
-                  <i class="fa fa-linkedin-square"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#" title="">
-                  <i class="fa fa-rss-square"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <div class="widget widget-contact">
-            <h5><a href="#">(+88) 012-3455-678</a></h5>
-            <p class="text-widget">support@standell.com hello@standell.com</p>
-            <p class="text-widget pd-right-40">
-              3919 New Cut Rd, Ellicott City, Maryland, US
-            </p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <div class="widget widget-services">
-            <ul>
-              <li><a href="">Policy</a></li>
-              <li><a href="">Term & Conditions</a></li>
-              <li><a href="">Help</a></li>
-              <li><a href="">FAQs</a></li>
-              <li><a href="">Site map</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <div class="widget widget-subscribe">
-            <div class="title-link">
-              <h5 class="widget-title">Subscribe</h5>
-            </div>
-            <p class="text-widget">
-              Subscribe to our email newsletter for useful tips and valuable
-              resources.
-            </p>
-            <div class="subscribe-search">
-              <form id="subscribe-form" method="post" action="./lib/subscribe.php">
-                <div id="subscribe-content">
-                  <div class="wrap-input">
-                    <input type="email" tabindex="2" id="subscribe-email" name="subscribe-email" class="mailchimp-email"
-                      placeholder="Your email..." required />
-                  </div>
-                  <button type="submit" id="subscribe-button" class="submit-button btn-effect">
-                    <i class="fa fa-paper-plane"></i>
-                  </button>
-                </div>
-                <div id="subscribe-msg"></div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
-<!-- /#footer -->
-
-<a id="scroll-top"></a>
-<!-- /#scroll-top -->
-
+<br><br>
 {% endblock %}
 
 {% block partners %}
 {{ block.super }}
 {% endblock %}
-
+<!-- /.partner-clients -->
 
 
 {% block js %}

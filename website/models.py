@@ -463,6 +463,13 @@ class Theme(models.Model):
         help_text="Document_list Pages, Header background image. WxH => 1920x366",
     )
 
+    header_background_blog = models.ImageField(
+        null=True,
+        blank=True,
+        upload_to="images/themes/",
+        help_text="Blog_list Pages, Header background image. WxH => 1920x366",
+    )
+
     slyder_image_1 = models.ImageField(
         null=True,
         blank=True,

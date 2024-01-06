@@ -1,196 +1,195 @@
-  {% extends "website/base.html" %}
-  {% load static %}
+{% extends "website/base.html" %}
+{% load static %}
 
 
-  {% block head %}
-  <title>PANY | Product_list</title>
+{% block head %}
+<title>PANY | Product_list</title>
 
-  <!-- Mobile Specific Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- Mobile Specific Metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <!-- Theme style -->
-  <link rel="stylesheet" type="text/css" href="{% static 'website/stylesheet/style.css' %}">
+<!-- Theme style -->
+<link rel="stylesheet" type="text/css" href="{% static 'website/stylesheet/style.css' %}">
 
-  <!-- Woocomerce -->
-  <link rel="stylesheet" type="text/css" href="{% static 'website/stylesheet/woocommerce.css' %}">
+<!-- Woocomerce -->
+<link rel="stylesheet" type="text/css" href="{% static 'website/stylesheet/woocommerce.css' %}">
 
-  <!-- Responsive -->
-  <link rel="stylesheet" type="text/css" href="{% static 'website/stylesheet/responsive.css' %}">
+<!-- Responsive -->
+<link rel="stylesheet" type="text/css" href="{% static 'website/stylesheet/responsive.css' %}">
 
-  {% endblock %}
+{% endblock %}
 
-  {% block body %}
-  woocommerce woocommerce-page
-  {% endblock %}
+{% block body %}
+woocommerce woocommerce-page
+{% endblock %}
 
-  {% block mainnav %}
-  <div class="nav-wrap">
-    <nav id="mainnav" class="mainnav">
-      <ul class="menu">
-        <li>
-          <a href="{% url 'website:home' %}" title="">HOME</a>
-        </li>
-        <li>
-          <a href="{% url 'website:brand_list' %}" title="">BRANDS</a>
-        </li>
-        <li>
-          <a href="{% url 'website:project_list' %}" title="">PROJECTS</a>
-        </li>
-        <li class="active">
-          <a href="{% url 'website:category_list' %}" title="">PRODUCTS</a>
-        </li>
-        <li>
-          <a href="{% url 'website:about_us' %}" title="">ABOUT US</a>
-        </li>
-        <li>
-          <a href="{% url 'website:contact_us' %}">CONTACT US</a>
-        </li>
+{% block mainnav %}
+<div class="nav-wrap">
+  <nav id="mainnav" class="mainnav">
+    <ul class="menu">
+      <li>
+        <a href="{% url 'website:home' %}" title="">HOME</a>
+      </li>
+      <li>
+        <a href="{% url 'website:brand_list' %}" title="">BRANDS</a>
+      </li>
+      <li>
+        <a href="{% url 'website:project_list' %}" title="">PROJECTS</a>
+      </li>
+      <li class="active">
+        <a href="{% url 'website:category_list' %}" title="">PRODUCTS</a>
+      </li>
+      <li>
+        <a href="{% url 'website:about_us' %}" title="">ABOUT US</a>
+      </li>
+      <li>
+        <a href="{% url 'website:contact_us' %}">CONTACT US</a>
+      </li>
       <li>
         <a class="text-shadow1" href="{% url 'library:pdffile_list' %}" title="">DOCUMENTS</a>
       </li>
-      </ul><!-- /.menu -->
-    </nav> <!-- /#mainnav -->
-  </div> <!-- .nav-wrap -->
-  {% endblock %}
+    </ul><!-- /.menu -->
+  </nav> <!-- /#mainnav -->
+</div> <!-- .nav-wrap -->
+{% endblock %}
 
 
+{% block content %}
 
-  {% block content %}
-
-  <div class="page-title" >
-    <div id="background" style="">
-        <img  src="{% for i in theme %}   {{ i.header_background_productURL }} {% endfor %}" class="stretch" alt="" />
-    </div>
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="page-title-content text-center">
-        <div class="page-title-heading ">
-          <h3 class="title"><a href="{% url 'website:category_list' %}">PRODUCTS</a></h3>
-        </div>
-        <div class="breadcrumbs">
-          <ul>
-            <li class="home"><a href="{% url 'website:home' %}">Home</a></li>
-            <li><a href="{% url 'website:category_list' %}">Products</a></li>
-          </ul>
-        </div>
+<div class="page-title">
+  <div id="background" style="">
+    <img src="{% for i in theme %}   {{ i.header_background_productURL }} {% endfor %}" class="stretch" alt=""/>
+  </div>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="page-title-content text-center">
+      <div class="page-title-heading ">
+        <h3 class="title"><a href="{% url 'website:category_list' %}">PRODUCTS</a></h3>
+      </div>
+      <div class="breadcrumbs">
+        <ul>
+          <li class="home"><a href="{% url 'website:home' %}">Home</a></li>
+          <li><a href="{% url 'website:category_list' %}">Products</a></li>
+        </ul>
       </div>
     </div>
-  </div> <!-- /.page-title -->
+  </div>
+</div> <!-- /.page-title -->
 
 
-  <br>
+<br>
 <center>
-    <div class=" jumbotron-fluid jumbotron px-5" >
-        <div class="d-flex justify-content-center pb-5">
-            <h2 class="title center-title pr-5">Category:  </h2>
-            <h2 class="text-dark"><strong>  {{ category }}</strong></h2>
-        </div>
-        <form class=""  method="get">
-            <div class="row justify-content-center">
-              <div class="row justify-content-start pl-4">
-
-                <div class="col-auto d-flex justify-content-center">
-                  <span class="p-2">Name: </span>
-                  {{ myFilter.form.name }}
-                </div>
-
-                <div class="col-auto d-flex justify-content-between">
-                  <span class="p-2">Brand: </span>
-                  {{ myFilter.form.brand }}
-                </div>
-
-
-
-                <div class="col-auto d-flex justify-content-between">
-                  <span class="p-2">Description: </span>
-                  {{ myFilter.form.description }}
-                </div>
-                <div class="col-auto">
-
-                  <button  type="submit" name="button"> Search Products </button>
-                </div>
-
-              </div>
-            </div>
-
-
-        </form>
+  <div class=" jumbotron-fluid jumbotron px-5">
+    <div class="d-flex justify-content-center pb-5">
+      <h2 class="title center-title pr-5">Category: </h2>
+      <h2 class="text-dark"><strong> {{ category }}</strong></h2>
     </div>
-</center>
-  <br>
-    <center>
-        <div class="container d-flex justify-content-center align-items-center">
-            <div class="row d-flex justify-content-center align-items-center mb-3 pb-3">
-                <p class="woocommerce-result-count">
-                    Total: {{ product_count }} result(s)
-                </p>
-                <div class="row">
+    <form class="" method="get">
+      <div class="row justify-content-center">
+        <div class="row justify-content-start pl-4">
 
-                    {% for product in products %}
-                        <div class="col m-2">
-                        <a href="{{ product.get_absolute_url }}">
+          <div class="col-auto d-flex justify-content-center">
+            <span class="p-2">Name: </span>
+            {{ myFilter.form.name }}
+          </div>
 
-                        <div class="p-2 zoom">
-                          <img class="img-thumbnail" src="{{ product.image_1URL }}" alt="product" style="max-width:200px; max-height:200px;" height="200" width="200">
+          <div class="col-auto d-flex justify-content-between">
+            <span class="p-2">Brand: </span>
+            {{ myFilter.form.brand }}
+          </div>
 
-                        </div>
-                        <br>
-                        <div class="text-center">
-                          <h5>{{ product.name|truncatechars:18 }}</h5>
-                        </div>
-                      </a>
 
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
+          <div class="col-auto d-flex justify-content-between">
+            <span class="p-2">Description: </span>
+            {{ myFilter.form.description }}
+          </div>
+          <div class="col-auto">
+
+            <button type="submit" name="button"> Search Products</button>
+          </div>
+
         </div>
-    </center>
-  <div class="pagination row d-flex justify-content-center" style="background-color: #d0d9c4">
+      </div>
+
+
+    </form>
+  </div>
+</center>
+<br>
+<center>
+  <div class="container d-flex justify-content-center align-items-center">
+    <div class="row d-flex justify-content-center align-items-center mb-3 pb-3">
+      <p class="woocommerce-result-count">
+        Total: {{ product_count }} result(s)
+      </p>
+      <div class="row">
+
+        {% for product in products %}
+        <div class="col m-2">
+          <a href="{{ product.get_absolute_url }}">
+
+            <div class="p-2 zoom">
+              <img class="img-thumbnail" src="{{ product.image_1URL }}" alt="product"
+                   style="max-width:200px; max-height:200px;" height="200" width="200">
+
+            </div>
+            <br>
+            <div class="text-center">
+              <h5>{{ product.name|truncatechars:18 }}</h5>
+            </div>
+          </a>
+
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</center>
+<div class="pagination row d-flex justify-content-center" style="background-color: #d0d9c4">
     <span class="step-links font-weight-bold p-2">
       {% include "pagination.html" with page=products %}
     </span>
-  </div>
+</div>
 
 
-  {% endblock %}
+{% endblock %}
 
 
-  {% block partners %}
-  {{ block.super }}
-  {% endblock %}
+{% block partners %}
+{{ block.super }}
+{% endblock %}
 
 
-  {% block js %}
-  <!-- Javascript -->
-  <script src="{% static 'website/javascript/dclock.js' %}"></script>
-  <script src="{% static 'website/javascript/category.js' %}"></script>
-  <script src="{% static 'website/javascript/jquery.min.js' %}"></script>
-  <script src="{% static 'website/javascript/plugins.js' %}"></script>
-  <script src="{% static 'website/javascript/bootstrap.min.js' %}"></script>
-  <script src="{% static 'website/javascript/flex-slider.min.js' %}"></script>
-  <script src="{% static 'website/javascript/jquery-countTo.js' %}"></script>
-  <script src="{% static 'website/javascript/equalize.min.js' %}"></script>
-  <script src="{% static 'website/javascript/owl.carousel.min.js' %}"></script>
-  <script src="{% static 'website/javascript/jquery.validate.min.js' %}"></script>
-  <script src="{% static 'website/javascript/main.js' %}"></script>
+{% block js %}
+<!-- Javascript -->
+<script src="{% static 'website/javascript/dclock.js' %}"></script>
+<script src="{% static 'website/javascript/category.js' %}"></script>
+<script src="{% static 'website/javascript/jquery.min.js' %}"></script>
+<script src="{% static 'website/javascript/plugins.js' %}"></script>
+<script src="{% static 'website/javascript/bootstrap.min.js' %}"></script>
+<script src="{% static 'website/javascript/flex-slider.min.js' %}"></script>
+<script src="{% static 'website/javascript/jquery-countTo.js' %}"></script>
+<script src="{% static 'website/javascript/equalize.min.js' %}"></script>
+<script src="{% static 'website/javascript/owl.carousel.min.js' %}"></script>
+<script src="{% static 'website/javascript/jquery.validate.min.js' %}"></script>
+<script src="{% static 'website/javascript/main.js' %}"></script>
 
-  <!-- Slider -->
-  <script src="{% static 'website/rev-slider/js/jquery.themepunch.tools.min.js' %}"></script>
-  <script src="{% static 'website/rev-slider/js/jquery.themepunch.revolution.min.js' %}"></script>
-  <script src="{% static 'website/javascript/rev-slider.js' %}"></script>
+<!-- Slider -->
+<script src="{% static 'website/rev-slider/js/jquery.themepunch.tools.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/jquery.themepunch.revolution.min.js' %}"></script>
+<script src="{% static 'website/javascript/rev-slider.js' %}"></script>
 
-  <!-- Owl carousel js -->
-  <script src="{% static 'website/javascript/owl.carousel.min.js' %}"></script>
+<!-- Owl carousel js -->
+<script src="{% static 'website/javascript/owl.carousel.min.js' %}"></script>
 
-  <!-- Load Extensions only on Local File Systems ! The following part can be removed on Server for On Demand Loading -->
-  <script src="{% static 'website/rev-slider/js/extensions/revolution.extension.actions.min.js' %}"></script>
-  <script src="{% static 'website/rev-slider/js/extensions/revolution.extension.carousel.min.js' %}"></script>
-  <script src="{% static 'website/rev-slider/js/extensions/revolution.extension.kenburn.min.js' %}"></script>
-  <script src="{% static 'website/rev-slider/js/extensions/revolution.extension.layeranimation.min.js' %}"></script>
-  <script src="{% static 'website/rev-slider/js/extensions/revolution.extension.migration.min.js' %}"></script>
-  <script src="{% static 'website/rev-slider/js/extensions/revolution.extension.navigation.min.js' %}"></script>
-  <script src="{% static 'website/rev-slider/js/extensions/revolution.extension.parallax.min.js' %}"></script>
-  <script src="{% static 'website/rev-slider/js/extensions/revolution.extension.slideanims.min.js' %}"></script>
-  <script src="{% static 'website/rev-slider/js/extensions/revolution.extension.video.min.js' %}"></script>
-  {% endblock %}
+<!-- Load Extensions only on Local File Systems ! The following part can be removed on Server for On Demand Loading -->
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.actions.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.carousel.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.kenburn.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.layeranimation.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.migration.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.navigation.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.parallax.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.slideanims.min.js' %}"></script>
+<script src="{% static 'website/rev-slider/js/extensions/revolution.extension.video.min.js' %}"></script>
+{% endblock %}

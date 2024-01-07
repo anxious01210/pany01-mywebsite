@@ -69,10 +69,11 @@ INSTALLED_APPS = [
     "library.apps.LibraryConfig",
     "pdf2image",
     "easy_thumbnails",
+    "filer",
     # 'view_breadcrumbs', # for class-based views - pip uninstall django-view-breadcrumbs
     # 'django_bootstrap_breadcrumbs', # for function-based views - pip uninstall django-bootstrap-breadcrumbs
     # debug-toolbar
-    # "debug_toolbar",
+    "debug_toolbar",
     # django-taggit
     "taggit",
 ]

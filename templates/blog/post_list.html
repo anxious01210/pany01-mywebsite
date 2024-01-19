@@ -1,6 +1,10 @@
 {% extends "website/base.html" %}
 {% load static %}
 {% load thumbnail %}
+<!-- load filebrowser templatetags -->
+{% load fb_versions %}
+
+
 {% block head %}
 <title>PANY | Blog</title>
 
@@ -96,7 +100,12 @@
           <article class="post">
             <div class="post-border">
               <div class="featured-post">
-                <a href="{{ post.get_absolute_url }}"><img src="{{ post.image_1.url }}" alt="image"/></a>
+<!--                <a href="{{ post.get_absolute_url }}"><img src="{{ post.image_1.url }}" alt="image"/></a>-->
+                <a href="{{ post.get_absolute_url }}">
+                  <!-- get the url with version -->
+                  <img src="{% version post.image_1 'medium_blog_list' %}"  />
+<!--                  <img src="{% thumbnail post.image_1 300x216 crop='smart' %}">-->
+                </a>
               </div>
               <div class="content-post">
                 <h5 class="post-title">

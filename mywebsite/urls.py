@@ -17,30 +17,50 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.sitemaps.views import sitemap
 from website.sitemaps import ProductSitemap, CategorySitemap
+
 # for developement server or production - with the last line IF-Statement
 from django.conf import settings
+
 # from django.conf.urls.static import static
+from filebrowser.sites import site
+
+# django-filer CanonicalURL
+from django.urls import re_path as url
 
 sitemaps = {
-    'products': ProductSitemap,
-    'categories': CategorySitemap,
+    "products": ProductSitemap,
+    "categories": CategorySitemap,
 }
 
 urlpatterns = [
-    path('', include('website.urls', namespace='website')),
-    path('library/', include('library.urls', namespace='library')),
-    path('blog/', include('blog.urls', namespace='blog)')),
-    path('tinymce/', include('tinymce.urls')),
-    path('admin/', admin.site.urls),
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    path("", include("website.urls", namespace="website")),
+    path("library/", include("library.urls", namespace="library")),
+    path("blog/", include("blog.urls", namespace="blog)")),
+    path("tinymce/", include("tinymce.urls")),
+    # path("admin/filebrowser/", include("site.urls")),
+    url(r"^filer/", include("filer.urls")),
+    path("admin/filebrowser/", site.urls),
+    path("admin/", admin.site.urls),
+    path(
+        "sitemap.xml",
+        sitemap,
+        {"sitemaps": sitemaps},
+        name="django.contrib.sitemaps.views.sitemap",
+    ),
 ]
 
 if settings.DEBUG:
     import debug_toolbar
     from django.conf.urls.static import static
-    urlpatterns = [
-        path('__debug__/', include('debug_toolbar.urls')),
-    ] + urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+    urlpatterns = (
+        [
+            path("__debug__/", include("debug_toolbar.urls")),
+        ]
+        + urlpatterns
+        + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+        + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    )
 
 
 # + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

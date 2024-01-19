@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from taggit.managers import TaggableManager
 from tinymce.models import HTMLField
+from filebrowser.fields import FileBrowseField
 
 
 class PublishedManager(models.Manager):
@@ -18,7 +19,8 @@ class Post(models.Model):
 
     title = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250, unique_for_date="publish")
-    image_1 = models.ImageField(blank=True, null=True, upload_to="images/blog/")
+    # image_1 = models.ImageField(blank=True, null=True, upload_to="images/blog/")
+    image_1 = FileBrowseField("Image", blank=True, null=True, max_length=200)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="blog_posts"
     )

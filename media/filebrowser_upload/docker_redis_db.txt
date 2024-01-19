@@ -1,0 +1,92 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\Mehdi> docker exec -it redis sh
+# redis-cli
+127.0.0.1:6379> set name "Mehdi"
+OK
+127.0.0.1:6379> get name
+"Mehdi"
+127.0.0.1:6379> exists name
+(integer) 1
+127.0.0.1:6379> get name
+"Mehdi"
+127.0.0.1:6379> expire name 2
+(integer) 1
+127.0.0.1:6379> get name
+(nil)
+127.0.0.1:6379> set total 2j
+OK
+127.0.0.1:6379> get total
+"2j"
+127.0.0.1:6379> del total
+(integer) 1
+127.0.0.1:6379> get total
+(nil)
+127.0.0.1:6379> ?
+redis-cli 7.0.11
+To get help about Redis commands type:
+      "help @<group>" to get a list of commands in <group>
+      "help <command>" for help on <command>
+      "help <tab>" to get a list of possible help topics
+      "quit" to exit
+
+To set redis-cli preferences:
+      ":set hints" enable online hints
+      ":set nohints" disable online hints
+Set your preferences in ~/.redisclirc
+127.0.0.1:6379> help
+redis-cli 7.0.11
+To get help about Redis commands type:
+      "help @<group>" to get a list of commands in <group>
+      "help <command>" for help on <command>
+      "help <tab>" to get a list of possible help topics
+      "quit" to exit
+
+To set redis-cli preferences:
+      ":set hints" enable online hints
+      ":set nohints" disable online hints
+Set your preferences in ~/.redisclirc
+127.0.0.1:6379> get image
+(nil)
+127.0.0.1:6379> get view
+(nil)
+127.0.0.1:6379> KEYS *
+1) "image:3:views"
+2) "foo"
+3) "image:1:views"
+4) "image:8:views"
+127.0.0.1:6379> expire name 2
+(integer) 0
+127.0.0.1:6379> get name
+(nil)
+127.0.0.1:6379> get foo
+"bar"
+127.0.0.1:6379> KEYS views
+(empty array)
+127.0.0.1:6379> KEYS image
+(empty array)
+127.0.0.1:6379> KEYS 3
+(empty array)
+127.0.0.1:6379> KEYS f'image:{image.id}:views'
+(empty array)
+127.0.0.1:6379> GET image:{image.id}:views
+(nil)
+127.0.0.1:6379> GET image:{image.id}:views
+(nil)
+127.0.0.1:6379> GET image:1:views
+"5"
+127.0.0.1:6379> GET image:8:views
+"4"
+127.0.0.1:6379> GET image::views
+(nil)
+127.0.0.1:6379> GET image:3:views
+"1"
+127.0.0.1:6379> keys *
+1) "image:3:views"
+2) "foo"
+3) "image:1:views"
+4) "image:8:views"
+127.0.0.1:6379>

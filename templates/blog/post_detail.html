@@ -1,6 +1,8 @@
 {% extends "website/base.html" %}
 {% load static %}
 {% load thumbnail %}
+<!-- load filebrowser templatetags -->
+{% load fb_versions %}
 {% block head %}
 <title>PANY | Post</title>
 <!-- Basic Page Needs -->
@@ -94,7 +96,8 @@
         <div class="post-wrap blog-single">
           <article class="main-single">
             <div class="feature-post">
-              <img src="{{ post.image_1.url }}" alt="PanyCompany">
+<!--              <img src="{{ post.image_1.url }}" alt="PanyCompany">-->
+              <img src="{% version post.image_1 'large' %}" alt="image"/>
             </div>
             <div class="content-post">
               <h2 class="post-title">

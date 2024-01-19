@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     "django_filters",
     "admin_interface",
     "colorfield",
+    "filebrowser",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -77,6 +78,10 @@ INSTALLED_APPS = [
     # django-taggit
     "taggit",
 ]
+
+# Django-admin-interface
+X_FRAME_OPTIONS = "SAMEORIGIN"
+SILENCED_SYSTEM_CHECKS = ["security.W019"]
 
 # Django_tables2
 DJANGO_TABLES2_TEMPLATE = "django_tables2/bootstrap4.html"
@@ -221,10 +226,89 @@ EMAIL_USE_TLS = True
 # Added after upgrade to Django 3.2 - is a must
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
+
+# django-filebrowser:
+
+# Path to filebrowser static files
+
+FILEBROWSER_DIRECTORY = ""
+# DIRECTORY = ""
+
+# from filebrowser.sites import site
+# site.storage.location = BASE_DIR / "uploads/"
+# site.directory = "uploads/"
+# FILEBROWSER_DIRECTORY = "filebrowser/"
+# FILEBROWSER_STATIC_URL = STATIC_URL + "filebrowser/"
+# FILEBROWSER_MEDIA_ROOT = BASE_DIR / "media/uploads/"
+# FILEBROWSER_MEDIA_URL = "/filebrowser/media/"
+
+FILEBROWSER_VERSIONS_BASEDIR = "_versions"
+FILEBROWSER_VERSIONS = {
+    "admin_thumbnail": {
+        "verbose_name": "Admin Thumbnail",
+        "width": 60,
+        "height": 60,
+        "opts": "crop",
+    },
+    "thumbnail": {
+        "verbose_name": "Thumbnail (1 col)",
+        "width": 60,
+        "height": 60,
+        "opts": "crop",
+    },
+    "small": {"verbose_name": "Small (2 col)", "width": 140, "height": "", "opts": ""},
+    "medium": {
+        "verbose_name": "Medium (4 col )",
+        "width": 300,
+        "height": "",
+        "opts": "",
+    },
+    "medium_blog_list": {
+        "verbose_name": "Medium blog list (4 col )",
+        "width": 300,
+        "height": 175,
+        "opts": "Crop",
+    },
+    "big": {"verbose_name": "Big (6 col)", "width": 460, "height": "", "opts": ""},
+    "large": {"verbose_name": "Large (8 col)", "width": 680, "height": "", "opts": ""},
+}
+
+FILEBROWSER_ADMIN_VERSIONS = [
+    "thumbnail",
+    "small",
+    "medium",
+    "medium_blog_list",
+    "big",
+    "large",
+]
+# FILEBROWSER_ADMIN_THUMBNAIL = "admin_thumbnail"
+FILEBROWSER_ADMIN_THUMBNAIL = "small"
+FILEBROWSER_SORT_BY = "date"
+FILEBROWSER_MAX_UPLOAD_SIZE = (
+    52428800  # Max. Upload Size in Bytes: Default is 10485760 B => 10 MB
+)
+FILEBROWSER_SEARCH_TRAVERSE = True
+FILEBROWSER_LIST_PER_PAGE = 51  # Default is 50
+FILEBROWSER_EXTENSIONS = {
+    "Image": [".jpg", ".jpeg", ".gif", ".png", ".tif", ".tiff", ".webp"],
+    "Document": [".pdf", ".doc", ".rtf", ".txt", ".xls", ".xlsx", ".csv"],
+    "Video": [".mov", ".wmv", ".mpeg", ".mpg", ".avi", ".rm", ".mkv", ".mp4"],
+    "Audio": [".mp3", ".wav", ".aiff", ".midi", ".m4p"],
+}
+
+FILEBROWSER_SELECT_FORMATS = {
+    "file": ["Image", "Document", "Video", "Audio"],
+    "image": ["Image"],
+    "document": ["Document"],
+    "media": ["Video", "Audio"],
+}
+
+
 # django-tinymce configs instead of static/js/upload.js
 TINYMCE_DEFAULT_CONFIG = {
     # "theme": "advanced",
-    "height": 500,
+    "height": 800,
+    "width": 1920,
     "entity_encoding": "raw",
     "menubar": "file edit view insert format tools table help",
     "plugins": "print preview paste importcss searchreplace autolink autosave save code visualblocks visualchars"
@@ -235,6 +319,9 @@ TINYMCE_DEFAULT_CONFIG = {
     "emoticons | ",
     "custom_undo_redo_levels": 50,
     "quickbars_insert_toolbar": False,
+    # "image_upload_url": "/media/uploads/images/",
+    # "file_picker_callback": "upload_image",
+    # "file_browser_callback": "mce_filebrowser",
     "file_picker_callback": """function (cb, value, meta) {
         var input = document.createElement("input");
         input.setAttribute("type", "file");
@@ -267,4 +354,8 @@ TINYMCE_DEFAULT_CONFIG = {
 }
 
 TINYMCE_SPELLCHECKER = True
-# TINYMCE_COMPRESSOR = True
+TINYMCE_COMPRESSOR = False
+TINYMCE_FILEBROWSER = True
+
+# django-filer CanonicalURL
+FILER_CANONICAL_URL = "sharing/"
